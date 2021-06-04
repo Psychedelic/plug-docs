@@ -1,0 +1,42 @@
+---
+label: doc-page
+hide_body: false
+fields:
+- name: date
+  type: text
+  config:
+    required: false
+  description: This is just to fill the frontmatter and prevent a bug with the framework
+  label: date
+  default: '1'
+  hidden: true
+pages:
+- docs/examples/daemon.md
+- docs/examples/hosting.md
+- docs/examples/storage.md
+- docs/hosting/overview.md
+- docs/hosting/site-deployment.md
+- docs/hosting/troubleshooting.md
+- docs/hosting/domain-management.md
+- docs/internet-computer-hosting/overview.md
+- docs/internet-computer-hosting/site-deployment.md
+- docs/internet-computer-hosting/troubleshooting.md
+- docs/internet-computer-hosting/domain-management.md
+- docs/internet-computer-hosting/ic-gateway-proxy.md    
+- docs/index.md
+- docs/fleek-cli/overview.md
+- docs/fleek-cli/github-actions.md
+- docs/fleek-api/overview.md
+- docs/fleek-api/schema.md
+- docs/filecoin-archiving/overview.md
+- docs/space-daemon/examples.md
+- docs/space-daemon/getting-started.md
+- docs/space-daemon/overview.md
+- docs/space-sdk/overview.md
+- docs/storage/fleek-storage-js.md
+- docs/storage/overview.md
+- docs/storage/storage-app.md
+- docs/storage/storage-aws-s3-integration.md
+- docs/tutorials/daemon.md
+- docs/tutorials/hosting.md
+- docs/tutorials/storage.md

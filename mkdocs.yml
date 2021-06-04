@@ -1,0 +1,45 @@
+site_name: "Documentation | Plug"
+site_author: plugwallet.ooo
+site_description: Plug is a browser crypto wallet extension that allows you to access your ICP, Cycles, and other tokens as well as log into IC apps with one click.
+site_url: https://docs.plugwallet.ooo/
+copyright: '© 2021 Built by Fleek'
+repo_name: psychedelichq/plug-docs
+repo_url: https://github.com/psychedelichq/plug-docs
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: './imgs/favicon.ico'
+  logo: './imgs/logo.png'
+  font:
+    text: 'Open Sans'
+extra_css:
+  - 'stylesheets/extra.css'
+markdown_extensions:
+  - codehilite
+  - admonition
+  - attr_list
+  - meta
+  - toc:
+      permalink: true
+nav:
+  - Welcome to Plug 👋: index.md
+  - Sneak Peek 👀: introduction/overview.md
+  - Getting Started 🔌:
+    - Integrate Plug: getting-started/integrate-plug.md
+    - Interact with Accounts: getting-started/interact-with-accounts.md
+    - Trigger Transactions : getting-started/trigger-transactions.md       
+  - Common Terms 📓: common-terms/plug-dictionary.md
+  - IC Provider API 🤝: ic-provider-api/universal-ic-object.md    
+  - Resources 🧰:
+    - Resource Library: resources/library.md
+    - The Dank Protocol: "https://dank.ooo"
+    - The Internet Computer: "https://dfinity.org/faq"
+  - Our App Ecosystem 🌀: resources/apps-with-plug.md
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/PsychedelicHQ/
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/plug_wallet
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/yVEcEzmrgm
