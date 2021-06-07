@@ -6,7 +6,7 @@ date: "1"
 
 Welcome to Plug's developer documentation. Learn how to integrate Plug into Internet Computer applications to provide **seamless onboardings and transactions with a user's Principal ID wallet**.
 
-Plug is a browser crypto wallet & identity/authentication provider for the Internet Computer, compatible with Cycles, ICP, and soon will allow anyone to add any Internet Computer token to it. It is being developed by the [Psychedelic](https://psychedelic.ooo) collective of developers and entrepreneurs, building Open Internet Services on the Internet Computer. 
+Plug is a browser crypto wallet & identity/authentication provider for the Internet Computer, compatible with Cycles, ICP, and soon will allow anyone to add any Internet Computer token to it.
 
 - Visit [our website](https://plugwallet.ooo) to get Plug on release.
 - Visit our community and jam with the team in our [Discord](https://discord.gg/yVEcEzmrgm)
@@ -19,7 +19,7 @@ Plug helps developers offer seamless web/app experiences on the Internet Compute
 - A seamless authentication provider.
 - A convenient address book for IC addresses.
 
-This is because Plug lets anyone hold all IC tokens, including Cycles & ICP, with a  **Principal IDs only, eliminating the need of a separate Cycle Canister Wallet or Account IDs (ICP)**. This is done using the [Dank Open Internet Service](https://dank.ooo); and adhering to [community-set standards](https://github.com/PsychedelicHQ/standards) for using Principal IDs as a user's unique identifier on the Internet Computer
+This is because Plug lets anyone hold all IC tokens, including Cycles & ICP, with a  **Principal IDs only, eliminating the need of a separate Cycle Canister Wallet or Account IDs (ICP)**. This is done using the [Dank Open Internet Service](https://dank.ooo); and adhering to a community-set standards for using Principal IDs as a user's unique identifier on the Internet Computer
 
 ### Get Started with Plug (Coming soon!):
 
@@ -37,7 +37,7 @@ Developers can seamlessly build cycle-billing systems, trigger transaction based
 ## Seamless User Authentication
 Plug allows resolves the issue of having **separate authentication flows in IC apps** for a user's Principal ID, and their Cycle Wallets or ICP balances by using the Dank Open Internet Service to allow users to hold Cycles & ICP with just a Principal ID.
 
-Plug is an alternative identity provider to Internet Identity, that allows users to use a single unique identifier (Principal ID) across all applications and services, instead of using app/device specific identities, and separate addresses for different asset/token balances. Learn more about why we are promoting Principal IDs as unique identifiers on the IC on the [community proposal](https://github.com/PsychedelicHQ/standards/blob/main/standards/principal-ids-as-universal-identifiers/principal-ids-as-universal-identifiers.md)
+Plug is an alternative identity provider to Internet Identity, that allows users to use a single unique identifier (Principal ID) across all applications and services, instead of using app/device specific identities, and separate addresses for different asset/token balances.
 
 Since now a user can have their Principal ID as both their wallet/identity as **one main account** developers will only to interact with Plug and initiate a connection to the user's Plug wallet, authenticating them (and their balances) in one single and simple step to your platform.
 

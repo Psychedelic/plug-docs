@@ -2,8 +2,6 @@
 
 Welcome [Plug's](https://plugwallet.ooo/) documentation! Plug is a browser extension for users of DFINITY's Internet Computer that allows you to access your ICP, Cycles, and other tokens as well as log into IC apps with one click. This documentation will help you get started using Plug, or integrate it to your Internet Computer application.
 
-Join our public [Slack](https://slack.fleek.co/), visit our [GitHub](https://github.com/FleekHQ), follow us on [Twitter](https://twitter.com/FleekHQ), and check out the [Blog](https://blog.fleek.co)!
-
 ## Getting started
 
 ### Prerequisites
