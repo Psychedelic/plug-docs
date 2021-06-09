@@ -21,13 +21,13 @@ And for developers, it is a simple provider they can **integrate into their IC a
 
 ![](imgs/main.png)
 
-Plug allows any user to hold Cycles and ICP using just a Principal ID, thanks to the [Dank](https://dank.ooo) Open Internet Service. It will also allow anyone to surface any other Internet Computer token that is compatible/approved, or that follows the community-standard agreed by the Psychedelic collective. Which sets a token standard interface for Principal ID centered tokens, and the use of [Principal IDs as unique identifiers.](https://github.com/PsychedelicHQ/standards)
+Plug allows any user to manage their Cycles and ICP using just a Principal ID. It will also allow anyone to surface any other Internet Computer token that is compatible/approved, or that follows a Principal-ID centric standard token interface.
 
 ![](imgs/send.png)
 
 You can perform the following asset actions in Plug:
 
-- **Deposit**: To deposit cycles, or ICP to your wallet from extern sources.
+- **Deposit**: To deposit cycles, or ICP to your wallet from external sources.
 - **Send**: Send cycles or ICP to other addresses.
 - **Swap**: Swap your ICP balance for Cycles, using the mint function.
 
@@ -36,9 +36,9 @@ It's as easy as setting the transaction amount, and entering the destination add
 ## Your Identity on Internet Computer Applications
 ![](imgs/connect.png)
 
-Plug is an alternative to Internet Identity, as an identity/authentication provider. It will give users and developers a login experience that is more **Web3 friendly**, by allowing users to log into IC apps in one click using the extension, and just a Principal ID.
+Plug is an alternative to Internet Identity, as an identity/authentication provider. It will give users and developers a login experience that is more **Web3 friendly**, by allowing users to log into IC apps in one click using the extension, and just a Principal ID. No need for YuBiKey, or Face ID.
 
-With Plug, since users can hold Cycles & ICP with just their Principal ID, there is no need to use Cycles Wallets or other separate IDs; which you would need to specify every time you sign into an IC app to access your balances in-app. 
+With Plug, since users can hold Cycles & ICP with just their Principal ID, there is no need to use Cycles Wallets or other separate IDs when authenticating users; which you would need to otherwise specify every time you sign into an IC app to access your balances in-app.
 
 ![](imgs/pay.png)
 
