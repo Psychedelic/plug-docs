@@ -3,8 +3,8 @@ site_author: plugwallet.ooo
 site_description: Plug is a browser crypto wallet extension that allows you to access your ICP, Cycles, and other tokens as well as log into IC apps with one click.
 site_url: https://docs.plugwallet.ooo/
 copyright: '© 2021 Built by Fleek'
-repo_name: FleekHQ/plug-docs
-repo_url: https://github.com/FleekHQ/plug-docs
+repo_name: psychedelic/plug-docs
+repo_url: https://github.com/psychedelic/plug-docs
 theme:
   name: material
   custom_dir: overrides
@@ -34,6 +34,9 @@ nav:
     - Resource Library: resources/library.md
     - The Dank Protocol: "https://dank.ooo"
     - The Internet Computer: "https://dfinity.org/faq"
+    - Disclaimer: resources/disclaimer.md
+    - Trademark: resources/trademark.md
+    - Privacy: resources/privacy.md
   - Our App Ecosystem 🌀: resources/apps-with-plug.md
 extra:
   social:
