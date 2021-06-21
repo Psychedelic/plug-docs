@@ -27,7 +27,8 @@ nav:
   - Getting Started 🔌:
     - Integrate Plug: getting-started/integrate-plug.md
     - Interact with Accounts: getting-started/interact-with-accounts.md
-    - Trigger Transactions : getting-started/trigger-transactions.md       
+    - Trigger Transactions : getting-started/trigger-transactions.md
+    - Add a Custom Token: getting-started/trigger-transactions.md
   - Common Terms 📓: common-terms/plug-dictionary.md
   - IC Provider API 🤝: ic-provider-api/universal-ic-object.md    
   - Resources 🧰:
