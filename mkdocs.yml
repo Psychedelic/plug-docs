@@ -25,12 +25,13 @@ nav:
   - Welcome to Plug 👋: index.md
   - Sneak Peek 👀: introduction/overview.md
   - Getting Started 🔌:
-    - Integrate Plug: getting-started/integrate-plug.md
-    - Interact with Accounts: getting-started/interact-with-accounts.md
+    - Connect to Plug: getting-started/connect-to-plug.md
     - Trigger Transactions : getting-started/trigger-transactions.md
-    - Add a Custom Token: getting-started/trigger-transactions.md
-  - Common Terms 📓: common-terms/plug-dictionary.md
-  - IC Provider API 🤝: ic-provider-api/universal-ic-object.md    
+    - Query Balances / Info: getting-started/querying-data.md
+    - Add a Custom Token: getting-started/add-custom-token.md
+  - Build an App Example 💡: getting-started/build-app-example.md
+  - IC Provider API 🤝: ic-provider-api/universal-ic-object.md
+  - Common Terms 📓: common-terms/plug-dictionary.md    
   - Resources 🧰:
     - Resource Library: resources/library.md
     - The Dank Protocol: "https://dank.ooo"
@@ -42,7 +43,7 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/FleekHQ/
+      link: https://github.com/psychedelic/
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/plug_wallet
     - icon: fontawesome/brands/discord

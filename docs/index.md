@@ -4,7 +4,9 @@ date: "1"
 
 ![](imgs/plug-welcome.png)
 
-Welcome to Plug's developer documentation. Learn how to integrate Plug into Internet Computer applications to provide **seamless onboardings and transactions with a user's Principal ID wallet**. Plug is currently in development, and is soon to be released to the public as a browser extension.
+Welcome to Plug's developer documentation. Learn how to integrate Plug into Internet Computer applications to provide **seamless onboardings and transactions with a user's Principal ID wallet**. 
+
+**Important**: Plug is currently in development, and is soon to be released to the public as a browser extension.
 
 Plug is a browser crypto wallet & identity/authentication provider for the Internet Computer, compatible with Cycles, ICP, and soon will allow anyone to add any Internet Computer token to it.
 

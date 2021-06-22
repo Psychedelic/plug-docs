@@ -38,8 +38,6 @@ It's as easy as setting the transaction amount, and entering the destination add
 
 Plug is an alternative to Internet Identity, as an identity/authentication provider. It will give users and developers a login experience that is more **Web3 friendly**, by allowing users to log into IC apps in one click using the extension, and just a Principal ID. No need for YuBiKey, or Face ID.
 
-With Plug, since users can hold Cycles & ICP with just their Principal ID, there is no need to use Cycles Wallets or other separate IDs when authenticating users; which you would need to otherwise specify every time you sign into an IC app to access your balances in-app.
-
 ![](imgs/pay.png)
 
 Similar to the Dapp/DeFi experience on Ethereum, users can **sign into IC apps that integrate Plug with the same Principal ID and no other address**, and access/use their balances in-app instantly. **To, for example, accept an in-app transaction to pay for a service with cycles!**

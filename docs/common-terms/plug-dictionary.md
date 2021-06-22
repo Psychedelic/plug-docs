@@ -20,13 +20,10 @@ Here's a quick dictionary for terms you might encounter while using, integrating
 - Plug can create one account for you, giving you a `Principal ID`.
 - But you can import an existing one from a `Seed Phrase or Private Key`.
 - When connected to Plug, the extension protects your account with a password.
-- In Plug, all accounts are Dank users. See below for more on this.
-
 
 ### Principal ID (Public Key)
 - A user's main identifier on the Internet Computer.
 - Your  **wallet address** in Plug, used to surface balances and authenticate.
-- It's an **address** you can send cycles, ICP, or other assets to.
 - It's an **identifier** you can use to sign into Internet Computer apps.
 - Also could be mentioned as **public key** or **address**.
 - On the Internet Computer, they look like:
@@ -37,14 +34,6 @@ Here's a quick dictionary for terms you might encounter while using, integrating
 - You use it to **sign and authorize** operations in your behalf.
 - Your private key is used to generate your recovery Seed Phrase.
 - You must **not share it in any way with anyone**.
-
-
-### Dank Accounts
-- Plug registers users Principal ID into the [Dank open internet service](https://dank.ooo).
-- This converts the Principal ID into a **Dank User**.
-- In reality, it is the same Principal ID, but registered to Dank's finance services.
-- Dank users are registered to Dank's Cycle & ICP Ledgers and assigned a balance.
-- This is how users on Plug can hold Cycles or ICP **without needing a Cycles Wallet or an Account ID (ICP)**.
 
 ### Seed Phrase
 - A mnemonic phrase version of your account's Private Key.
@@ -65,7 +54,7 @@ Here's a quick dictionary for terms you might encounter while using, integrating
 - Cycles are another Internet Computer token that represents computational power.
 - You burn it to use that computational power and memory to power canisters and the software in them.
 - They can only be created from **ICP**.
-- You can send cycles to other Dank Accounts in Plug, or to canisters.
+- You can send cycles to other Plug/Dank users, or to canisters.
 - You can deposit cycles from external sources to your account in Plug.
 
 ### Canisters
