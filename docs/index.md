@@ -6,7 +6,7 @@ date: "1"
 
 Welcome to Plug's developer documentation. Learn how to integrate Plug into Internet Computer applications to provide **seamless onboardings and transactions with a user's Principal ID wallet**. 
 
-**Important**: Plug is currently in development, and is soon to be released to the public as a browser extension.
+**Important**: Plug is currently in development, and is soon to be released to the public as a browser extension. This is a placeholder documentation and will be updated with the final interfaces/guides on release.
 
 Plug is a browser crypto wallet & identity/authentication provider for the Internet Computer, compatible with Cycles, ICP, and soon will allow anyone to add any Internet Computer token to it.
 
@@ -22,13 +22,6 @@ Plug helps developers offer seamless web/app experiences on the Internet Compute
 - A convenient address book for IC addresses.
 
 This is because Plug lets anyone hold Cycles & ICP, with a  **Principal IDs only, eliminating the need of a separate Cycle Canister Wallet**. This is done using the [Dank Open Internet Service](https://dank.ooo) and cycles ledger, and by abstracting the use of Account IDs in the case of ICP; also adhering to a community-set standards for using Principal IDs as a user's unique identifier on the Internet Computer
-
-### Get Started with Plug (Coming soon!):
-
-- [Integrate Plug]("./getting-started/integrate-plug/")
-- [Interact with Accounts]("./getting-started/interact-with-accounts/")
-- [Trigger Transactions]("./getting-started/trigger-transactions/")
-- [Universal IC Provider API]("./ic-provider-api/universal-ic-object/")
 
 ## One-click Transactions & Asset Management
 
