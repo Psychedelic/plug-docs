@@ -123,3 +123,7 @@
 .md-source {
   color: black;
 }
+
+.md-content a {
+  color: var(--md-text-link-color);
+}
