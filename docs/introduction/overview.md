@@ -13,15 +13,15 @@ Plug is an Internet Computer crypto wallet browser extension and identity/authen
 
 ![](imgs/plug.png)
 
-For users, it is a simple way to access, use and manage their IC tokens (Cycles, ICP, and more!) with **only a Principal-ID**; an address book for their IC contacts/addreses (canisters or Principal IDs); and an easy way to log into IC applications.
+For users, it is a simple way to access, use and manage their IC tokens (Cycles, ICP, and more!) with **only a Principal ID**; an address book for their IC contacts/addresses (canisters or Principal IDs); and an easy way to log into IC applications.
 
 And for developers, it is a simple provider they can **integrate into their IC app** to allow one-step authentication for their users, and trigger transactions easily in-app to their user's balances.
 
-## Your Plug for Cycles, ICP, and More.
+## Your Plug for Cycles, ICP, and more.
 
 ![](imgs/main.png)
 
-Plug allows any user to manage their Cycles and ICP using just a Principal ID. It will also allow anyone to surface any other Internet Computer token that is compatible/approved, or that follows a Principal-ID centric standard token interface.
+Plug allows any user to manage their Cycles and ICP by just using the Principal ID. It will also allow anyone to surface any other Internet Computer token that is compatible/approved, or that follows a Principal ID centric standard token interface.
 
 ![](imgs/send.png)
 
