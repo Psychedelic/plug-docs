@@ -80,6 +80,11 @@
   color: #121212;
 }
 
+.md-container .md-footer,
+.md-container .md-footer-nav {
+  background-color: white;
+}
+
 .md-footer-nav {
   background-color: white;
   color: var(--md-primary-fg-color);
