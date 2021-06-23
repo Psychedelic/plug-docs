@@ -23,6 +23,7 @@ markdown_extensions:
       permalink: true
 nav:
   - Welcome to Plug 👋: index.md
+  - Sneak Peek 👀: introduction/overview.md
   - Getting Started 🔌:
     - Connect to Plug: getting-started/connect-to-plug.md
     - Trigger Transactions : getting-started/trigger-transactions.md
