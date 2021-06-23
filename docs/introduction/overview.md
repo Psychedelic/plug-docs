@@ -17,7 +17,7 @@ For users, it is a simple way to access, use and manage their IC tokens (Cycles,
 
 And for developers, it is a simple provider they can **integrate into their IC app** to allow one-step authentication for their users, and trigger transactions easily in-app to their user's balances.
 
-## Your Plug for Cycles, ICP, and More.
+## Your Plug for Cycles, ICP, and more.
 
 ![](imgs/main.png)
 
