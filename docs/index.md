@@ -30,7 +30,7 @@ By integrating Plug, developers can also trigger transactions that interact with
 Developers can seamlessly build cycle-billing systems, trigger transaction based on app-usage, or other asset/cycle finances via easy-to-call methods on Plug; which the user will receive as a visual prompt on their browser, and confirm to sign and sends.
 
 ## Seamless User Authentication
-Plug allows resolves the issue of having **separate authentication flows in IC apps** for a user's Principal ID, and their Cycle Wallets or ICP balances by using the Dank Open Internet Service to allow users to hold Cycles with just a Principal ID, and abstracting the use of Account IDs in the case of ICP.
+Plug resolves the issue of having **separate authentication flows in IC apps** for a user's Principal ID, and their Cycle Wallets or ICP balances by using the Dank Open Internet Service to allow users to hold Cycles with just a Principal ID, and abstracting the use of Account IDs in the case of ICP.
 
 Plug is an alternative identity provider to Internet Identity, that allows users to use a single unique identifier (Principal ID) across all applications and services, instead of using app/device specific identities, and separate addresses for different asset/token balances.
 
