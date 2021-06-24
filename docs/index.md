@@ -21,20 +21,20 @@ Plug helps developers offer seamless web/app experiences on the Internet Compute
 - A seamless authentication provider.
 - A convenient address book for IC addresses.
 
-This is because Plug lets anyone hold Cycles & ICP, with a  Principal IDs only, eliminating the need of a separate Cycle Canister Wallet. This is done using the [Dank Open Internet Service](https://dank.ooo/) and cycles ledger, and by abstracting the use of Account IDs in the case of ICP; also adhering to a community-set standards for using Principal IDs as a user's unique identifier on the Internet Computer
+This is because Plug lets anyone manage their Cycles & ICP with a Principal ID only, abstracting the use of Account IDs in the case of ICP and Cycles Wallets for cycles, linking those balances/addresses to a main Principal ID. and abstracting the operations the user requests in the background; also adhering to a community-set standards for using Principal IDs as a user's unique identifier on the Internet Computer.
 
 ## One-click Transactions & Asset Management
 
-By integrating Plug, developers can also trigger transactions that interact with a user's Plug wallet balances (ICP, Cycles, etc...). The core perk of Plug, without doubt, is being a simple interface for Cycle and ICP operations.
+By integrating Plug, developers can trigger transactions that interact with a user's Plug wallet balances (ICP, Cycles, etc...). The core perk of Plug, without doubt, is being a simple interface for Cycle and ICP operations.
 
 Developers can seamlessly build cycle-billing systems, trigger transaction based on app-usage, or other asset/cycle finances via easy-to-call methods on Plug; which the user will receive as a visual prompt on their browser, and confirm to sign and sends.
 
 ## Seamless User Authentication
-Plug resolves the issue of having separate authentication flows in IC apps for a user's Principal ID, and their Cycle Wallets or ICP balances by using the Dank Open Internet Service to allow users to hold Cycles with just a Principal ID, and abstracting the use of Account IDs in the case of ICP.
+Plug resolves the issue of having separate authentication flows in IC apps for a user's Principal ID, and their Cycle Wallets or ICP balances. It does this by unifying/linking all addresses to one main Principal ID, which they can use to authenticate into IC apps, not needing to input separate addresses to use their cycles/ICP on Plug-integrated apps.
 
 Plug is an alternative identity provider to Internet Identity, that allows users to use a single unique identifier (Principal ID) across all applications and services, instead of using app/device specific identities, and separate addresses for different asset/token balances.
 
-Since now a user can have their Principal ID as both their wallet/identity as one main account developers will only to interact with Plug and initiate a connection to the user's Plug wallet, authenticating them (and their balances) in one single and simple step to your platform.
+Since now a user can have their Principal ID as both their wallet/identity as one main account, developers will only to interact with Plug and initiate a connection to the user's Plug wallet, authenticating them (and their balances) in one single and simple step to your platform.
 
 ## Convenient Browser Wallet & Address Book
 From a user's perspective, Plug provides the best experience for managing their Internet Computer balances & identity across the network, and its applications, using only a Principal ID.
