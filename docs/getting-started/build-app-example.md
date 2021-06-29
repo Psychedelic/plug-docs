@@ -293,13 +293,22 @@ After saving the file, refresh the page and press the `Buy me a Coffee` button. 
 
 ## Request to transfer the amount
 
-We can now make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `accountId` and `amount`, as described in our [Getting started](/getting-started).
+In the "has enough balance" block, make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `accountId` and `amount`, as described in our [Getting started](/getting-started).
+
+```js
+const requestTransferArg = {
+  accountId: 'xxxxx',
+  amount: coffeeAmount,
+};
+
+const transfer = await window.ic?.plug?.requestTransfer(requestTransferArg);
+```
 
 When the `requestTransfer` is called, the `Plug` pop-up will show the panel:
 
 ![](imgs/plug-request-transfer.png){: style="max-width:360px"}
 
-To complete, the button text is updated according to the transfer result state and when finished, we reset the Button to have the original text `Buy me a coffee`.
+As we go, the button text is updated according to the transfer result state and when finished, we reset the Button to have the original text `Buy me a coffee`.
 
 ```js
 async function onButtonPress(el) {
@@ -339,3 +348,5 @@ async function onButtonPress(el) {
   }, 5000);
 }
 ```
+
+The source-code for this guide can be found in our [examples](https://github.com/Psychedelic/plug-docs/tree/main/examples/buy-me-a-coffee).
