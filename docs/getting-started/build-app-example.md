@@ -261,6 +261,8 @@ Finally, we check if the user has enough balance before proceeding to the last s
 
 We also change the button text in each state change.
 
+![](imgs/buy-me-coffee-button-state-change.gif){: style="max-width:480px"}
+
 ```js
 async function onButtonPress() {
   el.target.disabled = true;
@@ -293,7 +295,11 @@ After saving the file, refresh the page and press the `Buy me a Coffee` button. 
 
 We can now make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `accountId` and `amount`, as described in our [Getting started](/getting-started).
 
-To complete, the button text is updated according to the transfer result state and if successful, we reset to the original text.
+When the `requestTransfer` is called, the `Plug` pop-up will show the panel:
+
+![](imgs/plug-request-transfer.png){: style="max-width:360px"}
+
+To complete, the button text is updated according to the transfer result state and when finished, we reset the Button to have the original text `Buy me a coffee`.
 
 ```js
 async function onButtonPress(el) {
