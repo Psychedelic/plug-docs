@@ -33,7 +33,7 @@ In the project directory, create a new file named `index.html`, with the followi
     <!-- App javascript (functionality, logic) -->
   </head>
   <body>
-    <!-- App container (title, description, button) -->
+    <!-- App container (button) -->
   </body>
 </html>
 ```
@@ -50,7 +50,7 @@ With that said, let's get our hands dirty and start coding!
 
 ## Application structure
 
-Open and edit the file `index.html` replacing the `<!-- App container (title, description, button) -->` comment with our desired application structure, that should have a title, description and a button, as follows:
+Open and edit the file `index.html` replacing the `<!-- App container (button) -->` comment with our desired application structure, that should have a button, as follows:
 
 ```html
 <html>
@@ -61,9 +61,6 @@ Open and edit the file `index.html` replacing the `<!-- App container (title, de
   </head>
   <body>
     <div id="app">
-      <h1>Buy me a coffee</h1>
-      <p>Support our project by buying me a coffee
-        through your Plug wallet. Press the button to continue!</p>
       <button id="buy-me-coffee">Buy me a coffee</button>
     </div>
   </body>
@@ -87,9 +84,6 @@ Open and edit the file `index.html` replacing the `<!-- App stylesheet (decorati
   </head>
   <body>
     <div id="app">
-      <h1>Buy me a coffee</h1>
-      <p>Support our project by buying me a coffee
-        through your Plug wallet. Press the button to continue!</p>
       <button id="buy-me-coffee">Buy me a coffee</button>
     </div>
   </body>
@@ -164,9 +158,6 @@ Open and edit the file `index.html`, replacing the `<!-- App javascript (functio
   </head>
   <body>
     <div id="app">
-      <h1>Buy me a coffee</h1>
-      <p>Support our project by buying me a coffee
-        through your Plug wallet. Press the button to continue!</p>
       <button id="buy-me-coffee">Buy me a coffee</button>
     </div>
   </body>
@@ -271,3 +262,29 @@ After you save the file, refresh the page and press the `Buy me a Coffee` button
 
 ## Request to transfer the amount
 
+```js
+async function onButtonPress() {
+  const hasAllowed = await window.ic?.plug?.requestConnect();
+
+  if (hasAllowed) {
+    console.log('Plug wallet is connected');
+
+    const balance = await window.ic?.plug?.requestBalance();
+
+    if (balance >= coffeeAmount) {
+      console.log('Plug wallet has enough balance!');
+
+      const transfer = {
+        accountId: 'xxxx-xxxx-xxxx-xxxx-xxxx',
+        amount: coffeeAmount
+      };
+      const balance = await window.ic?.plug?.requestTransfer(transfer);
+
+    } else {
+      console.log('Plug wallet doesn\'t have enough balance!');
+    }
+  } else {
+    console.log('Plug connection was refused')
+  }
+}
+```
