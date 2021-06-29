@@ -177,12 +177,12 @@ Our plan is very simple, request a transfer through Plug's of a certain amount, 
 - [Detect the Plug extension](#detect-the-plug-extension)
 - [Check if there's enough balance](#check-if-theres-enough-balance)
 - [Request to transfer the amount](#request-to-transfer-the-amount)
-- On sucess, displays the success message
+- On success, displays the success message
 - On error, displays the error message
 
 ## Detect the Plug extension
 
-Firstly, we check if end-user has the Plug extension in the current browser, as documented in the [Getting started guide](/getting-started). Also, noticed that we make the function [asynchronous](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
+Firstly, we check if the end-user has the Plug extension in the current browser, as documented in the [Getting started guide](/getting-started). Also, noticed that we make the function [asynchronous](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
 
 ```js
 async function onButtonPress() {
@@ -197,7 +197,6 @@ async function onButtonPress() {
 ```
 
 From this point, if you'd like to test the changes in the browser you won't be able to interact with the Browser extension because of browser security reasons. As such, you'll need to serve the project through a Web Server!
-
 
 There are plenty of options and you are free to pick one! The quickest you can get a Web Server running, in your local machine, if you have no clue, is to first install Nodejs. You can find the instructions for your operating system [here](https://nodejs.org/en/download/).
 
@@ -226,6 +225,28 @@ Open the `developer console` in the browser to see the script output, (here's an
 
 Press the `Buy me a Coffee` button, the `Plug` notification window will pop-up. Choose one of the options and find the correspondent output in the console: `Plug wallet is connected` or `Plug wallet connection was refused`.
 
+To complete, ensure that the button is disabled for the duration the Plug wallet request process lasts.
+
+Modify the `onButtonPress` to take a parameter `el`, that passes the DOM button element as an argument during runtime, which we then reset the `disabled` button property after 5 seconds - this because we want to give enough time to the end-user to read the text.
+
+```js
+async function onButtonPress(el) {
+  el.target.disabled = true;
+
+  const hasAllowed = await window.ic.plug.requestConnect();
+
+  if (hasAllowed) {
+    console.log('Plug wallet is connected');
+  } else {
+    console.log('Plug wallet connection was refused')
+  }
+
+  setTimeout(function () {
+    el.target.disabled = false;
+  }, 5000);
+}
+```
+
 ## Check if there's enough balance
 
 To keep things easy, let's say that a Coffee is the equivalent of `0.1` (fractional units of ICP tokens, called [e8s](https://sdk.dfinity.org/docs/token-holders/self-custody-quickstart.html)).
@@ -236,55 +257,79 @@ Add the amount at the top of the `app.js` file!
 const coffeeAmount = 0.1;
 ```
 
-Finally, we check if the user has enough balance before proceeding with the last step to request the transfer.
+Finally, we check if the user has enough balance before proceeding to the last step and request the transfer.
+
+We also change the button text in each state change.
 
 ```js
 async function onButtonPress() {
+  el.target.disabled = true;
+
   const hasAllowed = await window.ic?.plug?.requestConnect();
 
   if (hasAllowed) {
-    console.log('Plug wallet is connected');
+    el.target.textContent = "Plug wallet is connected";
 
     const balance = await window.ic?.plug?.requestBalance();
 
     if (balance >= coffeeAmount) {
-      console.log('Plug wallet has enough balance!');
+      el.target.textContent = "Plug wallet has enough balance";
     } else {
-      console.log('Plug wallet doesn\'t have enough balance!');
+      el.target.textContent = "Plug wallet doesn't have enough balance";
     }
   } else {
-    console.log('Plug connection was refused')
+    el.target.textContent = "Plug wallet connection was refused";
   }
+
+  setTimeout(function () {
+    el.target.disabled = false;
+  }, 5000);
 }
 ```
 
-After you save the file, refresh the page and press the `Buy me a Coffee` button. You should see the correspondent message to your account balance: `Plug wallet has enough balance` or `Plug wallet doesn't have enough balance`.
+After saving the file, refresh the page and press the `Buy me a Coffee` button. You should see the correspondent message to your account balance: `Plug wallet has enough balance` or `Plug wallet doesn't have enough balance`.
 
 ## Request to transfer the amount
 
+We can now make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `accountId` and `amount`, as described in our [Getting started](/getting-started).
+
+To complete, the button text is updated according to the transfer result state and if successful, we reset to the original text.
+
 ```js
-async function onButtonPress() {
+async function onButtonPress(el) {
+  el.target.disabled = true;
+
   const hasAllowed = await window.ic?.plug?.requestConnect();
 
   if (hasAllowed) {
-    console.log('Plug wallet is connected');
+    el.target.textContent = "Plug wallet is connected"
 
     const balance = await window.ic?.plug?.requestBalance();
 
     if (balance >= coffeeAmount) {
-      console.log('Plug wallet has enough balance!');
+      el.target.textContent = "Plug wallet has enough balance"
 
-      const transfer = {
-        accountId: 'xxxx-xxxx-xxxx-xxxx-xxxx',
-        amount: coffeeAmount
+      const requestTransferArg = {
+        accountId: 'xxxxx',
+        amount: coffeeAmount,
       };
-      const balance = await window.ic?.plug?.requestTransfer(transfer);
+      const transfer = await window.ic?.plug?.requestTransfer(requestTransferArg);
 
+      if (transfer) {
+        el.target.textContent = `Plug wallet transferred ${coffeeAmount}`;
+      } else {
+        el.target.textContent = "Plug wallet failed to transfer";
+      }
     } else {
-      console.log('Plug wallet doesn\'t have enough balance!');
+      el.target.textContent = "Plug wallet doesn't have enough balance";
     }
   } else {
-    console.log('Plug connection was refused')
+    el.target.textContent = "Plug wallet connection was refused";
   }
+
+  setTimeout(() => {
+    el.target.disabled = false;
+    el.target.textContent = "Buy me a coffee"
+  }, 5000);
 }
 ```
