@@ -349,6 +349,11 @@ async function onButtonPress(el) {
 }
 ```
 
-The source-code for this guide can be found in our [examples](https://github.com/Psychedelic/plug-docs/tree/main/examples/buy-me-a-coffee).
+Save the changes, refresh the browser and play with it! If everything's done correctly you should have a working application, that connects to Plug and makes a transfer.
 
 Hope you enjoyed the read this far and got to build a very simple application with Plug!
+
+## Project source-code
+
+The source-code for this guide can be found in our [examples](https://github.com/Psychedelic/plug-docs/tree/main/examples/buy-me-a-coffee).
+
