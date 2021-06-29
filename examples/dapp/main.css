@@ -1,0 +1,23 @@
+#app {
+  padding: 20px;
+}
+
+#buy-me-coffee {
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  background: linear-gradient(94.95deg, #FFE701 -1.41%, #FA51D3 34.12%, #10D9ED 70.19%, #52FF53 101.95%);
+  border-radius: 10px;
+  color: #fff;
+  padding: 6px 32px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+#buy-me-coffee:hover {
+  opacity: 0.94;
+  transform: scale(1.02);
+}
