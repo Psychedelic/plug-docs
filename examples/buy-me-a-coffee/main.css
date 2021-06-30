@@ -25,3 +25,11 @@
   opacity: 0.94;
   transform: scale(1.02);
 }
+
+#logo {
+  width: 80px;
+  position: absolute;
+  padding: 20px;
+  top: 0;
+  left: 0;
+}
