@@ -92,7 +92,7 @@ Open and edit the file `index.html` replacing the `<!-- App stylesheet (decorati
 
 Open end edit the stylesheet file `main.css` and add some custom styles, let's say that we make the button super colourful like Plug, for example! Copy the following content to the `main.css`, save it and refresh the page!
 
-```
+```css
 #buy-me-coffee {
   border: none;
   font-style: normal;
@@ -120,6 +120,18 @@ Once you refresh the page, it should look like example below, a colourful [call-
 ![](imgs/buy-me-coffee-button-style.gif){: style="max-width:480px"}
 
 Feel free to edit `main.css` and change the styles to your liking!
+
+For example, change the container to center the button verticaly and horizontaly:
+
+```css
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+```
 
 ## Call-to-action
 
