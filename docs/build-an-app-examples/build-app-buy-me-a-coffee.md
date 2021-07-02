@@ -4,7 +4,7 @@ date: "1"
 
 # Building an App example - Buy me a Coffee
 
-![](imgs/app.png)
+![](imgs/buy-me-coffee-example.png)
 
 We're going to build a very simple application called "Buy me a coffee". It'll have a button that when pressed, request the connection to the Plug wallet and a transfer!
 
