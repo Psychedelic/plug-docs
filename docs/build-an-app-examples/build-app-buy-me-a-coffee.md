@@ -8,7 +8,7 @@ date: "1"
 
 We're going to build a very simple application called "Buy me a coffee". It'll have a button that when pressed, request the connection to the Plug wallet and a transfer!
 
-## Requirements
+## Requirements 🤔
 
 The guide assumes you have some basic knowledge of HTML, CSS and Javascript, we'll keep it easy!
 
@@ -16,7 +16,7 @@ It's recommended to read the [Getting started](/getting-started) guide before yo
 
 Make sure you use a code editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime text](https://www.sublimetext.com/), for editing the source-code!
 
-## Scaffolding
+## Scaffolding 🏗
 
 Just like a real scaffolding in a building construction site, let's create a quick structure for our project - the skeleton for our application!
 
@@ -49,7 +49,7 @@ We'll substitute the comments by the actual implementation, starting by higher-l
 With that said, let's get our hands dirty and start coding!
 
 
-## Application structure
+## Application structure 🚧
 
 Open and edit the file `index.html` replacing the `<!-- App container (button) -->` comment with our desired application structure, that should have a button, as follows:
 
@@ -70,7 +70,7 @@ Open and edit the file `index.html` replacing the `<!-- App container (button) -
 
 As you edit the files, feel free to open the `index.html` file in the browser or refresh the page as you go to see the changes!
 
-## Custom styles
+## Custom styles 👄
 
 Create a new file named `main.css` in the project directory. You'll use this file to place the content to create custom styles for the application: title colour, button size, etc.
 
@@ -134,7 +134,7 @@ For example, change the container to center the button verticaly and horizontaly
 }
 ```
 
-## Call-to-action
+## Call-to-action 🏃🏽‍♀️
 
 We are now going to create our main javascript file where our `call-to-action` is implement.
 
@@ -181,7 +181,7 @@ After you save the changes, refresh the page and press the `Buy me a coffee` but
 
 We're going to implement the Plug process in the function `onButtonPress`.
 
-## Plug implementation
+## Plug implementation 👷🏻‍♀️
 
 Open the file `app.js` in your code editor and let's work in the `onButtonPress` function.
 
@@ -193,7 +193,7 @@ Our plan is very simple, request a transfer through Plug's of a certain amount, 
 - On success, displays the success message
 - On error, displays the error message
 
-## Detect the Plug extension
+## Detect the Plug extension 🔎
 
 Firstly, we check if the end-user has the Plug extension in the current browser, as documented in the [Getting started guide](/getting-started). Also, noticed that we make the function [asynchronous](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
 
@@ -211,7 +211,7 @@ async function onButtonPress() {
 
 From this point, if you'd like to test the changes in the browser you won't be able to interact with the Browser extension because of browser security reasons. As such, you'll need to serve the project through a Http Server!
 
-## Http Server
+## Http Server 🤖
 
 There are plenty of options and you are free to pick one! The quickest you can get a Web Server running, in your local machine, if you have no clue, is to first install Nodejs. You can find the instructions for your operating system [here](https://nodejs.org/en/download/).
 
@@ -240,7 +240,7 @@ Open the `developer console` in the browser to see the script output, (here's an
 
 Press the `Buy me a Coffee` button, the `Plug` notification window will pop-up. Choose one of the options and find the correspondent output in the console: `Plug wallet is connected` or `Plug wallet connection was refused`.
 
-## Call-to-action locking
+## Call-to-action locking 🔒
 
 To complete, ensure that the button is disabled for the duration the Plug wallet request process lasts.
 
@@ -264,7 +264,7 @@ async function onButtonPress(el) {
 }
 ```
 
-## Check if there's enough balance
+## Check if there's enough balance 💸
 
 To keep things easy, let's say that a Coffee is the equivalent of `0.1` (fractional units of ICP tokens, called [e8s](https://sdk.dfinity.org/docs/token-holders/self-custody-quickstart.html)).
 
@@ -308,7 +308,7 @@ async function onButtonPress() {
 
 After saving the file, refresh the page and press the `Buy me a Coffee` button. You should see the correspondent message to your account balance: `Plug wallet has enough balance` or `Plug wallet doesn't have enough balance`.
 
-## Request to transfer the amount
+## Request to transfer the amount ❓
 
 In the "has enough balance" block, make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `accountId` and `amount`, as described in our [Getting started](/getting-started).
 
@@ -370,7 +370,7 @@ Save the changes, refresh the browser and play with it! If everything's done cor
 
 Hope you enjoyed the read this far and got to build a very simple application with Plug!
 
-## Project source-code
+## Project source-code ⚙️
 
 The source-code for this guide can be found in our [examples](https://github.com/Psychedelic/plug-docs/tree/main/examples/buy-me-a-coffee).
 

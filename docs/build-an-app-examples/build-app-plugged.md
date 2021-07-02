@@ -8,7 +8,7 @@ date: "1"
 
 The application we are going to build today is called `Plugged`. A simple application that provides a list of buttons to trigger actions to interact with the Plug extension.
 
-## Requirements
+## Requirements 🤔
 
 The guide assumes you have some basic knowledge of HTML, CSS and Javascript, we promise to keep it simple!
 
@@ -18,7 +18,7 @@ We'll assume you have an HTTP Server installed.
 
 Make sure you use a code editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime text](https://www.sublimetext.com/), for editing the source-code!
 
-## Scaffolding
+## Scaffolding 🏗
 
 Create a new project directory, and name it accordingly, for example `Plugged`.
 
@@ -56,7 +56,7 @@ Replace each comment in the `index.html`, linking to the respective source file 
 </html>
 ```
 
-## Application structure
+## Application structure 🚧
 
 As we can see in the top screenshot for the project look, we have the following structure:
 - Title at the top
@@ -80,7 +80,7 @@ As we can see in the top screenshot for the project look, we have the following 
 
 We're going to replace the comments with the required structure, as we go.
 
-## Custom styles
+## Custom styles 👄
 
 To avoid [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code), we're going to add an [utility first](https://tailwindcss.com/docs/utility-first) **[css library](https://en.wikipedia.org/wiki/CSS_framework)** from an external provider, to help us style and structure the application quickly.
 
@@ -92,8 +92,14 @@ Make the following changes in the `index.html` by adding the `tailwindcss` base 
 <html>
   <head>
     <title>Plugged</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/base.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/base.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css"
+    />
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="app.js"></script>
   </head>
@@ -231,7 +237,8 @@ In addition to the styles provided by the classnames of `tailwindcss`, we can cr
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
-  background: linear-gradient(94.95deg, #FFE701 -1.41%, #FA51D3 34.12%, #10D9ED 70.19%, #52FF53 101.95%);
+  background: linear-gradient(94.95deg, #FFE701 -1.41%, #FA51D3 34.12%,
+  #10D9ED 70.19%, #52FF53 101.95%);
   border-radius: 10px;
   color: #fff;
   text-shadow: 0px 2px 3px rgb(0 0 0 / 16%);
@@ -247,7 +254,7 @@ In addition to the styles provided by the classnames of `tailwindcss`, we can cr
 }
 ```
 
-## Local server
+## Local server 🤖
 
 Launch the [Http server](build-app-buy-me-a-coffee.md#http-server) to serve the `index.html` and open the address in the browser.
 
@@ -259,7 +266,7 @@ Open the terminal, `cd` to the project pathname `cd /project/pathname/` and serv
 http-server .
 ```
 
-## Application logic
+## Application logic 🧠
 
 Open and edit the `app.js` file.
 
@@ -336,7 +343,7 @@ Object
 
 Save the changes and refresh the browser and click the buttons to trigger the alert message handled by the function `onButtonPressHandler`.
 
-## Plug integration
+## Plug integration 👷🏻‍♀️
 
 Open and edit the `app.js` file.
 
@@ -353,7 +360,7 @@ if (!window?.ic?.plug) {
 
 The function `main` will exit immediately if the `Plug extension` is not detected. We'll improve the user-experience a bit, by showing a message in the `Output` console shortly!
 
-## Call-to-action handlers
+## Call-to-action handlers 📢
 
 In the function `onButtonPressHandler` use a switch statement to treat each case separately:
 
@@ -390,7 +397,7 @@ function onButtonPressHandler(el) {
 
 We now have to replace each alert by the actual implementation.
 
-## Plug action implementations
+## Plug action implementations 👷🏻‍♀️
 
 The `Plug` API is described in our [Getting started](/getting-started) guide and since our calls happen in the Internet Computer blockchain, we have to wait for the calls to resolve, so we handle them [asynchronously](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous).
 
@@ -408,7 +415,7 @@ Update the function `onButtonPressHandler` by replacing the `alert` in the switc
 
 Try to write the remaining button handlers on your own, following the example above.
 
-## Output console
+## Output console 🖥
 
 Open and edit the `index.html` file.
 
@@ -490,7 +497,7 @@ Save the changes, refresh the browser and play with it, you should now see the m
 
 Hope you enjoyed the read this far and got to build a very simple application with Plug!
 
-## Project source-code
+## Project source-code ⚙️
 
 The source-code for this guide can be found in our [examples](https://github.com/Psychedelic/plug-docs/tree/main/examples/plugged).
 
