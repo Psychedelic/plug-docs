@@ -27,7 +27,10 @@ nav:
     - Connect to Plug: getting-started/connect-to-plug.md
     - Trigger Transactions : getting-started/trigger-transactions.md
     - Query Balances / Info: getting-started/querying-data.md
-  - Build an App Example 💡: getting-started/build-app-example.md
+    - Add a Custom Token: getting-started/add-custom-token.md
+  - Build an App Examples 💡: 
+    - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
+    - Plugged: build-an-app-examples/build-app-plugged.md
   - IC Provider API 🤝: ic-provider-api/universal-ic-object.md
   - Common Terms 📓: common-terms/plug-dictionary.md    
   - Resources 🧰:

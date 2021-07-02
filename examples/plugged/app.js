@@ -31,14 +31,16 @@ function main() {
     .filter((el) => el.nodeName === 'BUTTON')
     .forEach((el) => el.addEventListener(
         'click',
-        (el) => onButtonPressHandler(el.target.id)
+        onButtonPressHandler
       )
     )
 }
 
 // Button press handler
-function onButtonPressHandler(nodeName) {
-  switch(nodeName) {
+function onButtonPressHandler(el) {
+  const name = el.target.id;
+
+  switch(name) {
     case 'btn-connect':
       onBtnConnect();
       break;

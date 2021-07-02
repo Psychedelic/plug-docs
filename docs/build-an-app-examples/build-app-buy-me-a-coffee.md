@@ -1,7 +1,8 @@
 ---
 date: "1"
 ---
-# Building an App that Integrates Plug - Example
+
+# Building an App example - Buy me a Coffee
 
 ![](imgs/app.png)
 
@@ -208,7 +209,9 @@ async function onButtonPress() {
 }
 ```
 
-From this point, if you'd like to test the changes in the browser you won't be able to interact with the Browser extension because of browser security reasons. As such, you'll need to serve the project through a Web Server!
+From this point, if you'd like to test the changes in the browser you won't be able to interact with the Browser extension because of browser security reasons. As such, you'll need to serve the project through a Http Server!
+
+## Http Server
 
 There are plenty of options and you are free to pick one! The quickest you can get a Web Server running, in your local machine, if you have no clue, is to first install Nodejs. You can find the instructions for your operating system [here](https://nodejs.org/en/download/).
 
@@ -218,7 +221,7 @@ Once [Nodejs](https://nodejs.org/en/download/) is installed and available in you
 npm install --global http-server
 ```
 
-Once the [Http-server](https://www.npmjs.com/package/http-server) package is installed, `cd` to the project directory in your terminal and execute:
+Once the [Http-server](https://www.npmjs.com/package/http-server) package is installed, `cd` to the project directory in your terminal and execute (the dot represents the current directory):
 
 ```sh
 http-server .
@@ -236,6 +239,8 @@ Available on:
 Open the `developer console` in the browser to see the script output, (here's an example for [Chrome](https://developer.chrome.com/docs/devtools/open/) and [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console)).
 
 Press the `Buy me a Coffee` button, the `Plug` notification window will pop-up. Choose one of the options and find the correspondent output in the console: `Plug wallet is connected` or `Plug wallet connection was refused`.
+
+## Call-to-action locking
 
 To complete, ensure that the button is disabled for the duration the Plug wallet request process lasts.
 
