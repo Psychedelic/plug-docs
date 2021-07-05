@@ -189,7 +189,7 @@ Our plan is very simple, request a transfer through Plug's of a certain amount, 
 
 - [Detect the Plug extension](#detect-the-plug-extension)
 - [Check if there's enough balance](#check-if-theres-enough-balance)
-- [Request to transfer the amount](#request-to-transfer-the-amount)
+- [Request to transfer](#request-to-transfer)
 - On success, displays the success message
 - On error, displays the error message
 
@@ -308,7 +308,7 @@ async function onButtonPress() {
 
 After saving the file, refresh the page and press the `Buy me a Coffee` button. You should see the correspondent message to your account balance: `Plug wallet has enough balance` or `Plug wallet doesn't have enough balance`.
 
-## Request to transfer the amount ❓
+## Request to transfer ❓
 
 In the "has enough balance" block, make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `accountId` and `amount`, as described in our [Getting started](/getting-started).
 
