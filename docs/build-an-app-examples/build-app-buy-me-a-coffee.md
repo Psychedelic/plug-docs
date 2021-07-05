@@ -6,7 +6,9 @@ date: "1"
 
 ![](imgs/buy-me-coffee-example.png)
 
-We're going to build a very simple application called "Buy me a coffee". It'll have a button that when pressed, request the connection to the Plug wallet and a transfer!
+We're going to build a very simple application called "Buy me a coffee".
+
+It'll have a button that when pressed, requests the connection to the Plug wallet and a transfer!
 
 ## Requirements 🤔
 
@@ -18,11 +20,11 @@ Make sure you use a code editor, such as [Visual Studio Code](https://code.visua
 
 ## Scaffolding 🏗
 
-Just like a real scaffolding in a building construction site, let's create a quick structure for our project - the skeleton for our application!
+Just like a real scaffolding in a building construction site, let's create a quick structure for our project, the skeleton for our application!
 
 We're going to write a simple [HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) structure for a page, where we'll show the "Buy me a coffee" button.
 
-Start by creating a project directory in your operating system, for example, a directory called `Plug-buy-me-coffee` in your [home directory](https://en.wikipedia.org/wiki/Home_directory), or your favourite projects directory.
+Start by creating a project directory in your operating system, for example, a directory called `Plug-buy-me-coffee` in your [home directory](https://en.wikipedia.org/wiki/Home_directory), or your favourite project directory.
 
 In the project directory, create a new file named `index.html`, with the following content and save it! 
 
@@ -39,19 +41,19 @@ In the project directory, create a new file named `index.html`, with the followi
 </html>
 ```
 
-We'll substitute the comments by the actual implementation, starting by higher-level order:
+We'll substitute the comments by the actual implementation, ordered by simplicity:
 
-  - [Application structure](#application-structure)
-  - [Custom styles](#custom-styles)
-  - Functionality with Javascript, the [Call-to-action](#call-to-action)
-  - [Plug implementation](#plug-implementation)
+  - [Application structure](#application-structure) (html)
+  - [Custom styles](#custom-styles) (css)
+  - [Call-to-action](#call-to-action) (javascript)
+  - [Plug implementation](#plug-implementation) (javascript, Plug API)
 
 With that said, let's get our hands dirty and start coding!
 
 
 ## Application structure 🚧
 
-Open and edit the file `index.html` replacing the `<!-- App container (button) -->` comment with our desired application structure, that should have a button, as follows:
+Open and edit the file `index.html` replacing the `<!-- App container (button) -->` comment with our desired application structure, as follows:
 
 ```html
 <html>
@@ -68,13 +70,17 @@ Open and edit the file `index.html` replacing the `<!-- App container (button) -
 </html>
 ```
 
-As you edit the files, feel free to open the `index.html` file in the browser or refresh the page as you go to see the changes!
+Open the `index.html` file in the browser or refresh the page as you go to see the changes!
 
 ## Custom styles 👄
 
-Create a new file named `main.css` in the project directory. You'll use this file to place the content to create custom styles for the application: title colour, button size, etc.
+Create a new file named `main.css` in the project directory to add custom styles for the app:
 
-Open and edit the file `index.html` replacing the `<!-- App stylesheet (decoration, styles) -->` comment with a link to our external stylesheet file we've just created, as follows:
+- Title colour
+- Button size
+- etc
+
+Open and edit the file `index.html` replacing the `<!-- App stylesheet (decoration, styles) -->` comment with a link to our external stylesheet file we have just created, as follows:
 
 ```html
 <html>
@@ -91,7 +97,11 @@ Open and edit the file `index.html` replacing the `<!-- App stylesheet (decorati
 </html>
 ```
 
-Open end edit the stylesheet file `main.css` and add some custom styles, let's say that we make the button super colourful like Plug, for example! Copy the following content to the `main.css`, save it and refresh the page!
+Open end edit the stylesheet file `main.css` and add some custom styles.
+
+Let's say that we make the button super colourful like Plug!
+
+Copy the following content to the `main.css`, save it!
 
 ```css
 #buy-me-coffee {
@@ -116,7 +126,9 @@ Open end edit the stylesheet file `main.css` and add some custom styles, let's s
 }
 ```
 
-Once you refresh the page, it should look like example below, a colourful [call-to-action](#call-to-action). We'll implement the action next!
+Once you refresh the page, it should look like example below, a colourful [call-to-action](#call-to-action).
+
+We'll implement the action next!
 
 ![](imgs/buy-me-coffee-button-style.gif){: style="max-width:480px"}
 
@@ -136,9 +148,11 @@ For example, change the container to center the button verticaly and horizontaly
 
 ## Call-to-action 🏃🏽‍♀️
 
-We are now going to create our main javascript file where our `call-to-action` is implement.
+We are now going to create our main javascript file where we'll implement the `call-to-action`.
 
-Create a file named `app.js` in the project directory. This is where we'll put our implementation code to handle the request via the [Plug's](/getting-started) application programming interface ([API](https://en.wikipedia.org/wiki/API)), as described in the [Getting started guide](/getting-started).
+Create a file named `app.js` in the project directory.
+
+This is where we'll put our implementation code to handle the requests via the [Plug's](/getting-started) application programming interface ([API](https://en.wikipedia.org/wiki/API)), as described in the [Getting started guide](/getting-started).
 
 As an initial placeholder, let's add a "mouse-click" event listener to the `call-to-action` that'll show an alert!
 
@@ -158,7 +172,14 @@ function onButtonPress() {
 document.addEventListener("DOMContentLoaded", main);
 ```
 
-We have a main listener that waits for the document to be ready, executed the "main" function; Then adds a listener to our `#buy-me-coffee` button, that when "clicked" executes the "onButtonPress" function.
+Here's a simple breakdown of how it's done:
+
+- Awaits for the document to be ready
+- Calls the `main` function
+- Adds a listener to the button `#buy-me-coffee`
+- When `clicked` calls the function `onButtonPress`
+
+The `app.js` file now has to be linked to our `index.html` for this to work.
 
 Open and edit the file `index.html`, replacing the `<!-- App javascript (functionality, logic) -->` with a link to our javascript file `app.js`, as follows:
 
@@ -179,23 +200,24 @@ Open and edit the file `index.html`, replacing the `<!-- App javascript (functio
 
 After you save the changes, refresh the page and press the `Buy me a coffee` button. You'll get an alert with the message `Buy me a coffee button was pressed!`.
 
-We're going to implement the Plug process in the function `onButtonPress`.
+We can now implement the Plug processes in the function `onButtonPress`.
 
 ## Plug implementation 👷🏻‍♀️
 
-Open the file `app.js` in your code editor and let's work in the `onButtonPress` function.
+Open the file `app.js` in your code editor and edit the `onButtonPress` function body, as we want to request a transfer of a certain amount via Plug.
 
-Our plan is very simple, request a transfer through Plug's of a certain amount, for a Coffee. We can break it down in the following steps:
+We can break it down in the following steps:
 
 - [Detect the Plug extension](#detect-the-plug-extension)
 - [Check if there's enough balance](#check-if-theres-enough-balance)
 - [Request to transfer](#request-to-transfer)
-- On success, displays the success message
-- On error, displays the error message
+- On success or error, display a message
 
 ## Detect the Plug extension 🔎
 
-Firstly, we check if the end-user has the Plug extension in the current browser, as documented in the [Getting started guide](/getting-started). Also, noticed that we make the function [asynchronous](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
+Firstly, we check if the end-user has the Plug extension in the current browser, as documented in the [Getting started guide](/getting-started). 
+
+Notice that we make the function [asynchronous](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), as we're dealing with a network request.
 
 ```js
 async function onButtonPress() {
@@ -209,25 +231,37 @@ async function onButtonPress() {
 }
 ```
 
-From this point, if you'd like to test the changes in the browser you won't be able to interact with the Browser extension because of browser security reasons. As such, you'll need to serve the project through a Http Server!
+So far, we've been opening the local `index.html` file in the web browser for your easiness!
+
+It works because opening html files in a browser, computes what the html file is describing and display the content correctly.
+
+But there are [browser security restrictions](https://en.wikipedia.org/wiki/Browser_security), that prevent us to make browser extension request from local files!
+
+For this reason, you'll need to seve the project through a local http server!
 
 ## Http Server 🤖
 
-There are plenty of options and you are free to pick one! The quickest you can get a Web Server running, in your local machine, if you have no clue, is to first install Nodejs. You can find the instructions for your operating system [here](https://nodejs.org/en/download/).
+There are plenty of options on how to serve projects locally and you are free to pick whatever suits you best!
 
-Once [Nodejs](https://nodejs.org/en/download/) is installed and available in your system, you can install the [Http-server](https://www.npmjs.com/package/http-server) package, that is simple to use! Open your terminal and execute the following:
+If you're clueless, the quickest you can get a http server running in your local machine, is to first install [Nodejs]((https://nodejs.org/en/download/)) - a program that executes javascript outside the browser, that let us run scripts such as a `http server`.
+
+You can find the instructions for your operating system [here](https://nodejs.org/en/download/).
+
+Once [Nodejs](https://nodejs.org/en/download/) is installed and available in your system, install the [Http-server](https://www.npmjs.com/package/http-server) package, for example.
+
+Open your terminal and execute the following:
 
 ```sh
 npm install --global http-server
 ```
 
-Once the [Http-server](https://www.npmjs.com/package/http-server) package is installed, `cd` to the project directory in your terminal and execute (the dot represents the current directory):
+Once the [Http-server](https://www.npmjs.com/package/http-server) package is installed, `cd` to the project directory in your terminal and run the following command (the dot represents the current directory):
 
 ```sh
 http-server .
 ```
 
-It'll serve the project in the following addresses, that you can open in the browser that has the Plug extension:
+Open the browser that has the Plug extension installed and visit one of the addresses in your http server output:
 
 ```sh
 Starting up http-server, serving .
@@ -236,15 +270,25 @@ Available on:
   http://xxx.xxx.x.xx:8080
 ```
 
-Open the `developer console` in the browser to see the script output, (here's an example for [Chrome](https://developer.chrome.com/docs/devtools/open/) and [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console)).
+Let's do a small test and inspect the data in the `developer console`.
 
-Press the `Buy me a Coffee` button, the `Plug` notification window will pop-up. Choose one of the options and find the correspondent output in the console: `Plug wallet is connected` or `Plug wallet connection was refused`.
+Open the `developer console` in the browser to see the application script outputs, (here's an example for [Chrome](https://developer.chrome.com/docs/devtools/open/) and [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console)).
+
+Press the `Buy me a Coffee` button, the `Plug` notification window will pop-up.
+
+![](../getting-started/imgs/app-connection.jpg){: style="max-width:360px"}
+
+Choose one of the options and find the correspondent output in the console: `Plug wallet is connected` or `Plug wallet connection was refused`.
 
 ## Call-to-action locking 🔒
 
-To complete, ensure that the button is disabled for the duration the Plug wallet request process lasts.
+To complete, ensure that the button is disabled through the Plug wallet request duration.
 
-Modify the `onButtonPress` to take a parameter `el`, that passes the DOM button element as an argument during runtime, which we then reset the `disabled` button property after 5 seconds - this because we want to give enough time to the end-user to read the text.
+- Modify the `onButtonPress` to take a parameter `el`
+- Pass the DOM button element as an argument during runtime
+- Reset the `disabled` button property after 5 seconds
+
+We give 5 seconds because we want to provide enough time to the end-user to read the text.
 
 ```js
 async function onButtonPress(el) {
@@ -276,7 +320,7 @@ const coffeeAmount = 0.1;
 
 Finally, we check if the user has enough balance before proceeding to the last step and request the transfer.
 
-We also change the button text in each state change.
+We'll also change the button text in each state change to improve the user experience.
 
 ![](imgs/buy-me-coffee-button-state-change.gif){: style="max-width:480px"}
 
@@ -306,9 +350,13 @@ async function onButtonPress() {
 }
 ```
 
-After saving the file, refresh the page and press the `Buy me a Coffee` button. You should see the correspondent message to your account balance: `Plug wallet has enough balance` or `Plug wallet doesn't have enough balance`.
+Save the file, refresh the page and press the `Buy me a Coffee` button!
+
+You should see the correspondent message to your account balance: `Plug wallet has enough balance` or `Plug wallet doesn't have enough balance`.
 
 ## Request to transfer ❓
+
+Continue editing the `app.js` file.
 
 In the "has enough balance" block, make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `accountId` and `amount`, as described in our [Getting started](/getting-started).
 
@@ -366,9 +414,11 @@ async function onButtonPress(el) {
 }
 ```
 
-Save the changes, refresh the browser and play with it! If everything's done correctly you should have a working application, that connects to Plug and makes a transfer.
+Save the changes, refresh the browser and play with it!
 
-Hope you enjoyed the read this far and got to build a very simple application with Plug!
+If everything's done correctly you should have a working application, that connects to Plug and makes a transfer.
+
+Hope you enjoyed the read this far and got to build a simple application with Plug!
 
 ## Project source-code ⚙️
 
