@@ -22,7 +22,7 @@ Just like a real scaffolding in a building construction site, let's create a qui
 
 We're going to write a simple [HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) structure for a page, where we'll show the "Buy me a coffee" button.
 
-Start by creating a project directory in your operating system, for example, a directory called `Plug-buy-me-coffee` in your `home` path. For MacOS users that'd be `/Users/your-username`, while Windows `c:\Users\your-username`.
+Start by creating a project directory in your operating system, for example, a directory called `Plug-buy-me-coffee` in your [home directory](https://en.wikipedia.org/wiki/Home_directory), or your favourite projects directory.
 
 In the project directory, create a new file named `index.html`, with the following content and save it! 
 
