@@ -6,7 +6,7 @@ date: "1"
 
 Welcome to Plug's developer documentation. Learn how to integrate Plug into Internet Computer applications to provide **seamless onboardings and transactions with a user's Principal ID wallet**.
 
-Plug is a browser crypto wallet and identity/authentication provider for the Internet Computer, compatible with ICP, and soon with cycles and any Internet Computer token. **[Read our intro article to learn all about it!](https://medium.com/@plug_wallet/meet-plug-an-internet-computer-crypto-wallet-identity-provider-b14c7692586)**
+Plug is a browser crypto wallet and identity/authentication provider for the Internet Computer, compatible with ICP, and soon with cycles and any Internet Computer token. **[Read our intro article to learn all about it!](https://medium.com/@plug_wallet/b14c7692586?source=friends_link&sk=70eef990c3ee7fd5e0a828651cbc2096)**
 
 
 - Visit [our website](https://plugwallet.ooo) to get Plug's latest version.
