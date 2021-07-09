@@ -6,7 +6,7 @@ date: "1"
 
 ![](imgs/apps.png)
 
-Meet the Plug app ecosystem! These are all the Internet Computer applications that will soon support Plug as an authentication provider and integrate its Cycle / assets features for you to leverage.
+Meet the Plug app ecosystem! These are all the Internet Computer applications that will soon support Plug as an authentication provider and integrate its features.
 
 
 | Logo  	| Name  	| Description |
