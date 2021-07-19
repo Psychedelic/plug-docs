@@ -33,7 +33,7 @@ If you get an `error`, you're advised to check the installation instructions for
 
 Plug provides a simple API to websites and webapps at `window.ic.plug`, enabling them to "talk to" the Internet computer via Plug.
 
-The API lets you:
+As we develop features and make available, the API will let you:
 
 - Detect the Plug extension
 - Interact and authenticate an account
@@ -42,11 +42,13 @@ The API lets you:
 
 As previously noted, we can interact direclty with the API through our browser developer console.
 
-Copy and paste the following code snippet into the console and execute it!
+Copy and paste the following code snippet into the console and execute it:
 
 ```js
 window.ic.plug.requestConnect()
 ```
+
+> Because of browser security restrictions, access to the Plug extension API is only allowed from pages acessed via Http. You'd be allowed to interact with it via the current documentation [page](https://docs.plugwallet.ooo/getting-started/connect-to-plug/), but not the default options page `chrome-extension://xxxx/options.html`, for example.
 
 A `Plug notification` window will pop-up, displaying the following interface that requesting the user to `Allow` or `Decline` the connection to their wallet:
 
