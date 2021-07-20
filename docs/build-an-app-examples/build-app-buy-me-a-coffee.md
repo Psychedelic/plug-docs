@@ -8,7 +8,7 @@ date: "1"
 
 We're going to build a very simple application called "Buy me a coffee".
 
-It'll have a button that when pressed, requests the connection to the Plug wallet and a transfer!
+A simple button that when pressed, requests a connection to the Plug wallet and a transfer!
 
 ## Requirements 🤔
 

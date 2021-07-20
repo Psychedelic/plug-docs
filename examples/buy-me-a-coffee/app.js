@@ -1,15 +1,10 @@
-// Mock service
-const timeout = 1200;
-window.ic = {
-  plug: {
-    requestConnect: async () => new Promise((resolve) => setTimeout(resolve.bind(null, true), timeout)),
-    requestBalance: async () => new Promise((resolve) => setTimeout(resolve.bind(null, true), timeout)),
-    requestTransfer: async () => new Promise((resolve) => setTimeout(resolve.bind(null, true), timeout)),
-  },
-};
+// Receiver's account id
+const receiverAccountId = 'qupdo-e6jjk-iivru-zud7h-h7lrp-6aaix-cujev-3mrbh-qrrfr-dl5v4-xae';
 
 // Coffee amount in e8s
-const coffeeAmount = 0.1;
+// fractional units of ICP tokens
+// For example, 0.2 ICP is 20_000_000 e8s.
+const coffeeAmount = 4_000_000;
 
 // Initialises the application listeners and handlers
 function main() {
@@ -30,31 +25,52 @@ async function onButtonPress(el) {
   // otherwise updates the button text with failure message
   if (hasAllowed) {
     // Updates the button text
-    el.target.textContent = "Plug wallet is connected"
+    el.target.textContent = "Plug wallet is connected";
 
     // Assigns the request balance result value to balance
-    const balance = await window.ic?.plug?.requestBalance();
+    const requestBalanceResponse = await window.ic?.plug?.requestBalance();
+
+    // Pick the balance value for the first account
+    const balance = requestBalanceResponse[0].value;
 
     // Check if the current balance is at least the coffee cost
     // for the example only, we have not considered gas fees (in cycles)
     // If truthy proceeds to the next step (request transfer)
     // otherwise updates the button text with failure message
-    if (balance >= coffeeAmount) {
+    if (balance > 0) {
+      console.log('bp1');
+
       // Updates the button text
-      el.target.textContent = "Plug wallet has enough balance"
+      el.target.textContent = "Plug wallet has enough balance";
+
+      console.log('bp2');
 
       // The argument that we'll pass on requestTransfer call
       const requestTransferArg = {
-        accountId: 'xxxxx',
+        to: receiverAccountId,
         amount: coffeeAmount,
       };
+
+      console.log('bp3');
+
+      setTimeout(() => {
+        el.target.textContent = "Loading...";
+      }, 4000);
 
       // Assigns the request transfer result value to transfer
       const transfer = await window.ic?.plug?.requestTransfer(requestTransferArg);
 
+      console.log('transfer', transfer);
+
+      // Does a basic verification
+      // which checks if the transfer response has a match
+      // and verifies that is of status `COMPLETED`
+      const hasSuccessfulTransfer = transfer?.transactions?.transactions[0]?.amount == requestTransferArg.amount
+        && transfer?.transactions?.transactions[0]?.status == 'COMPLETED';
+
       // On transfer, we update the button text
       // in accordance to the transfer state (success or failure)
-      if (transfer) {
+      if (hasSuccessfulTransfer) {
         el.target.textContent = `Plug wallet transferred ${coffeeAmount}`;
       } else {
         el.target.textContent = "Plug wallet failed to transfer";
@@ -71,7 +87,7 @@ async function onButtonPress(el) {
   setTimeout(() => {
     el.target.disabled = false;
     el.target.textContent = "Buy me a coffee"
-  }, 5000);
+  }, 8000);
 }
 
 // Calls the Main function when the document is ready
