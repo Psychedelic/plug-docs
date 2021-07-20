@@ -30,6 +30,8 @@ async function onButtonPress(el) {
     // Assigns the request balance result value to balance
     const requestBalanceResponse = await window.ic?.plug?.requestBalance();
 
+    console.log('requestBalanceResponse', requestBalanceResponse);
+
     // Pick the balance value for the first account
     const balance = requestBalanceResponse[0].value;
 
@@ -53,9 +55,11 @@ async function onButtonPress(el) {
 
       console.log('bp3');
 
+      // Update the button text
+      // while waiting for the `requestTransfer` to complete
       setTimeout(() => {
         el.target.textContent = "Loading...";
-      }, 4000);
+      }, 3000);
 
       // Assigns the request transfer result value to transfer
       const transfer = await window.ic?.plug?.requestTransfer(requestTransferArg);

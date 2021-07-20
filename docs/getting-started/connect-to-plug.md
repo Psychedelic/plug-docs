@@ -54,7 +54,15 @@ A `Plug notification` window will pop-up, displaying the following interface tha
 
 ![](imgs/app-connection.jpg){: style="max-width:360px"}
 
-The `requestConnect` is an asynchronous method that awaits for the user response, in which returns `true` or `false`, for the connection request.
+After you `Allow` or `Decline`, the notification popup will close!
+
+To understand how to read the response data for the `requestConnect` call and any other [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method, read below.
+
+## Available interactions and methods
+
+### requestConnect
+
+An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new connection by showing a pop-up to the Plug user, that resolves to Boolean: `true` or `false`.
 
 As an example, copy and paste the following code snippet into the console and execute it.
 
@@ -68,7 +76,9 @@ Select `Allow` or `Decline` on the pop-up and you should see the correspondant r
 })();
 ```
 
-Alternatively, call the method `isConnected` of `Plug` window object, which returns the `connection` state has a `boolean` value: `true` or `false`.
+### isConnected()
+
+An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to check the connection status, that returns a Boolean: `true` or `false`.
 
 ```js
 (async () => {
@@ -77,22 +87,74 @@ Alternatively, call the method `isConnected` of `Plug` window object, which retu
 })()
 ```
 
-At time of writing the following API methods are available to use:
+## requestBalance()
 
-- **requestConnect()** - A method to request a new connection by showing a pop-up to the Plug user, that returns Boolean: true or false
-- **isConnected()** - A convenience method to check the connection status, that returns a Boolean: true or false
-- **connectedApps** - An Array of string values of connected applications
-- **requestTransfer(Transfer)** - A method to request a new Transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `Transfer` that is an object of fields: account id, amount and optionals fee and memo. It'll return the [block height](https://medium.com/dfinity/achieving-consensus-on-the-internet-computer-ee9fbfbafcbc) as a [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt), otherwise throws an error when unauthorized or on invalid argument.
+An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the account Balance in the [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), in that returns the amount of ICP tokens:
+
+```js
+Array [{
+  amount: number,
+  currency: string,
+  image: string,
+  name: string,
+  value: number,
+}]
+```
+
+As an example, copy and paste the following code snippet into the console and execute it.
+
+```js
+(async () => {
+  const result = await window.ic.plug.requestBalance();
+  console.log(result);
+})();
+```
+
+### requestTransfer(SendICPTsArgs)
+
+An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new Transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `SendICPTsArgs` that is an object of fields:
+
+SendICPTsArgs:
+- to
+- amount
+- opts (optional)
+
+SendOpts:
+- fee
+- memo
+- from_subaccount
+- created_at_time
+
+TimeStamp:
+- timestamp_nanos
 
 ```js
 Object {
-  accountId: String,
+  to: String,
   amount: BigInt,
-  fee?: BigInt,
-  memo?: Number,
+  opts?: {
+    fee?: BigInt,
+    memo?: BigInt,
+    from_subaccount?: Number,
+    created_at_time?: {
+      timestamp_nanos: BigInt
+    },
+  },
 }
 ```
-- **requestBalance()** - A method to request the account Balance in the [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), in that returns a fractional units of ICP tokens, called [e8s](https://sdk.dfinity.org/docs/token-holders/self-custody-quickstart.html) or an error when unauthorized.
+
+As an example, copy and paste the following code snippet into the console and execute it (replacing the `xxxx-xxxx-xxxx-xxxx` with your `Principal ID`):
+
+```js
+(async () => {
+  const params = {
+    to: 'xxxxx-xxxxx-xxxxx-xxxxx',
+    amount: 2_000_000,
+  };
+  const result = await window.ic.plug.requestTransfer(params);
+  console.log(result);
+})();
+```
 
 We're currently working hard to bring more features and plan to release them as soon as they become ready. The project is open-source and you are very welcome to participate or follow the progress!
 
