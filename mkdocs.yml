@@ -25,17 +25,15 @@ nav:
   - Welcome to Plug 👋: index.md
   - Getting Started 🔌:
     - Connect to Plug: getting-started/connect-to-plug.md
-    - Trigger Transactions : getting-started/trigger-transactions.md
-    - Query Balances / Info: getting-started/querying-data.md
-    - Add a Custom Token: getting-started/add-custom-token.md
+    - Query Balances / Info: getting-started/connect-to-plug.md #requestBalance()
+    - Trigger Transactions : getting-started/connect-to-plug.md #requestTransfer(SendICPTsArgs)
   - Build an App Examples 💡: 
     - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
     - Plugged: build-an-app-examples/build-app-plugged.md
-  - IC Provider API 🤝: ic-provider-api/universal-ic-object.md
+  - IC Provider API 🤝: "https://github.com/Psychedelic/plug-inpage-provider"
   - Common Terms 📓: common-terms/plug-dictionary.md    
   - Resources 🧰:
     - Resource Library: resources/library.md
-    - The Dank Protocol: "https://dank.ooo"
     - The Internet Computer: "https://dfinity.org/faq"
     - Disclaimer: resources/disclaimer.md
     - Trademark: resources/trademark.md

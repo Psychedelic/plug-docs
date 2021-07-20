@@ -6,19 +6,16 @@ date: "1"
 
 Welcome to Plug's developer documentation. Learn how to integrate Plug into Internet Computer applications to provide **seamless onboardings and transactions with a user's Principal ID wallet**.
 
-Plug is a browser crypto wallet and identity/authentication provider for the Internet Computer, compatible with ICP, and soon with cycles and any Internet Computer token. **[Read our intro article to learn all about it!](https://medium.com/@plug_wallet/b14c7692586?source=friends_link&sk=70eef990c3ee7fd5e0a828651cbc2096)**
+Plug is a browser crypto wallet and identity/authentication provider for the Internet Computer, compatible with ICP, and soon with cycles and any Internet Computer token. **[Read our blog to learn all about it!](https://medium.com/plugwallet)**
 
 
 - Visit [our website](https://plugwallet.ooo) to get Plug's latest version.
 - Visit our community and jam with the team in our [Discord](https://discord.gg/yVEcEzmrgm)
 - Follow us on Twitter to stay updated with [Plug's development](https://twitter.com/plug_wallet).
 
-## Important:
+!!! Important
 
-**Plug is currently in Alpha V0.1.0**, and that early version **doesn't include developer integrations / interactions**, therefore **this documentation is currently a placeholder** and doesn't contain Plug's interfaces/guides.
-
-We will release **V0.2.0 in the upcoming weeks**, which will be the version that will make **Plug integratable to IC apps as an authentication provider** and to request transactions/balances from the app to the user's wallet. When we do so, we will update this documentation to add all guides, interfaces, and app examples.
-
+    Plug is currently in Alpha V0.2.0, and is in active development. This version of Plug includes ICP wallet features and basic app-integration/interactions with the IC Provider API. In the next updates, Plug will add the PlugAgent (authentication & canister call signing), and after, support for cycles. Consider Plug a hot wallet during its alpha stage, and feel free to contact us via Discord/Twitter to report any issues, enhancement ideas or bugs.
 
 
 ## Plug's Repositories

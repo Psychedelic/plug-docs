@@ -7,9 +7,9 @@ date: "1"
 
 ## Browser extension
 
-Plug integration is made easy because of the [Plug](https://plugwallet.ooo/) browser extension!
+Interacting with the [Plug](https://plugwallet.ooo/) browser extension is made simple by the [IC Provider API](https://github.com/Psychedelic/plug-inpage-provider), an API that Plug injects into websites to allow them to call Plug and interact with the extension.
 
-Get started by adding the extension in the browser, or if you already done so make sure that is enabled!
+Get started by adding the extension in the browser, or if you already done so make sure that is enabled in the "extensions" or "Add-ons" menu of your browser!
 
 Pin the Plug extension to the browser bar for easy access (here's an example of how to do it in [Chrome](https://support.google.com/chrome_webstore/answer/2664769?hl=en-GB)).
 
@@ -17,7 +17,7 @@ Once the [Plug](https://plugwallet.ooo/) extension is installed, a `Plug` object
 
 ## Console playground
 
-Once you have the Plug extension, run a quick test to detect it by opening the browser developer console (here's an example for [Chrome](https://developer.chrome.com/docs/devtools/open/) and [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console)). Note that if you just installed plug refresh the page.
+Once you have the Plug extension, run a quick test to detect it by opening the browser developer console (here's an example for [Chrome](https://developer.chrome.com/docs/devtools/open/) and [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console)). Note that if you just installed Plug you need to **refresh the page (F5 on Windows)** so that Plug is detected correctly.
 
 Copy and paste the following code snippet into the console and execute it by pressing the `ENTER` key of your keyboard.
 
@@ -33,14 +33,14 @@ If you get an `error`, you're advised to check the installation instructions for
 
 Plug provides a simple API to websites and webapps at `window.ic.plug`, enabling them to "talk to" the Internet computer via Plug.
 
-As we develop features and make available, the API will let you:
+As we continue to develop features and make them available, the API will let you:
 
 - Detect the Plug extension
 - Interact and authenticate an account
 - Query data from the Internet Computer
 - Trigger a transaction for the end-user approval
 
-As previously noted, we can interact direclty with the API through our browser developer console.
+As previously noted, we can interact directly with the API through our browser developer console.
 
 Copy and paste the following code snippet into the console and execute it:
 
@@ -48,7 +48,7 @@ Copy and paste the following code snippet into the console and execute it:
 window.ic.plug.requestConnect()
 ```
 
-> Because of browser security restrictions, access to the Plug extension API is only allowed from pages acessed via Http. You'd be allowed to interact with it via the current documentation [page](https://docs.plugwallet.ooo/getting-started/connect-to-plug/), but not the default options page `chrome-extension://xxxx/options.html`, for example.
+> Because of browser security restrictions, access to the Plug extension API is only allowed from pages accessed via HTTP. You'd be allowed to interact with it via the current documentation [page](https://docs.plugwallet.ooo/getting-started/connect-to-plug/), but not the default options page `chrome-extension://xxxx/options.html`, for example.
 
 A `Plug notification` window will pop-up, displaying the following interface that requesting the user to `Allow` or `Decline` the connection to their wallet:
 
@@ -62,11 +62,11 @@ To understand how to read the response data for the `requestConnect` call and an
 
 ### requestConnect
 
-An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new connection by showing a pop-up to the Plug user, that resolves to Boolean: `true` or `false`.
+requestConnect() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new connection by showing a pop-up to the Plug user, that resolves to Boolean: `true` or `false` based on the users response.
 
 As an example, copy and paste the following code snippet into the console and execute it.
 
-Select `Allow` or `Decline` on the pop-up and you should see the correspondant result in the console.
+Select `Allow` or `Decline` on the pop-up and you should see the corresponding result (Allowed or Declined) in the console.
 
 ```js
 (async () => {
@@ -78,7 +78,7 @@ Select `Allow` or `Decline` on the pop-up and you should see the correspondant r
 
 ### isConnected()
 
-An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to check the connection status, that returns a Boolean: `true` or `false`.
+isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to check the connection status, that returns a Boolean: `true` or `false`.
 
 ```js
 (async () => {
@@ -87,9 +87,9 @@ An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asyn
 })()
 ```
 
-## requestBalance()
+### requestBalance()
 
-An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the account Balance in the [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), in that returns the amount of ICP tokens:
+requestBalance() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the user's ICP wallet balance, which is consulted in the [Internet Computer's Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview) for ICP, returning the amount of ICP the user's wallet in Plug holds:
 
 ```js
 Array [{
@@ -112,7 +112,7 @@ As an example, copy and paste the following code snippet into the console and ex
 
 ### requestTransfer(SendICPTsArgs)
 
-An [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new Transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `SendICPTsArgs` that is an object of fields:
+requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new Transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `SendICPTsArgs` that is an object of fields:
 
 SendICPTsArgs:
 - to
@@ -155,7 +155,8 @@ As an example, copy and paste the following code snippet into the console and ex
   console.log(result);
 })();
 ```
+--------
 
 We're currently working hard to bring more features and plan to release them as soon as they become ready. The project is open-source and you are very welcome to participate or follow the progress!
 
-Hope you enjoyed the read this far and got a basic understanding of how to connect to Plug.
+Hope you enjoyed the read so far and got a basic understanding of how to integrate Plug to your site/app or interact with it.
