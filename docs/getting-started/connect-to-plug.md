@@ -17,7 +17,7 @@ Once the [Plug](https://plugwallet.ooo/) extension is installed, a `Plug` object
 
 ## Console playground
 
-Once you have the Plug extension, run a quick test to detect it by opening the browser developer console (here's an example for [Chrome](https://developer.chrome.com/docs/devtools/open/) and [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console)).
+Once you have the Plug extension, run a quick test to detect it by opening the browser developer console (here's an example for [Chrome](https://developer.chrome.com/docs/devtools/open/) and [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console)). Note that if you just installed plug refresh the page.
 
 Copy and paste the following code snippet into the console and execute it by pressing the `ENTER` key of your keyboard.
 
@@ -27,7 +27,7 @@ window.ic.plug && "Plug and play!"
 
 The result output should be `Plug and play!`, if you have Plug installed correctly!
 
-If you get an `error`, you're advised to check the installation instructions for [Plug](https://plugwallet.ooo/) and ensure that you have the extension installed correc!
+If you get an `error`, you're advised to check the installation instructions for [Plug](https://plugwallet.ooo/) and ensure that you have the extension installed correctly!
 
 ## Plug window object
 
