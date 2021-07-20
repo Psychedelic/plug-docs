@@ -157,6 +157,39 @@ As an example, copy and paste the following code snippet into the console and ex
 ```
 --------
 
+The response data structure:
+
+```js
+Object {
+  total: number;
+  transactions: [{
+    hash: String,
+    from: String,
+    to: String
+    amount: BigInt,
+    currency: {
+      symbol: String,
+      decimals: Number,
+    },
+    fee: {
+      amount: BigInt,
+      currency: {
+        symbol: String,
+        decimals: Number,
+      },
+    };
+    timestamp: Number,
+    status: 'COMPLETED' | 'REVERTED' | 'PENDING',
+    type: 'SEND' | 'RECEIVE' | 'BURN' | 'MINT',
+  }]
+}
+```
+
+It's a good principal to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
+
+
+## Conclusion
+
 We're currently working hard to bring more features and plan to release them as soon as they become ready. The project is open-source and you are very welcome to participate or follow the progress!
 
 Hope you enjoyed the read so far and got a basic understanding of how to integrate Plug to your site/app or interact with it.
