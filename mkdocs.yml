@@ -25,7 +25,7 @@ markdown_extensions:
 nav:
   - Welcome to Plug 👋: index.md
   - Getting Started 🔌:
-    - Introduction: getting-started/connect-to-plug.md
+    - Introduction: getting-started/connect-to-plug/#browser-extension
     - Connect to Plug: getting-started/connect-to-plug/#requestconnect
     - Query Balances / Info: getting-started/connect-to-plug/#requestbalance
     - Trigger Transactions : getting-started/connect-to-plug/#requesttransfersendicptsargs
