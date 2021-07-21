@@ -203,7 +203,7 @@ Open the file `app.js` in your code editor and edit the `onButtonPress` function
 We can break it down in the following steps:
 
 - [Detect the Plug extension](#detect-the-plug-extension)
-- [Check if there's enough balance](#check-if-theres-enough-balance)
+- [Check balance](#check-balance)
 - [Request to transfer](#request-to-transfer)
 - On success or error, display a message
 
@@ -304,7 +304,7 @@ async function onButtonPress(el) {
 
 Feel free to use your own custom values or implementation!
 
-## Check if there's enough balance 💸
+## Check balance 💸
 
 To keep things easy, let's say that a Coffee is the equivalent of `0.04` ICP or `4000000` (fractional units of ICP tokens, called [e8s](https://sdk.dfinity.org/docs/token-holders/self-custody-quickstart.html)).
 
