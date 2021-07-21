@@ -38,6 +38,7 @@ In the `Plugged` directory, create a new file named `index.html`.
 ```
 
 Create two new files in the project directory, the `stylesheet` and the `javascript` files:
+
 - main.css
 - app.js
 
@@ -277,9 +278,15 @@ In the body of the function `main`, just after our selectors and `els` assignmen
 
 The `addEventListener` requires an event name `e.g. click` and a callback function `e.g. onButtonPressHandler`.
 
-Write a placeholder function `onButtonPressHandler` for now and we'll improve it shortly.
+Write a placeholder function called `onButtonPressHandler`, place it in the same scope or level as the function `main`.
+
+Start by implementing a simple placeholder that shows an alert for now, we'll improve it shortly!
 
 ```js
+function main () {
+  // the main implementation
+}
+
 function onButtonPressHandler(el) {
   const name = el.target.id;
   alert(`The button ${name} was pressed!`);
