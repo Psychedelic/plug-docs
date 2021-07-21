@@ -14,7 +14,7 @@ The guide assumes you have some basic knowledge of HTML, CSS and Javascript, we 
 
 It's recommended to read the build example [Buy me a Coffee](build-app-buy-me-a-coffee.md) guide before as it provides a simple example and helps install a [basic Http server](build-app-buy-me-a-coffee.md#http-server) in your local machine. 
 
-We'll assume you have an HTTP Server installed.
+We'll assume you have an HTTP Server installed and understand why you need it.
 
 Make sure you use a code editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime text](https://www.sublimetext.com/), for editing the source-code!
 
@@ -41,7 +41,7 @@ Create two new files in the project directory, the `stylesheet` and the `javascr
 - main.css
 - app.js
 
-Replace each comment in the `index.html`, linking to the respective source file and save!
+Replace each comment in the `index.html`, linking to the respective source file and save it!
 
 ```html
 <html>
@@ -72,7 +72,6 @@ As we can see in the top screenshot for the project look, we have the following 
   <div>
     <!-- Column for Wallet buttons -->
     <!-- Column for Token buttons -->
-    <!-- Column for Apps buttons -->
   </div>
   <!-- Row like container for the output console -->
 </div>
@@ -109,11 +108,11 @@ Make the following changes in the `index.html` by adding the `tailwindcss` base 
 </html>
 ```
 
-What we'll do from now is to pick class names described in the [reference document](https://tailwindcss.com/docs/container) to style our application.
+What we'll do from now is to pick class names described in the [Tailwindcss reference document](https://tailwindcss.com/docs/container) to style our application.
 
 If interested, take some time to read through the documentation to find how to style the application to your taste. Or, feel free to create your own custom styles in the `main.css` file.
 
-The following source-code is then a style suggestion, used as an example for our guide.
+The following source-code is then a style suggestion, used as an example for the purpose of our guide.
 
 In the `index.html` replace the comment `<!-- Application container -->` with:
 
@@ -196,39 +195,12 @@ In the `index.html` replace the comment `<!-- Application container -->` with:
         </div>
       </div>
     </div>
-    <!-- Column for Apps buttons -->
-    <div>
-      <p class="text-base font-bold mb-4">Apps</p>
-      <div class="flex flex-col space-y-4">
-        <div>
-          <label
-            class="
-              text-gray-500
-              mb-1
-              block
-            "
-          >
-            connectedApps
-          </label>
-          <input
-            name="connected-apps"
-            value="0"
-            class="
-              border-2
-              rounded-md
-              border-gray-300
-              p-2
-            "
-          />
-        </div>
-      </div>
-    </div>
   </div>
   <!-- Row like container for the output console -->
 </div>
 ```
 
-In addition to the styles provided by the classnames of `tailwindcss`, we can create custom styles for our buttons. For example, we'll make it colorful by adding the following style in our `main.css` file:
+In addition to the styles provided by the class names of `Tailwindcss`, we can create custom styles for our buttons. For example, we'll make it colorful by adding the following style in our `main.css` file:
 
 ```css
 .btn {
@@ -254,13 +226,15 @@ In addition to the styles provided by the classnames of `tailwindcss`, we can cr
 }
 ```
 
+The sky is the limit, style the application as you like!
+
 ## Local server 🤖
 
-Launch the [Http server](build-app-buy-me-a-coffee.md#http-server) to serve the `index.html` and open the address in the browser.
+Launch the [Http server](build-app-buy-me-a-coffee.md#http-server) as described in the [Buy me a coffee example](build-app-buy-me-a-coffee.md) to serve the `index.html` and open the address in the browser.
 
 From then on, refresh the page to see new changes!
 
-Open the terminal, `cd` to the project pathname `cd /project/pathname/` and serve from the project directory (the dot represents the current directory):
+Open the terminal, `cd` to the project pathname `cd /project/pathname/` and serve from the project directory (the dot represents the current directory, which should be the location of the project):
 
 ```sh
 http-server .
@@ -281,10 +255,9 @@ els.btnConnect = document.querySelector('#btn-connect');
 els.btnIsConnected = document.querySelector('#btn-is-connected');
 els.btnRequestBalance = document.querySelector('#btn-request-balance');
 els.btnRequestTransfer = document.querySelector('#btn-request-transfer');
-els.inputConnectedApps = document.querySelector('input[name="connected-apps"]');
 ```
 
-Wrap the selector and element assignment in a function called `main` and run it once the DOM is ready, as we need to wait for it to render before executing the selectors to avoid `not founds`.
+Wrap the selector and element assignment in a function called `main` and run it once the DOM is ready, as we need to wait for it to render before executing the selectors to avoid `elements not found`.
 
 ```js
 // Elements list
@@ -297,11 +270,10 @@ function main() {
   els.btnIsConnected = document.querySelector('#btn-is-connected');
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
   els.btnRequestTransfer = document.querySelector('#btn-request-transfer');
-  els.inputConnectedApps = document.querySelector('input[name="connected-apps"]');
 }
 ```
 
-In the body of function `main` just after our selectors and `els` assignments, initialise the click listener for all our buttons.
+In the body of the function `main`, just after our selectors and `els` assignments, initialise the click listener for all our buttons.
 
 The `addEventListener` requires an event name `e.g. click` and a callback function `e.g. onButtonPressHandler`.
 
@@ -317,20 +289,21 @@ function onButtonPressHandler(el) {
 For each element in `els` assign the `click` event listener, as follows:
 
 ```js
+// Initialise click listener for buttons
 els.btnConnect.addEventListener('click', onButtonPressHandler);
 els.btnIsConnected.addEventListener('click', onButtonPressHandler);
 els.btnRequestBalance.addEventListener('click', onButtonPressHandler);
 els.btnRequestTransfer.addEventListener('click', onButtonPressHandler);
 ```
 
-You can keep it a bit simpler writing it in a `declarative` or `functional` programming style.
+You can keep it a bit simpler writing it in a `declarative` or  in a more `functional` programming style.
 
-What the following code does is to go through each `element` of the constant variable `els`, filters by assertion is of type `button` and adds a `click` event listener!
+What the following code does is to go through each `element` of the constant variable `els`, filters by asserting the type `button` and adds a `click` event listener!
 
 Pick whichever style makes more sense to you!
 
 ```js
-// Initialise click listener for buttons
+// Initialise click listener for buttons (alternative style)
 Object
   .values(els)
   .filter((el) => el.nodeName === 'BUTTON')
@@ -358,7 +331,7 @@ if (!window?.ic?.plug) {
 }
 ```
 
-The function `main` will exit immediately if the `Plug extension` is not detected. We'll improve the user-experience a bit, by showing a message in the `Output` console shortly!
+The function `main` will exit immediately if the `Plug extension` is not detected. We'll improve the user-experience a bit by showing a message in the `Output` console shortly!
 
 ## Call-to-action handlers 📢
 
@@ -395,11 +368,11 @@ function onButtonPressHandler(el) {
 }
 ```
 
-We now have to replace each alert by the actual implementation.
+We now have to replace each alert we used as a placeholder by the actual implementation.
 
 ## Plug action implementations 👷🏻‍♀️
 
-The `Plug` API is described in our [Getting started](/getting-started) guide and since our calls happen in the Internet Computer blockchain, we have to wait for the calls to resolve, so we handle them [asynchronously](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous).
+The `Plug` API is described in our [Getting started](/getting-started) guide and since our calls happen in the Internet Computer network, we have to await for the calls to resolve, as we handle them [asynchronously](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous).
 
 Here's an example of an asynchronous function to handle the `btn-connect` button click.
 
@@ -411,7 +384,7 @@ async function onBtnConnect() {
 }
 ```
 
-Update the function `onButtonPressHandler` by replacing the `alert` in the switch case for `btn-connect`, with the `onBtnConnect` call.
+Update the function `onButtonPressHandler` by replacing the `alert` in the switch case for `btn-connect` with the `onBtnConnect` call.
 
 Try to write the remaining button handlers on your own, following the example above.
 
@@ -419,7 +392,7 @@ Try to write the remaining button handlers on your own, following the example ab
 
 Open and edit the `index.html` file.
 
-We are going to create a new html component to place the output of our `Plug` interactions, for a better user-experience.
+We are going to create a new html component to place the output of our `Plug` interactions for a better user-experience.
 
 Replace the comment at the bottom of our application html structure `<!-- Row like container for the output console -->` with the desired `Output` html structure.
 
@@ -458,7 +431,7 @@ Add a new selector for `#output` and assign it to the `els`.
 els.output = document.querySelector('#output');
 ```
 
-Ultimately, we want to have a function we can pass a message to, which writes to our `Output`:
+Ultimately, we want to have a function we can pass a message to, which writes to our `Output`, as described:
 
 - Receives text as an argument
 - Updates the element text content by adding a new line of text
@@ -480,7 +453,7 @@ Place the function `outputWrite` at the bottom of the `app.js` file.
 
 Make `outputWrite` calls wherever there's state change and a desired computation output.
 
-As an example, let's keep track of our Plug `requestConnect` in the function `onBtnConnect`:
+To exemplify, let's keep track of our Plug `requestConnect` in the function `onBtnConnect`:
 
 
 ```js

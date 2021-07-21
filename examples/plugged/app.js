@@ -61,14 +61,18 @@ async function onBtnIsConnected() {
 async function onBtnRequestBalance() {
   outputWrite('onBtnRequestBalance() call');
   const response = await window.ic?.plug?.requestBalance();
-  outputWrite(`onBtnRequestBalance() call response ${response}`);
+  outputWrite(`onBtnRequestBalance() call response ${JSON.stringify(response)}`);
 }
 
 // On button press request transfer handler
 async function onBtnRequestTransfer() {
   outputWrite('onBtnRequestTransfer() call');
-  const response = await window.ic?.plug?.requestTransfer();
-  outputWrite(`onBtnRequestTransfer() call response ${response}`);
+  const requestTransferArg = {
+    to: 'xxxx-xxxx-xxxx-xxxx-xxxx', // replace by valid Principal ID
+    amount: 0, // the amount in e8s (fractional unit of ICP)
+  };
+  const response = await window.ic?.plug?.requestTransfer(requestTransferArg);
+  outputWrite(`onBtnRequestTransfer() call response ${JSON.stringify(response)}`);
 }
 
 // Write to the output DOM element
