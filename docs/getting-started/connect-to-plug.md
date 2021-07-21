@@ -7,7 +7,7 @@ date: "1"
 
 ## Browser extension
 
-Interacting with the [Plug](https://plugwallet.ooo/) browser extension is made simple by the [IC Provider API](https://github.com/Psychedelic/plug-inpage-provider), an API that Plug injects into websites to allow them to call Plug and interact with the extension.
+Interacting with the [Plug](https://plugwallet.ooo/) browser extension is made simple by the IC Provider API, an API that Plug injects into websites to allow them to call Plug and interact with the extension.
 
 Get started by adding the extension in the browser, or if you already done so make sure that is enabled in the "extensions" or "Add-ons" menu of your browser!
 
