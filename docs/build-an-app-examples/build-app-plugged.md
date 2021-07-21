@@ -8,7 +8,7 @@ date: "1"
 
 The application we are going to build today is called `Plugged`. A simple application that provides a list of buttons to trigger actions to interact with the Plug extension.
 
-You can see a live version [here](https://nameless-king-9798.on.fleek.co/plugged/)
+You can see a live version [here](https://nameless-king-9798.on.fleek.co/plugged/).
 
 ## Requirements 🤔
 

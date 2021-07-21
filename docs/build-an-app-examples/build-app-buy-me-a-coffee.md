@@ -10,7 +10,7 @@ We're going to build a very simple application called "Buy me a coffee".
 
 A simple button that when pressed, requests a connection to the Plug wallet and a transfer!
 
-You can see a live version [here](https://nameless-king-9798.on.fleek.co/buy-me-a-coffee/)
+You can see a live version [here](https://nameless-king-9798.on.fleek.co/buy-me-a-coffee/).
 
 ## Requirements 🤔
 
