@@ -3,8 +3,8 @@
   background: rgb(34,34,37);
   background: linear-gradient(39deg, rgba(34,34,40,1) 0%, rgba(34,34,51,1) 40%, rgba(34,34,67,1) 94%);
 }
-.codehilite .md-icon { color: #fff; transition: opacity 0.2s ease-in; }
-.codehilite .md-icon:hover { opacity: 0.72 }
+.codehilite pre .md-icon { color: #fff; transition: opacity 0.2s ease-in; }
+.codehilite pre .md-icon:hover { opacity: 0.72 }
 .codehilite  { background: #272822; color: #f8f8f2 }
 .codehilite .c { color: #8c8771 } /* Comment */
 .codehilite .err { color: #960050; background-color: #1e0010 } /* Error */
