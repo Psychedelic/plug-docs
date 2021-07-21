@@ -409,6 +409,12 @@ Here's an example of an asynchronous function to handle the `btn-connect` button
 Add the function `onBtnConnect` to `app.js` at the same scope or level as the function `main`.
 
 ```js
+function main() {
+  // the main implementation
+  // function body omitted on purpose
+  // ...
+}
+
 // On button press connect handler
 async function onBtnConnect() {
   const response = await window.ic?.plug?.requestConnect();
