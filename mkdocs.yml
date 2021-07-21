@@ -14,6 +14,7 @@ theme:
     text: 'Open Sans'
 extra_css:
   - 'stylesheets/extra.css'
+  - 'stylesheets/codehilite-theme.css'
 markdown_extensions:
   - codehilite
   - admonition
