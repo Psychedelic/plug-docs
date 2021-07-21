@@ -287,7 +287,11 @@ Start by implementing a simple placeholder that shows an alert for now, we'll im
 
 ```js
 function main () {
-  // the main implementation
+  // Assign elements to the elements list
+  els.btnConnect = document.querySelector('#btn-connect');
+  els.btnIsConnected = document.querySelector('#btn-is-connected');
+  els.btnRequestBalance = document.querySelector('#btn-request-balance');
+  els.btnRequestTransfer = document.querySelector('#btn-request-transfer');
 }
 
 function onButtonPressHandler(el) {
@@ -299,11 +303,19 @@ function onButtonPressHandler(el) {
 In the body of the function `main`, just after the selectors, add the `click` event listeners, as follows:
 
 ```js
-// Initialise click listener for buttons
-els.btnConnect.addEventListener('click', onButtonPressHandler);
-els.btnIsConnected.addEventListener('click', onButtonPressHandler);
-els.btnRequestBalance.addEventListener('click', onButtonPressHandler);
-els.btnRequestTransfer.addEventListener('click', onButtonPressHandler);
+function main () {
+  // Assign elements to the elements list
+  els.btnConnect = document.querySelector('#btn-connect');
+  els.btnIsConnected = document.querySelector('#btn-is-connected');
+  els.btnRequestBalance = document.querySelector('#btn-request-balance');
+  els.btnRequestTransfer = document.querySelector('#btn-request-transfer');
+
+  // Initialise click listener for buttons
+  els.btnConnect.addEventListener('click', onButtonPressHandler);
+  els.btnIsConnected.addEventListener('click', onButtonPressHandler);
+  els.btnRequestBalance.addEventListener('click', onButtonPressHandler);
+  els.btnRequestTransfer.addEventListener('click', onButtonPressHandler);
+}
 ```
 
 You can keep it a bit simpler writing it in a `declarative` or  in a more `functional` programming style, instead of the suggested code above that does it one-by-one.
@@ -313,15 +325,23 @@ The alternative goes through each `element` of the constant variable `els`, filt
 Pick whichever style makes more sense to you!
 
 ```js
-// Initialise click listener for buttons (alternative style)
-Object
-  .values(els)
-  .filter((el) => el.nodeName === 'BUTTON')
-  .forEach((el) => el.addEventListener(
-      'click',
-      onButtonPressHandler
+function main () {
+  // Assign elements to the elements list
+  els.btnConnect = document.querySelector('#btn-connect');
+  els.btnIsConnected = document.querySelector('#btn-is-connected');
+  els.btnRequestBalance = document.querySelector('#btn-request-balance');
+  els.btnRequestTransfer = document.querySelector('#btn-request-transfer');
+
+  // Initialise click listener for buttons (alternative style)
+  Object
+    .values(els)
+    .filter((el) => el.nodeName === 'BUTTON')
+    .forEach((el) => el.addEventListener(
+        'click',
+        onButtonPressHandler
+      )
     )
-  )
+}
 ```
 
 Save the changes and refresh the browser and click the buttons to trigger the alert message handled by the function `onButtonPressHandler`.
