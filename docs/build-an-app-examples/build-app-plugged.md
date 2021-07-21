@@ -272,6 +272,9 @@ function main() {
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
   els.btnRequestTransfer = document.querySelector('#btn-request-transfer');
 }
+
+// Calls the Main function when the document is ready
+document.addEventListener("DOMContentLoaded", main);
 ```
 
 In the body of the function `main`, just after our selectors and `els` assignments, initialise the click listener for all our buttons.
