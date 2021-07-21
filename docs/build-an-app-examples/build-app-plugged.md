@@ -404,7 +404,9 @@ We now have to replace each alert we used as a placeholder by the actual impleme
 
 The `Plug` API is described in our [Getting started](/getting-started/connect-to-plug/) guide and since our calls happen in the Internet Computer network, we have to await for the calls to resolve, as we handle them [asynchronously](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous).
 
-Here's an example of an asynchronous function to handle the `btn-connect` button click.
+Here's an example of an asynchronous function to handle the `btn-connect` button click. 
+
+Add the function `onBtnConnect` to `app.js` at the same scope or level as the function `main`.
 
 ```js
 // On button press connect handler
@@ -416,7 +418,31 @@ async function onBtnConnect() {
 
 Update the function `onButtonPressHandler` by replacing the `alert` in the switch case for `btn-connect` with the `onBtnConnect` call.
 
-Try to write the remaining button handlers on your own, following the example above.
+```js
+// Button press handler
+function onButtonPressHandler(el) {
+  const name = el.target.id;
+
+  switch(name) {
+    case 'btn-connect':
+      onBtnConnect();
+      break;
+    case 'btn-is-connected':
+      alert("check the Plug connection state");
+      break;
+    case 'btn-request-balance':
+      alert("request the Plug wallet balance");
+      break;
+    case 'btn-request-transfer':
+      alert("request the Transfer");
+      break;
+    default:
+      alert('Button not found!');
+  };
+}
+```
+
+Try to write the remaining button handlers on your own, by following the example above and checking the Plug extension API in the [Getting started](/getting-started/connect-to-plug/).
 
 ## Output console 🖥
 
@@ -484,7 +510,6 @@ Place the function `outputWrite` at the bottom of the `app.js` file.
 Make `outputWrite` calls wherever there's state change and a desired computation output.
 
 To exemplify, let's keep track of our Plug `requestConnect` in the function `onBtnConnect`:
-
 
 ```js
 async function onBtnConnect() {
