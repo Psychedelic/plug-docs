@@ -48,9 +48,11 @@ Copy and paste the following code snippet into the console and execute it:
 window.ic.plug.requestConnect()
 ```
 
-> Because of browser security restrictions, access to the Plug extension API is only allowed from pages accessed via HTTP. You'd be allowed to interact with it via the current documentation [page](https://docs.plugwallet.ooo/getting-started/connect-to-plug/), but not the default options page `chrome-extension://xxxx/options.html`, for example.
+!!! Important
 
-A `Plug notification` window will pop-up, displaying the following interface that requesting the user to `Allow` or `Decline` the connection to their wallet:
+    Because of browser security restrictions, access to the Plug extension API is only allowed from pages accessed via HTTP. For example, you'd be allowed to interact with it from the current [documentation URL](https://docs.plugwallet.ooo/getting-started/connect-to-plug/), but not the default options page `chrome-extension://xxxx/options.html`.
+
+A `Plug notification` window will pop-up, displaying the options to `Allow` or `Decline` the connection to the user wallet:
 
 ![](imgs/app-connection.jpg){: style="max-width:360px"}
 
@@ -66,7 +68,7 @@ requestConnect() is an [asynchronous](https://developer.mozilla.org/en-US/docs/L
 
 As an example, copy and paste the following code snippet into the console and execute it.
 
-Select `Allow` or `Decline` on the pop-up and you should see the corresponding result (Allowed or Declined) in the console.
+Select `Allow` or `Decline` in the pop-up and to see the corresponding result (Allowed or Declined) in the console.
 
 ```js
 (async () => {
@@ -89,7 +91,9 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 
 ### requestBalance()
 
-requestBalance() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the user's ICP wallet balance, which is consulted in the [Internet Computer's Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview) for ICP, returning the amount of ICP the user's wallet in Plug holds:
+requestBalance() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the user's ICP wallet balance, which is consulted in the [Internet Computer's Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview) for ICP, returning the amount of ICP the user's wallet in Plug holds.
+
+The response data is an array, otherwise throws an error:
 
 ```js
 Array [{
@@ -112,20 +116,20 @@ As an example, copy and paste the following code snippet into the console and ex
 
 ### requestTransfer(SendICPTsArgs)
 
-requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new Transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `SendICPTsArgs` that is an object of fields:
+requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `SendICPTsArgs` that is an object of fields:
 
 SendICPTsArgs:
 - to
 - amount
-- opts (optional)
+- opts (SendOpts)
 
-SendOpts:
+SendOpts (optional):
 - fee
 - memo
 - from_subaccount
-- created_at_time
+- created_at_time (TimeStamp)
 
-TimeStamp:
+TimeStamp (optional):
 - timestamp_nanos
 
 ```js
@@ -143,7 +147,7 @@ Object {
 }
 ```
 
-As an example, copy and paste the following code snippet into the console and execute it (replacing the `xxxx-xxxx-xxxx-xxxx` with your `Principal ID`):
+As an example, copy and paste the following code snippet into the console and execute it (replacing the `xxxx-xxxx-xxxx-xxxx` with a valid `Principal ID`):
 
 ```js
 (async () => {
@@ -155,13 +159,12 @@ As an example, copy and paste the following code snippet into the console and ex
   console.log(result);
 })();
 ```
---------
 
-The response data structure:
+The response data structure, otherwise throws an error:
 
 ```js
 Object {
-  total: number;
+  total: Number;
   transactions: [{
     hash: String,
     from: String,
@@ -179,13 +182,13 @@ Object {
       },
     };
     timestamp: Number,
-    status: 'COMPLETED' | 'REVERTED' | 'PENDING',
-    type: 'SEND' | 'RECEIVE' | 'BURN' | 'MINT',
+    status: 'COMPLETED' || 'REVERTED' || 'PENDING',
+    type: 'SEND' || 'RECEIVE' || 'BURN' || 'MINT',
   }]
 }
 ```
 
-It's a good principal to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
+It's a good practice to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
 
 
 ## Conclusion
