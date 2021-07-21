@@ -359,7 +359,7 @@ async function onButtonPress() {
       As described in the [Getting started](/getting-started), the asynchronous method
       **requestBalance** response data is an array, as such, we pick the first result value that is an object type and get the value of the field name "value" of the object.
 
-If you're not familiar with the question mark, don't be worried as that's syntax sugar to help us access nested properties, read more about [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
+If you're not familiar with the question mark in `window.ic?.plug?.requestBalance`, don't be worried as that's syntax sugar to help us access nested properties, read more about optional chaining [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
 
 Save the file, refresh the page and press the `Buy me a Coffee` button!
 
