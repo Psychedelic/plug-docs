@@ -1,5 +1,6 @@
 // Receiver's account id
-const receiverAccountId = 'qupdo-e6jjk-iivru-zud7h-h7lrp-6aaix-cujev-3mrbh-qrrfr-dl5v4-xae';
+// a valid Principal ID or Account ID
+const receiverAccountId = 'xxxxx-xxxxx-xxxxx-xxxxx';
 
 // Coffee amount in e8s
 // fractional units of ICP tokens
@@ -30,22 +31,23 @@ async function onButtonPress(el) {
     // Assigns the request balance result value to balance
     const requestBalanceResponse = await window.ic?.plug?.requestBalance();
 
-    console.log('requestBalanceResponse', requestBalanceResponse);
-
     // Pick the balance value for the first account
-    const balance = requestBalanceResponse[0].value;
+    const balance = requestBalanceResponse[0]?.value;
 
     // Check if the current balance is at least the coffee cost
     // for the example only, we have not considered gas fees (in cycles)
     // If truthy proceeds to the next step (request transfer)
     // otherwise updates the button text with failure message
     if (balance > 0) {
-      console.log('bp1');
-
       // Updates the button text
       el.target.textContent = "Plug wallet has enough balance";
 
-      console.log('bp2');
+      // Update the button text after a few seconds
+      // of displaying the previous message `...enough balance`
+      // while waiting for the `requestTransfer` to complete
+      setTimeout(() => {
+        el.target.textContent = "Requesting transfer...";
+      }, 3000);
 
       // The argument that we'll pass on requestTransfer call
       const requestTransferArg = {
@@ -53,29 +55,18 @@ async function onButtonPress(el) {
         amount: coffeeAmount,
       };
 
-      console.log('bp3');
-
-      // Update the button text
-      // while waiting for the `requestTransfer` to complete
-      setTimeout(() => {
-        el.target.textContent = "Loading...";
-      }, 3000);
-
       // Assigns the request transfer result value to transfer
       const transfer = await window.ic?.plug?.requestTransfer(requestTransferArg);
 
-      console.log('transfer', transfer);
-
-      // Does a basic verification
-      // which checks if the transfer response has a match
-      // and verifies that is of status `COMPLETED`
-      const hasSuccessfulTransfer = transfer?.transactions?.transactions[0]?.amount == requestTransferArg.amount
-        && transfer?.transactions?.transactions[0]?.status == 'COMPLETED';
+      // Assigns the latest transaction status to a variable transferStatus
+      const transferStatus = transfer?.transactions?.transactions[0]?.status;
 
       // On transfer, we update the button text
       // in accordance to the transfer state (success or failure)
-      if (hasSuccessfulTransfer) {
-        el.target.textContent = `Plug wallet transferred ${coffeeAmount}`;
+      if (transferStatus === 'COMPLETED') {
+        el.target.textContent = `Plug wallet transferred ${coffeeAmount} e8s`;
+      } else if (transferStatus === 'PENDING') {
+        el.target.textContent = "Plug wallet is pending.";
       } else {
         el.target.textContent = "Plug wallet failed to transfer";
       }
