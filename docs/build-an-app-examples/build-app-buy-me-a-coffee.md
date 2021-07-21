@@ -14,7 +14,7 @@ A simple button that when pressed, requests a connection to the Plug wallet and 
 
 The guide assumes you have some basic knowledge of HTML, CSS and Javascript, we'll keep it easy!
 
-It's recommended to read the [Getting started](/getting-started) guide before you dive into the examples, as it gives you an overview of how Plug works.
+It's recommended to read the [Getting started](/getting-started/connect-to-plug/) guide before you dive into the examples, as it gives you an overview of how Plug works.
 
 Make sure you use a code editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime text](https://www.sublimetext.com/), for editing the source-code!
 
@@ -146,7 +146,7 @@ Feel free to edit `main.css` and change the styles to your liking! For example, 
 
 We are now going to create our main javascript file where we'll implement the `call-to-action`.
 
-Create a file named `app.js` in the project directory. This is where we'll put our implementation code to handle the requests via the [Plug's](/getting-started) application programming interface ([API](https://en.wikipedia.org/wiki/API)), as described in the [Getting started guide](/getting-started).
+Create a file named `app.js` in the project directory. This is where we'll put our implementation code to handle the requests via the [Plug's](/getting-started/connect-to-plug/) application programming interface ([API](https://en.wikipedia.org/wiki/API)), as described in the [Getting started guide](/getting-started/connect-to-plug/).
 
 As an initial placeholder, let's add a "mouse-click" event listener to the `call-to-action` that'll show an alert!
 
@@ -209,7 +209,7 @@ We can break it down in the following steps:
 
 ## Detect the Plug extension 🔎
 
-Firstly, we check if the end-user has the Plug extension in the current browser, as documented in the [Getting started guide](/getting-started). 
+Firstly, we check if the end-user has the Plug extension in the current browser, as documented in the [Getting started guide](/getting-started/connect-to-plug/). 
 
 Notice that we make the function [asynchronous](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), as we're dealing with a network request, which is resolved at anytime in the future and as such, a response we need to await.
 
@@ -358,7 +358,7 @@ async function onButtonPress() {
 
 !!! Important
 
-      As described in the [Getting started](/getting-started), the asynchronous method
+      As described in the [Getting started](/getting-started/connect-to-plug/), the asynchronous method
       **requestBalance** response data is an array, as such, we pick the first result value that is an object type and get the value of the field name "value" of the object.
 
 If you're not familiar with the question mark in `window.ic?.plug?.requestBalance`, don't be worried as that's syntax sugar to help us access nested properties, read more about optional chaining [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
@@ -371,7 +371,7 @@ You should see the correspondent message to your account balance: `Plug wallet h
 
 Continue editing the `app.js` file.
 
-In the "has enough balance" block, make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `to` and `amount`, as described in our [Getting started](/getting-started).
+In the "has enough balance" block, make the `requestTransfer` call, that requires us to pass an argument to the function, that is an object with required fields `to` and `amount`, as described in our [Getting started](/getting-started/connect-to-plug/).
 
 ```js
 const requestTransferArg = {

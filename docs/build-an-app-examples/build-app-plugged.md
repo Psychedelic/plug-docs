@@ -382,7 +382,7 @@ We now have to replace each alert we used as a placeholder by the actual impleme
 
 ## Plug action implementations 👷🏻‍♀️
 
-The `Plug` API is described in our [Getting started](/getting-started) guide and since our calls happen in the Internet Computer network, we have to await for the calls to resolve, as we handle them [asynchronously](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous).
+The `Plug` API is described in our [Getting started](/getting-started/connect-to-plug/) guide and since our calls happen in the Internet Computer network, we have to await for the calls to resolve, as we handle them [asynchronously](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous).
 
 Here's an example of an asynchronous function to handle the `btn-connect` button click.
 
