@@ -1,17 +1,3 @@
-// Mock service
-const timeout = 1200;
-window.ic = {
-  plug: {
-    isConnected: async () => new Promise((resolve) => setTimeout(resolve.bind(null, true), timeout)),
-    requestConnect: async () => new Promise((resolve) => setTimeout(resolve.bind(null, true), timeout)),
-    requestBalance: async () => new Promise((resolve) => setTimeout(resolve.bind(null, 5_000_000_000), timeout)),
-    requestTransfer: async () => new Promise((resolve) => setTimeout(resolve.bind(null, 2_500_000), timeout)),
-  },
-};
-
-// App
-const appName = 'Plugged';
-
 // Elements list
 const els = {};
 
@@ -22,7 +8,6 @@ function main() {
   els.btnIsConnected = document.querySelector('#btn-is-connected');
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
   els.btnRequestTransfer = document.querySelector('#btn-request-transfer');
-  els.inputConnectedApps = document.querySelector('input[name="connected-apps"]');
   els.output = document.querySelector('#output');
 
   // Initialise click listener for buttons
@@ -62,7 +47,6 @@ function onButtonPressHandler(el) {
 async function onBtnConnect() {
   outputWrite('onBtnConnect() call');
   const response = await window.ic?.plug?.requestConnect();
-  els.inputConnectedApps.value = response ? appName : '';
   outputWrite(`onBtnConnect() call response ${response}`);
 }
 
