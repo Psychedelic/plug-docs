@@ -293,7 +293,7 @@ function onButtonPressHandler(el) {
 }
 ```
 
-For each element in `els` assign the `click` event listener, as follows:
+In the body of the function `main`, just after the selectors, add the `click` event listeners, as follows:
 
 ```js
 // Initialise click listener for buttons
@@ -303,9 +303,9 @@ els.btnRequestBalance.addEventListener('click', onButtonPressHandler);
 els.btnRequestTransfer.addEventListener('click', onButtonPressHandler);
 ```
 
-You can keep it a bit simpler writing it in a `declarative` or  in a more `functional` programming style.
+You can keep it a bit simpler writing it in a `declarative` or  in a more `functional` programming style, instead of the suggested code above that does it one-by-one.
 
-What the following code does is to go through each `element` of the constant variable `els`, filters by asserting the type `button` and adds a `click` event listener!
+The alternative goes through each `element` of the constant variable `els`, filters by asserting the type `button` and adds a `click` event listener!
 
 Pick whichever style makes more sense to you!
 
