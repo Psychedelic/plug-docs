@@ -25,9 +25,9 @@ markdown_extensions:
 nav:
   - Welcome to Plug 👋: index.md
   - Getting Started 🔌:
-    - Connect to Plug: getting-started/connect-to-plug.md
-    - Query Balances / Info: getting-started/connect-to-plug.md #requestBalance()
-    - Trigger Transactions : getting-started/connect-to-plug.md #requestTransfer(SendICPTsArgs)
+    - Connect to Plug: getting-started/connect-to-plug/#requestconnect
+    - Query Balances / Info: getting-started/connect-to-plug/#requestbalance
+    - Trigger Transactions : getting-started/connect-to-plug/#requesttransfersendicptsargs
   - Build an App Examples 💡: 
     - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
     - Plugged: build-an-app-examples/build-app-plugged.md

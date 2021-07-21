@@ -50,7 +50,7 @@ window.ic.plug.requestConnect()
 
 !!! Important
 
-    Because of browser security restrictions, access to the Plug extension API is only allowed from pages accessed via HTTP. For example, you'd be allowed to interact with it from the current [documentation URL](https://docs.plugwallet.ooo/getting-started/connect-to-plug/), but not the default options page `chrome-extension://xxxx/options.html`.
+    Because of browser security restrictions, access to the Plug extension API is only allowed from pages accessed via HTTP/HTTPS. For example, you'd be allowed to interact with it from the current [documentation URL](https://docs.plugwallet.ooo/getting-started/connect-to-plug/), but not the default options page `chrome-extension://xxxx/options.html`.
 
 A `Plug notification` window will pop-up, displaying the options to `Allow` or `Decline` the connection to the user wallet:
 
@@ -119,17 +119,20 @@ As an example, copy and paste the following code snippet into the console and ex
 requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `SendICPTsArgs` that is an object of fields:
 
 SendICPTsArgs:
+
 - to
-- amount
+- amount (an e8s value)
 - opts (SendOpts)
 
 SendOpts (optional):
+
 - fee
 - memo
 - from_subaccount
 - created_at_time (TimeStamp)
 
 TimeStamp (optional):
+
 - timestamp_nanos
 
 ```js
@@ -164,27 +167,7 @@ The response data structure, otherwise throws an error:
 
 ```js
 Object {
-  total: Number;
-  transactions: [{
-    hash: String,
-    from: String,
-    to: String
-    amount: BigInt,
-    currency: {
-      symbol: String,
-      decimals: Number,
-    },
-    fee: {
-      amount: BigInt,
-      currency: {
-        symbol: String,
-        decimals: Number,
-      },
-    };
-    timestamp: Number,
-    status: 'COMPLETED' || 'REVERTED' || 'PENDING',
-    type: 'SEND' || 'RECEIVE' || 'BURN' || 'MINT',
-  }]
+  height: Number
 }
 ```
 
