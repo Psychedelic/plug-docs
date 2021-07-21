@@ -213,6 +213,8 @@ Firstly, we check if the end-user has the Plug extension in the current browser,
 
 Notice that we make the function [asynchronous](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), as we're dealing with a network request, which is resolved at anytime in the future and as such, a response we need to await.
 
+Edit the function body for `onButtonPress` and replace the `alert` placeholder with:
+
 ```js
 async function onButtonPress() {
   const hasAllowed = await window.ic.plug.requestConnect();
