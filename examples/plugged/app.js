@@ -4,6 +4,8 @@ const els = {};
 // Initialises the application listeners and handlers
 function main() {
   // Assign elements to the elements list
+  els.receiverPrincipalId = document.querySelector('#receiver-principal-id');
+  els.amount = document.querySelector('#amount');
   els.btnConnect = document.querySelector('#btn-connect');
   els.btnIsConnected = document.querySelector('#btn-is-connected');
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
@@ -67,10 +69,18 @@ async function onBtnRequestBalance() {
 // On button press request transfer handler
 async function onBtnRequestTransfer() {
   outputWrite('onBtnRequestTransfer() call');
+  const to = els.receiverPrincipalId?.value;
+  const amount = Number(els.amount?.value.replaceAll('_', ''));
   const requestTransferArg = {
-    to: 'xxxx-xxxx-xxxx-xxxx-xxxx', // replace by valid Principal ID
-    amount: 0, // the amount in e8s (fractional unit of ICP)
+    to,
+    amount,
   };
+  
+  if (!to) {
+    outputWrite(`onBtnRequestTransfer() call failure, missing account id!`);
+    return;
+  };
+
   const response = await window.ic?.plug?.requestTransfer(requestTransferArg);
   outputWrite(`onBtnRequestTransfer() call response ${JSON.stringify(response)}`);
 }
@@ -79,6 +89,11 @@ async function onBtnRequestTransfer() {
 function outputWrite(text) {
   els.output.textContent += (els.output.textContent ? `\n` : '') + `> ${text}`;
   els.output.scrollTop = els.output.scrollHeight;
+}
+
+// Receiver Principal ID getter
+function getReceiverPrincipalId() {
+  return els.receiverPrincipalId?.value;
 }
 
 // Calls the Main function when the document is ready

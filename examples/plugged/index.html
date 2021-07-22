@@ -10,6 +10,16 @@
     <img id="logo" src="plug-logo.svg" alt="Plug" />
     <div id="app" class="container mx-auto py-6 px-2 mt-20">
       <h1 class="text-3xl font-bold mb-10">Plugged</h1>
+      <div class="container space-y-4">
+        <div>
+          <label class="text-gray-500 mb-1 block">Send to address</label>
+          <input id="receiver-principal-id" class="w-1/2 border-2 rounded-md border-gray-300 p-2" />
+        </div>
+        <div>
+          <label class="text-gray-500 mb-1 block">Amount (e8s)</label>
+          <input id="amount" class="w-1/2 border-2 rounded-md border-gray-300 p-2" />
+        </div>
+      </div>
       <div class="grid grid-cols-3 gap-4 pb-6 mt-10">
         <div>
           <p class="text-base font-bold mb-4">Wallet</p>
