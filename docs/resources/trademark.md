@@ -8,7 +8,7 @@ Fleek LLC originally conceived the Plug and is in charge of distributing its ope
 
 We take the usage of our brand and service trademarks very seriously, as it is our responsibility to ensure all Plug users whether Fleek LLC is the entity behind a service or website; and that the resources, platforms, services, and open source code/software that is shared represents unmodified Plug software.
 
-These trademark policies affect the Plug brand, and associated image, logos, websites, and content. **Want to ask for permission to utilize our branding, or report a misuse? Contact us at hi@plugwallet.ooo**
+These trademark policies affect the Plug brand, and associated image, logos, websites, and content. **Want to ask for permission to utilize our branding, or report a misuse? Contact us at yo@plugwallet.ooo**
 
 ## You are allowed to:
 (Without explicit concent)

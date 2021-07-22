@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <title>Plugged</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/base.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css" />
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="app.js?202107221319"></script>
+  </head>
+  <body>
+    <img id="logo" src="plug-logo.svg" alt="Plug" />
+    <div id="app" class="container mx-auto py-6 px-2 mt-20">
+      <h1 class="text-3xl font-bold mb-10">Plugged</h1>
+      <div class="container space-y-4">
+        <div>
+          <label class="text-gray-500 mb-1 block">Send to address</label>
+          <input id="receiver-principal-id" class="w-1/2 border-2 rounded-md border-gray-300 p-2" />
+        </div>
+        <div>
+          <label class="text-gray-500 mb-1 block">Amount (e8s)</label>
+          <input id="amount" class="w-1/2 border-2 rounded-md border-gray-300 p-2" />
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-4 pb-6 mt-10">
+        <div>
+          <p class="text-base font-bold mb-4">Wallet</p>
+          <div class="flex flex-col space-y-4">
+            <div>
+              <button
+                id="btn-connect"
+                class="
+                  btn
+                  transition
+                  duration-300
+                  bg-gray-300
+                  hover:bg-gray-100
+                  py-2
+                  px-6"
+              >
+                Connect
+              </button>
+            </div>
+            <div>
+              <button
+                id="btn-is-connected"
+                class="
+                  btn
+                  transition
+                  duration-300
+                  bg-gray-300
+                  hover:bg-gray-400
+                  py-2
+                  px-6"
+              >
+                isConnected
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="text-base font-bold mb-4">Tokens</p>
+          <div class="flex flex-col space-y-4">
+            <div>
+              <button
+                id="btn-request-balance"
+                class="
+                  btn
+                  transition
+                  duration-300
+                  bg-gray-300
+                  hover:bg-gray-100
+                  py-2
+                  px-6"
+              >
+                requestBalance
+              </button>
+            </div>
+            <div>
+              <button
+                id="btn-request-transfer"
+                class="
+                  btn
+                  transition
+                  duration-300
+                  bg-gray-300
+                  hover:bg-gray-100
+                  py-2
+                  px-6"
+              >
+                requestTransfer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <label class="text-gray-500 mb-1 block">Output</label>
+        <textarea id="output" class="h-40 w-full border-2 rounded-md border-gray-300 p-2"></textarea>
+      </div>
+    </div>
+  </body>
+</html>
