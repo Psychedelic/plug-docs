@@ -6,7 +6,7 @@ date: "1"
 
 ![](imgs/plugged-example.png)
 
-The application we are going to build today is called `Plugged`. A simple application that provides a list of buttons to trigger actions to interact with the Plug extension.
+The application we are going to build today is called **Plugged**, a simple application that provides a list of buttons to trigger actions to interact with the Plug extension.
 
 ## Requirements 🤔
 
@@ -61,14 +61,16 @@ Replace each comment in the `index.html`, linking to the respective source file 
 
 As we can see in the top screenshot for the project look, we have the following structure:
 - Title at the top
-- Two row like containers
-  - The first for all the button columns
-  - The second for the output console
+- Three row like containers
+  - The first for user input
+  - The second for all the button columns
+  - The third for the output console
 
 ```html
 <div id="app">
   <!-- Title -->
   <h1>Plugged</h1>
+  <!-- Row like container for user input -->
   <!-- Row like container for the button columns -->
   <div>
     <!-- Column for Wallet buttons -->
@@ -78,7 +80,7 @@ As we can see in the top screenshot for the project look, we have the following 
 </div>
 ```
 
-We're going to replace the comments with the required structure, as we go.
+We're going to replace the comments with the required structure, as we go!
 
 ## Custom styles 👄
 
@@ -121,6 +123,17 @@ In the `index.html` replace the comment `<!-- Application container -->` with:
 <div id="app" class="container mx-auto py-6 px-2 mt-20">
   <!-- Title -->
   <h1 class="text-3xl font-bold mb-10">Plugged</h1>
+  <!-- Row like container for user input -->
+  <div class="container space-y-4">
+    <div>
+      <label class="text-gray-500 mb-1 block">Send to address</label>
+      <input id="receiver-principal-id" class="w-1/2 border-2 rounded-md border-gray-300 p-2" />
+    </div>
+    <div>
+      <label class="text-gray-500 mb-1 block">Amount (e8s)</label>
+      <input id="amount" class="w-1/2 border-2 rounded-md border-gray-300 p-2" />
+    </div>
+  </div>
   <!-- Row like container for the button columns -->
   <div class="grid grid-cols-3 gap-4 pb-6 mt-10">
     <!-- Column for Wallet buttons -->
@@ -252,6 +265,8 @@ Start by writing the DOM selectors and assign each element to a list of elements
 const els = {};
 
 // Assign elements to the elements list
+els.receiverPrincipalId = document.querySelector('#receiver-principal-id');
+els.amount = document.querySelector('#amount');
 els.btnConnect = document.querySelector('#btn-connect');
 els.btnIsConnected = document.querySelector('#btn-is-connected');
 els.btnRequestBalance = document.querySelector('#btn-request-balance');
@@ -267,6 +282,8 @@ const els = {};
 // Initialises the application listeners and handlers
 function main() {
   // Assign elements to the elements list
+  els.receiverPrincipalId = document.querySelector('#receiver-principal-id');
+  els.amount = document.querySelector('#amount');
   els.btnConnect = document.querySelector('#btn-connect');
   els.btnIsConnected = document.querySelector('#btn-is-connected');
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
@@ -288,6 +305,8 @@ Start by implementing a simple placeholder that shows an alert for now, we'll im
 ```js
 function main () {
   // Assign elements to the elements list
+  els.receiverPrincipalId = document.querySelector('#receiver-principal-id');
+  els.amount = document.querySelector('#amount');
   els.btnConnect = document.querySelector('#btn-connect');
   els.btnIsConnected = document.querySelector('#btn-is-connected');
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
@@ -305,6 +324,8 @@ In the body of the function `main`, just after the selectors, add the `click` ev
 ```js
 function main () {
   // Assign elements to the elements list
+  els.receiverPrincipalId = document.querySelector('#receiver-principal-id');
+  els.amount = document.querySelector('#amount');
   els.btnConnect = document.querySelector('#btn-connect');
   els.btnIsConnected = document.querySelector('#btn-is-connected');
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
@@ -327,6 +348,8 @@ Pick whichever style makes more sense to you!
 ```js
 function main () {
   // Assign elements to the elements list
+  els.receiverPrincipalId = document.querySelector('#receiver-principal-id');
+  els.amount = document.querySelector('#amount');
   els.btnConnect = document.querySelector('#btn-connect');
   els.btnIsConnected = document.querySelector('#btn-is-connected');
   els.btnRequestBalance = document.querySelector('#btn-request-balance');
