@@ -10,7 +10,7 @@ We're going to build a very simple application called "Buy me a coffee".
 
 A simple button that when pressed, requests a connection to the Plug wallet and a transfer!
 
-A [live demo](http://demo.plugwallet.ooo/buy-me-a-coffee?id=xxx&amount=yyy) is available but make sure to replace the url parameters in the address bar with your desired values 🎁 for testing! If you're clueless, learn more [here](#live-demo).
+A [live demo](http://demo.plugwallet.ooo/buy-me-a-coffee?id=xxx&amount=yyy) is available but make sure to replace the url parameters in the address bar with your desired values for testing! If you're clueless, learn more [here](#live-demo).
 
 ## Requirements 🤔
 
@@ -439,9 +439,9 @@ If everything's done correctly you should have a working application, that conne
 
 Hope you enjoyed the read this far and got to build a simple application with Plug!
 
-## Live demo
+## Live demo 🎁
 
-A [live demo](http://demo.plugwallet.ooo/buy-me-a-coffee?id=xxx&amount=yyy) is available but make sure to replace the url parameters in the address bar with your desired values 🎁 for testing!
+A [live demo](http://demo.plugwallet.ooo/buy-me-a-coffee?id=xxx&amount=yyy) is available but make sure to replace the url parameters in the address bar with your desired values for testing!
 
 If you're clueless, here's an example where the `id` and `amount` are replaced:
 
