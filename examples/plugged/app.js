@@ -76,8 +76,6 @@ async function onBtnRequestTransfer() {
     amount,
   };
 
-  console.log('[debug] requestTransferArg', requestTransferArg)
-  
   if (!to) {
     outputWrite(`onBtnRequestTransfer() call failure, missing account id!`);
     return;
