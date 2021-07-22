@@ -10,6 +10,8 @@ We're going to build a very simple application called "Buy me a coffee".
 
 A simple button that when pressed, requests a connection to the Plug wallet and a transfer!
 
+A [live demo](http://demo.plugwallet.ooo/buy-me-a-coffee?id=xxx&amount=yyy) is available but make sure to replace the url parameters in the address bar with your desired values 🎁 for testing! If you're clueless, learn more [here](#live-demo).
+
 ## Requirements 🤔
 
 The guide assumes you have some basic knowledge of HTML, CSS and Javascript, we'll keep it easy!
@@ -436,6 +438,17 @@ Save the changes, refresh the browser and play with it!
 If everything's done correctly you should have a working application, that connects to Plug and makes a transfer.
 
 Hope you enjoyed the read this far and got to build a simple application with Plug!
+
+## Live demo
+
+A [live demo](http://demo.plugwallet.ooo/buy-me-a-coffee?id=xxx&amount=yyy) is available but make sure to replace the url parameters in the address bar with your desired values 🎁 for testing!
+
+If you're clueless, here's an example where the `id` and `amount` are replaced:
+
+- http://demo.plugwallet.ooo/buy-me-a-coffee?id=xxx&amount=yyy
+- http://demo.plugwallet.ooo/buy-me-a-coffee?id=893jk-u41jaz-439xx&amount=2000000
+
+The id should be a valid Principal or Address id, the amount in ([e8s](https://sdk.dfinity.org/docs/token-holders/self-custody-quickstart.html)) and you'll have to open or refresh the page after the changes!
 
 ## Project source-code ⚙️
 

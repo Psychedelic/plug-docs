@@ -1,11 +1,17 @@
+// For the live demo
+// the Principal or Account id is set in the URL as a query string
+// Here's an example,
+// http://demo.plugwallet.ooo/buy-me-a-coffee?id=cujev-3mrbh-xae&amount=4_000_000
+const urlParams = new URLSearchParams(window.location.search);
+
 // Receiver's account id
 // a valid Principal ID or Account ID
-const receiverAccountId = 'xxxxx-xxxxx-xxxxx-xxxxx';
+const receiverAccountId = urlParams.get('id');
 
 // Coffee amount in e8s
 // fractional units of ICP tokens
 // For example, 0.2 ICP is 20_000_000 e8s.
-const coffeeAmount = 4_000_000;
+const coffeeAmount = Number(urlParams.get('amount').replaceAll('_', ''));
 
 // Initialises the application listeners and handlers
 function main() {
