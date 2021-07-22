@@ -8,6 +8,8 @@ date: "1"
 
 The application we are going to build today is called **Plugged**, a simple application that provides a list of buttons to trigger actions to interact with the Plug extension.
 
+A [live demo](http://demo.plugwallet.ooo/plugged/) is available, use the input fields to place your desired values 🎁 for testing!
+
 ## Requirements 🤔
 
 The guide assumes you have some basic knowledge of HTML, CSS and Javascript, we promise to keep it simple!
