@@ -93,6 +93,8 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 
 createAgent() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method for instantiating an Agent to talk to the [Internet Computer](https://dfinity.org/) via HTTP, which allows users to interact with a client of the internet computer.
 
+The agent is the core piece for using Plug as an authentication provider, since it can proxy sign canister calls using the identity of the user visiting your site or application. It can also provide the Principal ID to identify the user in your platform. 
+
 The `createAgent` takes a list ([array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)) of allowed Canister Ids (whitelist).
 
 On instantiation the `Agent` is assigned to the window Plug object, and available as `window.ic.plug.agent`. As such, once called and instantiated there's no return value.
@@ -106,6 +108,8 @@ On instantiation the `Agent` is assigned to the window Plug object, and availabl
   // Initialise Agent, expects no return value
   await window?.ic?.plug?.createAgent(whitelist);
 
+  // Gets the principal associated with the current user identity
+  // see https://sdk.dfinity.org/docs/developers-guide/cli-reference/dfx-identity.html#_dfx_identity_get_principal
   const principal = await window?.ic?.plug?.agent?.getPrincipal();
 
   // We use the `toText` method to convert the principal to text
