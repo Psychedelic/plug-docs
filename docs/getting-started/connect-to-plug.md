@@ -116,7 +116,7 @@ On instantiation the `Agent` is assigned to the window Plug object, and availabl
 
 ### createActor()
 
-createActor() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method that creates an Actor to interace with the [Internet Computer](https://dfinity.org/). Returns an Actor for the provided Canister Id and interface factory ([Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) or [IDL](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html#_why_create_a_new_idl)).
+createActor() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method that creates an Actor to interact with the [Internet Computer](https://dfinity.org/). Returns an Actor for the provided Canister Id and interface factory ([Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) or [IDL](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html#_why_create_a_new_idl)).
 
 The `createActor` expects that the Agent is initialised beforehand by calling the `createAgent` method.
 
@@ -124,6 +124,10 @@ On instantiation the `Agent` is assigned to the window Plug object, as `window.i
 
 ```js
 (async () => {
+  // NNS Canister Id as an example
+  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+  const whitelist = [nnsCanisterId];
+
   // Initialise the Agent beforehand
   await window?.ic?.plug?.createAgent(whitelist);
 
