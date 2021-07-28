@@ -89,6 +89,59 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 })()
 ```
 
+### createAgent()
+
+createAgent() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method for instantiating an Agent to talk to the [Internet Computer](https://dfinity.org/) via HTTP, which allows users to interact with a client of the internet computer.
+
+The `createAgent` takes a list ([array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)) of allowed Canister Ids (whitelist).
+
+On instantiation the `Agent` is assigned to the window Plug object, and available as `window.ic.plug.agent`. As such, once called and instantiated there's no return value.
+
+```js
+(async () => {
+  // NNS Canister Id as an example
+  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+  const whitelist = [nnsCanisterId];
+
+  // Initialise Agent, expects no return value
+  await window?.ic?.plug?.createAgent(whitelist);
+
+  const principal = await window?.ic?.plug?.agent?.getPrincipal();
+
+  // We use the `toText` method to convert the principal to text
+  // see https://sdk.dfinity.org/docs/base-libraries/principal#toText
+  console.log(principal.toText());
+})()
+```
+
+### createActor()
+
+createActor() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method that creates an Actor to interace with the [Internet Computer](https://dfinity.org/). Returns an Actor for the provided Canister Id and interface factory ([Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) or [IDL](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html#_why_create_a_new_idl)).
+
+The `createActor` expects that the Agent is initialised beforehand by calling the `createAgent` method.
+
+On instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`.
+
+```js
+(async () => {
+  // Initialise the Agent beforehand
+  await window?.ic?.plug?.createAgent(whitelist);
+
+  // Create an actor to interact with the NNS Canister
+  // we pass the NNS Canister id and the interface factory
+  const NNSUiActor = await window.ic.plug.createActor({
+    canisterId: nnsCanisterId,
+    interfaceFactory: nnsUi,
+  });
+
+  // We can use any method described in the Candid (IDL)
+  // for example the get_stats()
+  // See https://github.com/dfinity/nns-dapp/blob/cd755b8/canisters/nns_ui/nns_ui.did
+  const stats = await NNSUiActor.get_stats();
+  console.log('NNS stats', stats);
+})()
+```
+
 ### requestBalance()
 
 requestBalance() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the user's ICP wallet balance, which is consulted in the [Internet Computer's Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview) for ICP, returning the amount of ICP the user's wallet in Plug holds.
