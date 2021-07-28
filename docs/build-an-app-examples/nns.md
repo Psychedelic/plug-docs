@@ -4,25 +4,24 @@ date: "1"
 
 # Plugged
 
-![](imgs/plugged-example.png)
+![](imgs/nns-example.png)
 
-The application we are going to build today is called **Plugged**, a simple application that provides a list of buttons to trigger actions to interact with the Plug extension.
+The application we are going to build today is called **NNS**, a simple application that provides some stats from the [NNS/UI Canister](https://nns.ic0.app/).
 
-A [live demo](http://demo.plugwallet.ooo/plugged/) is available, use the input fields to place your desired values 🎁 for testing!
+A [live demo](http://demo.plugwallet.ooo/nns/) is available for testing!
 
 ## Requirements 🤔
 
-The guide assumes you have some basic knowledge of HTML, CSS and Javascript, we promise to keep it simple!
+The guide assumes you have read the [Getting started](/getting-started/connect-to-plug/), completed the [Buy me a Coffee](build-app-buy-me-a-coffee.md) and 
+[Plugged](plugged.md)!
 
-It's recommended to read the build example [Buy me a Coffee](build-app-buy-me-a-coffee.md) guide before as it provides a simple example and helps install a [basic Http server](build-app-buy-me-a-coffee.md#http-server) in your local machine. Including, the [Plugged](plugged.md) tutorial.
+As such, we'll assume you know how to execute certain commands, how to run a basic HTTP Server, a few other things.
 
-We'll assume you have an HTTP Server installed and understand why you need it.
-
-Make sure you use a code editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime text](https://www.sublimetext.com/), for editing the source-code!
+If you haven't, complete them first and only after follow this guideline!
 
 ## Boilerplate 🏗
 
-We're going to provide the boilerplate code, as we expect you to have completed the tutorials for [Buy me a Coffee](build-app-buy-me-a-coffee.md) and [Plugged](plugged.md).
+We're going to provide the boilerplate code, as we expect you to have completed the basic tutorials for [Buy me a Coffee](build-app-buy-me-a-coffee.md) and [Plugged](plugged.md). The idea is to skip the basics!
 
 In the project directory, create a new file named `index.html` and copy and paste the following content:
 
