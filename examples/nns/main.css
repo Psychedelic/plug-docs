@@ -4,6 +4,8 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1.4;
 }
 
 #logo {
@@ -15,7 +17,6 @@
 }
 
 #btn-title {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 600;
 }
 
@@ -51,4 +52,45 @@
 
 .plug-icon {
   margin-right: 9px;
+}
+
+#nns-stats-container {
+  max-width: 400px;
+  border: 1px solid #bbb;
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 0.4rem 1rem;
+  margin-bottom: 20px;
+  background: linear-gradient(39deg, rgba(34,34,40,1) 0%, rgba(34,34,51,1) 40%, rgba(34,34,67,1) 94%);
+  color: #fff;
+}
+
+#nns-stats-container > div {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+#nns-stats-container > div label {
+  font-weight: bold;
+}
+
+#nns-stats-container > div:nth-child(2) label {
+  color: #F754D4;
+}
+
+#nns-stats-container > div:nth-child(3) label {
+  color: #1FD1EC;
+}
+
+#nns-stats-container > div:nth-child(4) label {
+  color: #FFD719;
+}
+
+#nns-stats-container > div:last-child {
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
 }
