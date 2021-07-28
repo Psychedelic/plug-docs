@@ -67,6 +67,7 @@ async function onButtonPress(el) {
   // Terminate on NNS get_stats failure
   if (!stats) {
     els.btnTitle.textContent = "Oops! Failed to get the NNS Stats...";
+    return;
   }
 
   // Assign data to nodes

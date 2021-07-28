@@ -30,21 +30,37 @@ In the project directory, create a new file named `index.html` and copy and past
   <head>
     <title>NNS</title>
     <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="candid.js?202107281700"></script>
     <script type="text/javascript" src="app.js?202107281700"></script>
   </head>
   <body>
-    <img id="logo" src="plug-logo.svg" alt="Plug" />
+    <img id="logo" src="plug-logo.svg" alt="Plug">
     <div id="app">
-      <button id="button-connect" class="button-rainbow">
-        <div class="button-container">
-          <img
-            src="plug-light.svg"
-            alt="Plug logo"
-            class="plug-icon"
-          />
-          <span id="btn-title">Connect with Plug</span>
+      <div>
+        <div id="nns-stats-container" class="hidden">
+          <h3>NNS</h3>
+          <div>
+            <label>Accounts</label>
+            <span id="accounts_count"></span>
+          </div>
+          <div>
+            <label>Transactions</label>
+            <span id="transactions_count"></span>
+          </div>
+          <div>
+            <label>Sub accounts</label>
+            <span id="sub_accounts_count"></span>
+          </div>
         </div>
-      </button>
+        <div>
+          <button id="button-connect" class="button-rainbow">
+            <div class="button-container">
+              <img src="plug-light.svg" alt="Plug logo" class="plug-icon">
+              <span id="btn-title">Connect with Plug</span>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -59,6 +75,8 @@ Create the stylesheet file named `main.css` and copy and paste the following con
   justify-content: center;
   width: 100%;
   height: 100%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1.4;
 }
 
 #logo {
@@ -70,7 +88,6 @@ Create the stylesheet file named `main.css` and copy and paste the following con
 }
 
 #btn-title {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 600;
 }
 
@@ -107,12 +124,77 @@ Create the stylesheet file named `main.css` and copy and paste the following con
 .plug-icon {
   margin-right: 9px;
 }
+
+#nns-stats-container {
+  max-width: 400px;
+  border: 1px solid #bbb;
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 0.4rem 1rem;
+  margin-bottom: 20px;
+  background: linear-gradient(39deg, rgba(34,34,40,1) 0%, rgba(34,34,51,1) 40%, rgba(34,34,67,1) 94%);
+  color: #fff;
+}
+
+#nns-stats-container > div {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+#nns-stats-container > div label {
+  font-weight: bold;
+}
+
+#nns-stats-container > div:nth-child(2) label {
+  color: #F754D4;
+}
+
+#nns-stats-container > div:nth-child(3) label {
+  color: #1FD1EC;
+}
+
+#nns-stats-container > div:nth-child(4) label {
+  color: #FFD719;
+}
+
+#nns-stats-container > div:last-child {
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
 ```
 
 Create a the file `app.js` and keep it simple for now, as we'll go through the process together!
 
 ```js
-console.log('app.js placeholder!');
+// Elements list
+const els = {};
+
+// Initialises the application listeners and handlers
+function main() {
+  els.btnTitle = document.querySelector('#btn-title')
+  els.nnsStatsContainer = document.querySelector('#nns-stats-container');
+  els.button = document.querySelector('#button-connect');
+  els.button.addEventListener("click", onButtonPress);
+}
+
+// Button press handler
+async function onButtonPress(el) {
+  const hasAllowed = await window.ic?.plug?.requestConnect();
+
+  if (!hasAllowed) {
+    els.btnTitle.textContent = "Plug wallet connection was refused";
+    return;
+  }
+
+  els.btnTitle.textContent = "Plug wallet is connected";
+}
+
+// Calls the Main function when the document is ready
+document.addEventListener("DOMContentLoaded", main);
 ```
 
 ## Local server 🤖
@@ -127,9 +209,167 @@ http-server .
 
 ## Application logic 🧠
 
-## Plug integration 👷🏻‍♀️
+We're going to use the Plug autentication to interact with the [NNS/UI Canister](https://nns.ic0.app/), to simplifly the cumbersome process that otherwise required.
 
-## Call-to-action handlers 📢
+To summarize, we'll break it down to the following steps:
+
+- [Create an Agent](#create-an-agent) to interact with the Internet Computer
+- [Create an Actor](#create-an-actor) to interact with the Canister
+- [Consume the Canister endpoint data](#consume-the-canister-endpoint-data)
+
+## Create an agent 🕵🏻‍♀️
+
+In the `app.js`, after the connection being granted, we'll call the `createAgent` by passing a whitelist (a list of allowed Canister ids). For our use-case case we use a single Canister id to represent the `NNS/UI`.
+
+Create the list at the top of the file, in the same level or scope of `main`:
+
+```js
+// Canister Ids
+const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+
+// Whitelist
+const whitelist = [
+  nnsCanisterId,
+];
+```
+
+In the body of the function `onButtonPress` make the `createAgent` call passing the `whitelist`, as follows:
+
+```js
+async function onButtonPress(el) {
+  const hasAllowed = await window.ic?.plug?.requestConnect();
+
+  if (!hasAllowed) {
+    els.btnTitle.textContent = "Plug wallet connection was refused";
+    return;
+  }
+
+  els.btnTitle.textContent = "Plug wallet is connected";
+
+  await window?.ic?.plug?.createAgent(whitelist);
+
+  if (!window.ic.plug?.agent) {
+    els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
+    return;
+  }
+}
+```
+
+Once the agent is instantianted the property `agent` is populated in the window Plug object (e.g. `window.ic.plug.agent`). 
+
+For the available methods, see the public methods in the **@dfinity/agent** [HTTP](https://github.com/dfinity/agent-js/blob/main/packages/agent/src/agent/http/index.ts) implementation source-code.
+
+
+!!! Important
+    
+    The version used in the Plug extension might be [differ](https://github.com/Psychedelic/plug-inpage-provider/blob/d64123c/package.json#L59), so make sure you check the versions in the production versions in use.
+
+
+## Create an actor 🧑‍🎨
+
+Open the `app.js` to edit the body of `onButtonPress`.
+
+To make interactions to the target NNS/UI Canister we need an [Actor](https://sdk.dfinity.org/docs/language-guide/actors-async.html), which represents the Canister we want to interact with via the [Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) (interface description language). Here's an example of the NNS/UI Candid [file](https://github.com/dfinity/nns-dapp/blob/cd755b8/canisters/nns_ui/nns_ui.did).
+
+When calling we pass the following arguments:
+- The Canister Id
+- The Interface Factory
+
+Once instantiated, we get an Actor object as the return value.
+
+```js
+const actor = await window.ic.plug.createActor({
+  canisterId: nnsCanisterId,
+  interfaceFactory: nnsUi,
+});
+```
+
+The interface factory can be obtained by using the Candid [tools](https://github.com/dfinity/candid#tools), instead of writting it manually. That's at least the preferred way to avoid any typos!
+
+At this point, the `onButtonPress` source-code should be inline with:
+
+```js
+async function onButtonPress(el) {
+  const hasAllowed = await window.ic?.plug?.requestConnect();
+
+  if (!hasAllowed) {
+    els.btnTitle.textContent = "Plug wallet connection was refused";
+    return;
+  }
+
+  els.btnTitle.textContent = "Plug wallet is connected";
+
+  await window?.ic?.plug?.createAgent(whitelist);
+
+  if (!window.ic.plug?.agent) {
+    els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
+    return;
+  }
+}
+```
+
+You'll notice that we only interrupt the application flow on error and on failure we need to reset to the initial state (e.g. the button text should not show an error message).
+
+## Consume the Canister endpoint data 🍩
+
+As described in the NNS/UI Candid [file](https://github.com/dfinity/nns-dapp/blob/cd755b8/canisters/nns_ui/nns_ui.did), we have a list of available methods and we'll use the `get_stats` to get some data:
+
+```js
+async function onButtonPress(el) {
+  const hasAllowed = await window.ic?.plug?.requestConnect();
+
+  if (!hasAllowed) {
+    els.btnTitle.textContent = "Plug wallet connection was refused";
+    return;
+  }
+
+  els.btnTitle.textContent = "Plug wallet is connected";
+
+  await window?.ic?.plug?.createAgent(whitelist);
+
+  if (!window.ic.plug?.agent) {
+    els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
+    return;
+  }
+
+  const NNSUiActor = await window.ic.plug.createActor({
+    canisterId: nnsCanisterId,
+    interfaceFactory: nnsUi,
+  });
+
+  // Terminate on NNS Actor initialisation failure
+  if (!NNSUiActor) {
+    els.btnTitle.textContent = "Oops! Failed to initialise the NNS Actor...";
+    return;
+  }
+
+  const stats = await NNSUiActor.get_stats();
+  console.log('NNS stats', stats);
+
+  if (!stats) {
+    els.btnTitle.textContent = "Oops! Failed to get the NNS Stats...";
+    return;
+  }
+}
+```
+
+The process is very simple and at this point you should see the available data in the developer console!
+
+## Conclusion ✅
+
+Now that we have data, we can pass it to the UI. So, add these the implementation after the `get_stats` response clause.
+
+Here's a simple example of how to do it for the `#accounts_count` HTML node, where after we reveal the UI Stats container:
+
+```js
+els.nnsStatsContainer.querySelector('#accounts_count').textContent = Number(stats.accounts_count);
+
+els.nnsStatsContainer.classList.remove('hidden');
+```
+
+Complete the process by providing the remaining HTML nodes (e.g. transactions_count, etc) with the correct data.
+
+Find them in the file `index.html` and update your `onButtonPress` implementation.
 
 ## Plug action implementations 👷🏻‍♀️
 
