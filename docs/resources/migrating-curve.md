@@ -50,7 +50,7 @@ Remember to, as you create your new wallet, to save your seed phrase somewhere s
 
 Now that you have your new wallet, you should click on your wallet’s name to copy your new Principal ID.
 
-In the image below, you can see we have two docs with our old wallet’s details and seed phrase; and a different one with our new wallet’s details and seed phrase. (The data show is from a test account).
+In the image below, you can see we have two docs with our old wallet’s details and seed phrase; and a different one with our new wallet’s details and seed phrase. (The data shown is from a test account).
 
 ![](imgs/st5.png)
 
