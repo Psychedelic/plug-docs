@@ -17,7 +17,7 @@ A [live demo](http://demo.plugwallet.ooo/plug-authentication-nns/) is available 
 The guide assumes you have read the [Getting started](/getting-started/connect-to-plug/), completed the [Buy me a Coffee](build-app-buy-me-a-coffee.md) and 
 [Plugged](plugged.md)!
 
-As such, we'll assume you know how to execute certain commands, how to run a basic HTTP Server, a few other things.
+As such, we'll assume you know how to execute certain commands, how to run a basic HTTP Server, and few other things.
 
 If you haven't, complete them first and only after follow this guideline!
 
@@ -211,7 +211,7 @@ http-server .
 
 ## Application logic 🧠
 
-We're going to use the Plug autentication to interact with the [NNS/UI Canister](https://nns.ic0.app/), to simplifly the cumbersome process that otherwise required.
+We're going to use the Plug connection to authenticate a user and have the user's identity to interact with the [NNS/UI Canister](https://nns.ic0.app/), to simplifly the cumbersome process that is otherwise required.
 
 To summarize, we'll break it down to the following steps:
 
@@ -221,7 +221,11 @@ To summarize, we'll break it down to the following steps:
 
 ## Create an agent 🕵🏻‍♀️
 
-In the `app.js`, after the connection being granted, we'll call the `createAgent` by passing a whitelist (a list of allowed Canister ids). For our use-case case we use a single Canister id to represent the `NNS/UI`.
+An Agent is required to talk to the Canister.
+
+In the `app.js`, after the connection being granted, we'll call the `createAgent` by passing a whitelist (a list of allowed Canister ids).
+
+For our use-case case we use a single Canister id to represent the `NNS/UI`.
 
 Create the list at the top of the file, in the same level or scope of `main`:
 
@@ -257,25 +261,28 @@ async function onButtonPress(el) {
 }
 ```
 
-Once the agent is instantianted the property `agent` is populated in the window Plug object (e.g. `window.ic.plug.agent`). 
+Once the agent is instantianted, the property `agent` is populated in the window Plug object (e.g. `window.ic.plug.agent`). 
 
 For the available methods, see the public methods in the **@dfinity/agent** [HTTP](https://github.com/dfinity/agent-js/blob/main/packages/agent/src/agent/http/index.ts) implementation source-code.
 
 
 !!! Important
     
-    The version used in the Plug extension might be [differ](https://github.com/Psychedelic/plug-inpage-provider/blob/d64123c/package.json#L59), so make sure you check the versions in the production versions in use.
+    The version used in the Plug extension might [differ](https://github.com/Psychedelic/plug-inpage-provider/blob/d64123c/package.json#L59), so make sure you check the versions in the production versions in use.
 
 
 ## Create an actor 🧑‍🎨
 
+To make interactions to the target NNS/UI Canister we need an [Actor](https://sdk.dfinity.org/docs/language-guide/actors-async.html).
+
 Open the `app.js` to edit the body of `onButtonPress`.
 
-To make interactions to the target NNS/UI Canister we need an [Actor](https://sdk.dfinity.org/docs/language-guide/actors-async.html), which represents the Canister we want to interact with via the [Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) (interface description language). Here's an example of the NNS/UI Candid [file](https://github.com/dfinity/nns-dapp/blob/cd755b8/canisters/nns_ui/nns_ui.did).
+The `Actor` represents the Canister we want to interact with via the [Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) (interface description language). Here's an example for the NNS/UI Candid [file](https://github.com/dfinity/nns-dapp/blob/cd755b8/canisters/nns_ui/nns_ui.did).
 
-When calling we pass the following arguments:
+When calling `createActor` we pass the following arguments:
+
 - The Canister Id
-- The Interface Factory
+- The Interface Factory (a function that creates the IDL object)
 
 Once instantiated, we get an Actor object as the return value.
 
@@ -286,7 +293,23 @@ const actor = await window.ic.plug.createActor({
 });
 ```
 
-The interface factory can be obtained by using the Candid [tools](https://github.com/dfinity/candid#tools), instead of writting it manually. That's at least the preferred way to avoid any typos!
+The interface factory can be obtained by using the Candid [tools](https://github.com/dfinity/candid#tools), instead of writting it manually.
+
+Here's an example of how you'd generate the interface factory for the `nns_ui.did`:
+
+```sh
+didc bind nns_ui.did -t js > nns_ui.did.js
+```
+
+Similarly, Typescript type definitions can be created by:
+
+```sh
+didc bind nns_ui.did -t ts > nns_ui.did.d.ts
+```
+
+!!! Note
+
+    This project provides the interface factory, so you don't have to generate it. Although, it's recommended to try generating it yourself for the learning experience!
 
 At this point, the `onButtonPress` source-code should be inline with:
 
@@ -310,7 +333,7 @@ async function onButtonPress(el) {
 }
 ```
 
-You'll notice that we only interrupt the application flow on error and on failure we need to reset to the initial state (e.g. the button text should not show an error message).
+You'll notice that we only interrupt the application flow on error, or failure. We'd need to reset to the initial state (e.g. the button text should not show an error message).
 
 ## Consume the Canister endpoint data 🍩
 

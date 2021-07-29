@@ -19,6 +19,10 @@ function main() {
 
 // Button press handler
 async function onButtonPress(el) {
+  console.log('els.button.disabled: ', els.button.disabled);
+  // Lock button events
+  els.button.disabled = true;
+
   // Assigns the request for the Plug wallet connection
   // result value to `hasAllowed`
   const hasAllowed = await window.ic?.plug?.requestConnect();
@@ -77,7 +81,19 @@ async function onButtonPress(el) {
 
   // Display the nns stats container
   els.nnsStatsContainer.classList.remove('hidden');
+
+  // Update with NNS status
+  els.btnTitle.textContent = "Showing the NNS Stats";
 }
+
+function reset() {
+  // Resets the state after 5 seconds
+  setTimeout(() => {
+    els.btnTitle.textContent = "Connect with Plug";
+    // Unock button events
+    els.button.disabled = false;
+  }, 5000);
+};
 
 // Calls the Main function when the document is ready
 document.addEventListener("DOMContentLoaded", main);

@@ -54,6 +54,10 @@
   margin-right: 9px;
 }
 
+#button-connect:disabled {
+  color: #448;
+}
+
 #nns-stats-container {
   max-width: 400px;
   border: 1px solid #bbb;
