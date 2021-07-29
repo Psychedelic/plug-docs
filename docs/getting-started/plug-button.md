@@ -68,6 +68,20 @@ To Use the component, you can simply do:
 />
 ```
 
+For example, let's say that you want to get the user's identity on connect:
+
+```js
+<PlugConnect
+  onConnectCallback={
+    () => console.log(window.ic.plug.agent.getPrincipal())
+  }
+/>
+```
+
+Here's how it'll look like in the **default light mode**:
+
+![](imgs/plug-connect-light.png){: style="max-width:220px"}
+
 The props `dark` and `title` are also supported:
 
 ```js
@@ -77,6 +91,10 @@ The props `dark` and `title` are also supported:
   title="My title"
 />
 ```
+
+Here's how it'll look like in **dark mode**:
+
+![](imgs/plug-connect-dark.png){: style="max-width:220px"}
 
 ## Conclusion
 
