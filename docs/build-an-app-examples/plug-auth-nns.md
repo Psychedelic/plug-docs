@@ -6,7 +6,7 @@ date: "1"
 
 ![](imgs/nns-example.png)
 
-The application we are going to build today is called **Plug Aythentication - NNS**, a simple application that provides some stats from the [NNS/UI Canister](https://nns.ic0.app/). This app showcases how Plug can be used to authenticate a user, and have that user's identity interact with an app's canisters (making proxy signed calls through Plug).
+The application we are going to build today is called **Plug Authentication for NNS**, a simple application that provides some stats from the [NNS/UI Canister](https://nns.ic0.app/). This app showcases how Plug can be used to authenticate a user, and have that user's identity interact with an app's canisters (making proxy signed calls through Plug).
 
 A [live demo](http://demo.plugwallet.ooo/nns/) is available for testing!
 
@@ -28,7 +28,7 @@ In the project directory, create a new file named `index.html` and copy and past
 ```html
 <html>
   <head>
-    <title>NNS</title>
+    <title>Plug Authentication for NNS</title>
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="candid.js?202107281700"></script>
     <script type="text/javascript" src="app.js?202107281700"></script>
@@ -38,7 +38,7 @@ In the project directory, create a new file named `index.html` and copy and past
     <div id="app">
       <div>
         <div id="nns-stats-container" class="hidden">
-          <h3>NNS</h3>
+          <h3>Plug Authentication for NNS</h3>
           <div>
             <label>Accounts</label>
             <span id="accounts_count"></span>
