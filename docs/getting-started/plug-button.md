@@ -48,7 +48,15 @@ npm login --registry=https://npm.pkg.github.com --scope=@Psychedelic
 
 Make sure you have followed the simple instructions for configuring your [NPM CLI](#npm-configuration), as our packages are hosted outside NPM's registry.
 
-If you have already, in your project root, add the package (we're using yarn but npm can be used):
+In the project root, create a `.npmrc` file and put the following content:
+
+```sh
+@psychedelic:registry=https://npm.pkg.github.com
+```
+
+This hints npm to look for **@Psychedelic** in the correct location.
+
+You can then, add the package (we're using yarn but npm can be used):
 
 ```
 yarn add @psychedelic/plug-connect
