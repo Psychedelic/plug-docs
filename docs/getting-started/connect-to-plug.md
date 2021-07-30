@@ -62,7 +62,7 @@ To understand how to read the response data for the `requestConnect` call and an
 
 ## Available interactions and methods
 
-### requestConnect
+### requestConnect(RequestConnectParams?)
 
 requestConnect() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new connection by showing a pop-up to the Plug user, that resolves to Boolean: `true` or `false` based on the users response.
 
@@ -78,6 +78,50 @@ Select `Allow` or `Decline` in the pop-up and to see the corresponding result (A
 })();
 ```
 
+Optionally, you can pass the following parameters to integrate Plug's Agent features, for authenticating a user's identity and requesting access to the Plug Agent to sign requests to your canisters on behalf of that identity.
+
+The fields are:
+
+  - whitelist - an Array of Canister Ids of type string
+  - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
+
+This is how it looks:
+
+```js
+Object {
+  whitelist?: ['canister-id'],
+  host?: 'https://network-address',
+}
+```
+
+Here's an hypotetical example:
+
+```js
+(async () => {
+  // Canister Ids
+  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+
+  // Whitelist
+  const whitelist = [
+    nnsCanisterId,
+  ];
+
+  // Host
+  const host = "https://mainnet.dfinity.network";
+
+  // Make the request
+  const result = await window.ic.plug.requestConnect({
+    whitelist,
+    host,
+  });
+
+  const connectionState = result ? "allowed" : "denied";
+  console.log(`The Connection was ${connectionState}!`);
+})();
+```
+
+Learn more by reading the [Plug button](/getting-started/plug-button) guide!
+
 ### isConnected()
 
 isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to check the connection status, that returns a Boolean: `true` or `false`.
@@ -89,13 +133,16 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 })()
 ```
 
-### createAgent()
+### createAgent(CreateAgentParams)
 
 createAgent() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method for instantiating an Agent to talk to the [Internet Computer](https://dfinity.org/) via HTTP, which allows users to interact with a client of the internet computer.
 
 The agent is the core piece for using Plug as an authentication provider, since it can proxy sign canister calls using the identity of the user visiting your site or application. It can also provide the Principal ID to identify the user in your platform. 
 
-The `createAgent` takes a list ([array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)) of allowed Canister Ids (whitelist).
+The `createAgent` takes an object of fields:
+
+  - whitelist - an Array of Canister Ids of type string
+  - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
 
 On instantiation the `Agent` is assigned to the window Plug object, and available as `window.ic.plug.agent`. As such, once called and instantiated there's no return value.
 
@@ -106,7 +153,9 @@ On instantiation the `Agent` is assigned to the window Plug object, and availabl
   const whitelist = [nnsCanisterId];
 
   // Initialise Agent, expects no return value
-  await window?.ic?.plug?.createAgent(whitelist);
+  await window?.ic?.plug?.createAgent({
+    whitelist,
+  });
 
   // Gets the principal associated with the current user identity
   // see https://sdk.dfinity.org/docs/developers-guide/cli-reference/dfx-identity.html#_dfx_identity_get_principal
@@ -175,11 +224,11 @@ As an example, copy and paste the following code snippet into the console and ex
 })();
 ```
 
-### requestTransfer(SendICPTsArgs)
+### requestTransfer(RequestTransferParams)
 
-requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `SendICPTsArgs` that is an object of fields:
+requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `RequestTransferParams` that is an object of fields:
 
-SendICPTsArgs:
+RequestTransferParams:
 
 - to
 - amount (an e8s value)
@@ -195,6 +244,8 @@ SendOpts (optional):
 TimeStamp (optional):
 
 - timestamp_nanos
+
+As in:
 
 ```js
 Object {
