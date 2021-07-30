@@ -215,15 +215,17 @@ We're going to use the Plug connection to authenticate a user and have the user'
 
 To summarize, we'll break it down to the following steps:
 
-- [Create an Agent](#create-an-agent) to interact with the Internet Computer
+- [Request a connection](#request-a-connection) to interact with the Internet Computer via Plug
 - [Create an Actor](#create-an-actor) to interact with the Canister
 - [Consume the Canister endpoint data](#consume-the-canister-endpoint-data)
 
-## Create an agent 🕵🏻‍♀️
+## Request a connection 🔌
 
 An Agent is required to talk to the Canister.
 
-In the `app.js`, after the connection being granted, we'll call the `createAgent` by passing a whitelist (a list of allowed Canister ids).
+In the `app.js`, after the connection being granted, an agent is automatically created.
+
+We call the `requestConnect` by passing a whitelist (a list of allowed Canister ids).
 
 For our use-case case we use a single Canister id to represent the `NNS/UI`.
 
@@ -239,13 +241,15 @@ const whitelist = [
 ];
 ```
 
-In the body of the function `onButtonPress` make the `createAgent` call passing the `whitelist`, as follows:
+In the body of the function `onButtonPress` make the `requestConnect` call passing the `whitelist`, as follows:
 
 ```js
 async function onButtonPress(el) {
-  const hasAllowed = await window.ic?.plug?.requestConnect();
+  const isConnected = await window.ic?.plug?.requestConnect({
+    whitelist,
+  });
 
-  if (!hasAllowed) {
+  if (!isConnected) {
     els.btnTitle.textContent = "Plug wallet connection was refused";
     return;
   }
