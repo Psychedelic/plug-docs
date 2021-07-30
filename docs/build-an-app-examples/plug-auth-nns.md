@@ -256,7 +256,7 @@ async function onButtonPress(el) {
 
   els.btnTitle.textContent = "Plug wallet is connected";
 
-  await window?.ic?.plug?.createAgent(whitelist);
+  await window?.ic?.plug?.requestConnect(whitelist);
 
   if (!window.ic.plug?.agent) {
     els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
@@ -328,7 +328,7 @@ async function onButtonPress(el) {
 
   els.btnTitle.textContent = "Plug wallet is connected";
 
-  await window?.ic?.plug?.createAgent(whitelist);
+  await window?.ic?.plug?.requestConnect(whitelist);
 
   if (!window.ic.plug?.agent) {
     els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
@@ -354,7 +354,7 @@ async function onButtonPress(el) {
 
   els.btnTitle.textContent = "Plug wallet is connected";
 
-  await window?.ic?.plug?.createAgent(whitelist);
+  await window?.ic?.plug?.requestConnect(whitelist);
 
   if (!window.ic.plug?.agent) {
     els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";

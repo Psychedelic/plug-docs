@@ -120,7 +120,7 @@ Here's an hypotetical example:
 })();
 ```
 
-Learn more by reading the [Plug button](/getting-started/plug-button) guide!
+You can learn more about this and use a template button implementation by reading our [Plug button](/getting-started/plug-button) guide! A ready-to-go "Connect to Plug" button for your app.
 
 ### isConnected()
 
@@ -132,48 +132,48 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
   console.log(`Plug connection is ${result}`);
 })()
 ```
+### window.ic.plug.agent
 
-### createAgent(CreateAgentParams)
-
-createAgent() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method for instantiating an Agent to talk to the [Internet Computer](https://dfinity.org/) via HTTP, which allows users to interact with a client of the internet computer.
-
-The agent is the core piece for using Plug as an authentication provider, since it can proxy sign canister calls using the identity of the user visiting your site or application. It can also provide the Principal ID to identify the user in your platform. 
-
-The `createAgent` takes an object of fields:
-
-  - whitelist - an Array of Canister Ids of type string
-  - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
-
-On instantiation the `Agent` is assigned to the window Plug object, and available as `window.ic.plug.agent`. As such, once called and instantiated there's no return value.
+On instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`. It returns an instance of the http agent class from the agent-js.
 
 ```js
-(async () => {
-  // NNS Canister Id as an example
-  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
-  const whitelist = [nnsCanisterId];
+window.ic.plug.agent
+```
 
-  // Initialise Agent, expects no return value
-  await window?.ic?.plug?.createAgent({
-    whitelist,
-  });
+You can see the definition of the object here:
 
-  // Gets the principal associated with the current user identity
-  // see https://sdk.dfinity.org/docs/developers-guide/cli-reference/dfx-identity.html#_dfx_identity_get_principal
-  const principal = await window?.ic?.plug?.agent?.getPrincipal();
-
-  // We use the `toText` method to convert the principal to text
-  // see https://sdk.dfinity.org/docs/base-libraries/principal#toText
-  console.log(principal.toText());
-})()
+```js
+class HttpAgent implements Agent {
+    private readonly _pipeline;
+    private readonly _identity;
+    private readonly _fetch;
+    private readonly _host;
+    private readonly _credentials;
+    private _rootKeyFetched;
+    rootKey: BinaryBlob;
+    constructor(options?: HttpAgentOptions);
+    addTransform(fn: HttpAgentRequestTransformFn, priority?: number): void;
+    getPrincipal(): Promise<Principal>;
+    call(canisterId: Principal | string, options: {
+        methodName: string;
+        arg: BinaryBlob;
+        effectiveCanisterId?: Principal | string;
+    }, identity?: Identity | Promise<Identity>): Promise<SubmitResponse>;
+    query(canisterId: Principal | string, fields: QueryFields, identity?: Identity | Promise<Identity>): Promise<QueryResponse>;
+    readState(canisterId: Principal | string, fields: ReadStateOptions, identity?: Identity | Promise<Identity>): Promise<ReadStateResponse>;
+    status(): Promise<JsonObject>;
+    fetchRootKey(): Promise<BinaryBlob>;
+    protected _transform(request: HttpAgentRequest): Promise<HttpAgentRequest>;
+}
 ```
 
 ### createActor()
 
 createActor() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method that creates an Actor to interact with the [Internet Computer](https://dfinity.org/). Returns an Actor for the provided Canister Id and interface factory ([Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) or [IDL](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html#_why_create_a_new_idl)).
 
-The `createActor` expects that the Agent is initialised beforehand by calling the `createAgent` method.
+The `createActor` expects that the Agent is initialised beforehand by calling the `requesConnect` method with the whitelist (canister ID string array) and the host (string).
 
-On instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`.
+As mentioned above, on instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`.
 
 ```js
 (async () => {
@@ -182,7 +182,7 @@ On instantiation the `Agent` is assigned to the window Plug object, as `window.i
   const whitelist = [nnsCanisterId];
 
   // Initialise Agent, expects no return value
-  await window?.ic?.plug?.createAgent({
+  await window?.ic?.plug?.requestConnect({
     whitelist,
   });
 
