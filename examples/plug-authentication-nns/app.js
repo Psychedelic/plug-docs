@@ -23,14 +23,11 @@ async function onButtonPress(el) {
   els.button.disabled = true;
 
   // Request for the Plug wallet connection
+  // which returns a boolean response
   // the requestConnect should create an instance of agent
-  await window.ic?.plug?.requestConnect({
+  const isConnected = await window.ic?.plug?.requestConnect({
     whitelist,
   });
-
-  const isConnected = await window.ic?.plug?.isConnected();
-  
-  console.log('isConnected ->', isConnected);
 
   // Terminate on requestConnect permission refusal
   if (!isConnected) {
