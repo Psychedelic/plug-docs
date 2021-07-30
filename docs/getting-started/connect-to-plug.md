@@ -181,14 +181,16 @@ On instantiation the `Agent` is assigned to the window Plug object, as `window.i
   const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
   const whitelist = [nnsCanisterId];
 
-  // Initialise the Agent beforehand
-  await window?.ic?.plug?.createAgent(whitelist);
+  // Initialise Agent, expects no return value
+  await window?.ic?.plug?.createAgent({
+    whitelist,
+  });
 
   // Create an actor to interact with the NNS Canister
   // we pass the NNS Canister id and the interface factory
   const NNSUiActor = await window.ic.plug.createActor({
     canisterId: nnsCanisterId,
-    interfaceFactory: nnsUi,
+    interfaceFactory: nnsCanisterId,
   });
 
   // We can use any method described in the Candid (IDL)
