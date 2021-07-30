@@ -64,14 +64,18 @@ To Use the component, you can simply do:
 
 ```js
 <PlugConnect
+  whitelist={['canister-id']}
   onConnectCallback={() => console.log("Some callback")}
 />
 ```
+
+Where whitelist, is a list of Canister Ids (an Array of strings) and onConnectCallback, as the name implies a callback function.
 
 For example, let's say that you want to get the user's identity on connect:
 
 ```js
 <PlugConnect
+  whitelist={['canister-id']}
   onConnectCallback={
     () => console.log(window.ic.plug.agent.getPrincipal())
   }
@@ -82,13 +86,15 @@ Here's how it'll look like in the **default light mode**:
 
 ![](imgs/plug-connect-light.png){: style="max-width:220px"}
 
-The props `dark` and `title` are also supported:
+The props `dark`, `host`, `title` are also supported:
 
 ```js
 <PlugConnect
   dark
-  onConnectCallback={() => console.log("Some callback")}
   title="My title"
+  onConnectCallback={() => console.log("Some callback")}
+  host="host-example"
+  whitelist={['canister-id-1', 'canister-id-2']}
 />
 ```
 
