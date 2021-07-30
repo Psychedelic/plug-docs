@@ -19,18 +19,21 @@ function main() {
 
 // Button press handler
 async function onButtonPress(el) {
-  console.log('els.button.disabled: ', els.button.disabled);
   // Lock button events
   els.button.disabled = true;
 
-  // Assigns the request for the Plug wallet connection
-  // result value to `hasAllowed`
-  const hasAllowed = await window.ic?.plug?.requestConnect();
+  // Request for the Plug wallet connection
+  // the requestConnect should create an instance of agent
+  await window.ic?.plug?.requestConnect({
+    whitelist,
+  });
 
-  console.log('hasAllowed ->', hasAllowed);
+  const isConnected = await window.ic?.plug?.isConnected();
+  
+  console.log('isConnected ->', isConnected);
 
   // Terminate on requestConnect permission refusal
-  if (!hasAllowed) {
+  if (!isConnected) {
     els.btnTitle.textContent = "Plug wallet connection was refused";
     return;
   }
@@ -38,15 +41,6 @@ async function onButtonPress(el) {
   // If truthy proceeds to the next step (request balance)
   // otherwise updates the button text with failure message
   els.btnTitle.textContent = "Plug wallet is connected";
-
-  // Initialise agent
-  // by passing a list of canister ids (whitelist)
-  // the agent is then instantiated 
-  // assigned as a property "agent" of window Plug object
-  // e.g. window.ic.plug.agent
-  await window?.ic?.plug?.createAgent(whitelist);
-
-  console.log('agent ->', window.ic.plug.agent);
 
   // Terminate on Agent initialisation failure
   if (!window.ic.plug?.agent) {
