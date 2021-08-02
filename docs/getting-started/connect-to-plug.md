@@ -132,39 +132,43 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
   console.log(`Plug connection is ${result}`);
 })()
 ```
-### window.ic.plug.agent
 
-On instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`. It returns an instance of the http agent class from the agent-js.
+### agent
+
+On instantiation the `Agent` is assigned to the window Plug object as:
 
 ```js
 window.ic.plug.agent
 ```
 
-You can see the definition of the object here:
+The agent field is an instance of the **HttpAgent** class from the [@dfinity/agent](https://github.com/dfinity/agent-js) library, that allow us to interact with the Internet Computer. So, check the [source-code](https://github.com/dfinity/agent-js/blob/90b073dc735bfae9f3b1c7fc537bd97347c5cc68/packages/agent/src/agent/api.ts) to learn about the available interface methods.
+
+!!! Note
+    
+    The interface might change between versions, so make sure you check the correspondent commit version, in accordance to the `dfinity/agent` version in [use](https://github.com/Psychedelic/plug-controller/blob/main/package.json).
+
+Here's an example, of getting the user principal id:
 
 ```js
-class HttpAgent implements Agent {
-    private readonly _pipeline;
-    private readonly _identity;
-    private readonly _fetch;
-    private readonly _host;
-    private readonly _credentials;
-    private _rootKeyFetched;
-    rootKey: BinaryBlob;
-    constructor(options?: HttpAgentOptions);
-    addTransform(fn: HttpAgentRequestTransformFn, priority?: number): void;
-    getPrincipal(): Promise<Principal>;
-    call(canisterId: Principal | string, options: {
-        methodName: string;
-        arg: BinaryBlob;
-        effectiveCanisterId?: Principal | string;
-    }, identity?: Identity | Promise<Identity>): Promise<SubmitResponse>;
-    query(canisterId: Principal | string, fields: QueryFields, identity?: Identity | Promise<Identity>): Promise<QueryResponse>;
-    readState(canisterId: Principal | string, fields: ReadStateOptions, identity?: Identity | Promise<Identity>): Promise<ReadStateResponse>;
-    status(): Promise<JsonObject>;
-    fetchRootKey(): Promise<BinaryBlob>;
-    protected _transform(request: HttpAgentRequest): Promise<HttpAgentRequest>;
-}
+(async () => {
+  // Canister Ids
+  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+
+  // Whitelist
+  const whitelist = [
+    nnsCanisterId,
+  ];
+
+  // Make the request
+  const isConnected = await window.ic.plug.requestConnect({
+    whitelist,
+  });
+
+  // Get the user principal id
+  const principalId = await window.ic.plug.agent.getPrincipalId();
+
+  console.log(`Plug's user principal Id is ${principalId}`);
+})();
 ```
 
 ### createActor()
