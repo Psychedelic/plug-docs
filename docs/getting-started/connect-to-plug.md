@@ -133,6 +133,49 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 })()
 ```
 
+### createAgent(CreateAgentParams)
+
+createAgent() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method for instantiating an Agent to talk to the [Internet Computer](https://dfinity.org/) via HTTP, which allows users to interact with a client of the internet computer.
+
+The agent is the core piece for using Plug as an authentication provider, since it can proxy sign canister calls using the identity of the user visiting your site or application. For example, it can provide the Principal ID to identify the user in your platform. 
+
+The `createAgent` takes an object of fields:
+
+  - whitelist - an Array of Canister Ids of type string
+  - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
+
+This is how it looks:
+
+```js
+Object {
+  whitelist: ['canister-id'],
+  host?: 'https://network-address',
+}
+```
+
+On instantiation the `Agent` is assigned to the window Plug object, and available as `window.ic.plug.agent`. As such, once called and instantiated there's no return value.
+
+```js
+(async () => {
+  // NNS Canister Id as an example
+  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+  const whitelist = [nnsCanisterId];
+
+  // Initialise Agent, expects no return value
+  await window?.ic?.plug?.createAgent({
+    whitelist
+  });
+
+  // Gets the principal associated with the current user identity
+  // see https://sdk.dfinity.org/docs/developers-guide/cli-reference/dfx-identity.html#_dfx_identity_get_principal
+  const principal = await window?.ic?.plug?.agent?.getPrincipal();
+
+  // We use the `toText` method to convert the principal to text
+  // see https://sdk.dfinity.org/docs/base-libraries/principal#toText
+  console.log(principal.toText());
+})()
+```
+
 ### agent
 
 On instantiation the `Agent` is assigned to the window Plug object as:
