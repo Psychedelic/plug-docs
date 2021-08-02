@@ -2,7 +2,7 @@
 date: "1"
 ---
 
-# Plug Authentication - NNS Example
+# NNS Stats App
 
 ![](imgs/nns-example.png)
 

@@ -33,8 +33,9 @@ nav:
     - Authentication Button : getting-started/plug-button.md
   - Build an App Examples 💡: 
     - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
-    - Plugged: build-an-app-examples/build-app-plugged.md
-    - Plug Auth-example (NNS): build-an-app-examples/plug-auth-nns.md
+    - Plugged (E2E): build-an-app-examples/build-app-plugged.md
+    - NNS Stats: build-an-app-examples/plug-auth-nns.md
+    - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"
   - Common Terms 📓: common-terms/plug-dictionary.md    
   - Resources 🧰:
     - Resource Library: resources/library.md
