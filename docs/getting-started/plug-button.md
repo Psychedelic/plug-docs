@@ -68,7 +68,7 @@ Once added, you'll be able to import the Plug Connect package by:
 import PlugConnect from '@psychedelic/plug-connect';
 ```
 
-To Use the component, you can simply do:
+To use the component, do:
 
 ```js
 <PlugConnect
@@ -77,7 +77,7 @@ To Use the component, you can simply do:
 />
 ```
 
-Where whitelist, is a list of Canister Ids (an Array of strings) and onConnectCallback, as the name implies a callback function.
+Where **whitelist** is a list of Canister Ids (an Array of strings) and **onConnectCallback** a callback function.
 
 For example, let's say that you want to get the user's identity on connect:
 
