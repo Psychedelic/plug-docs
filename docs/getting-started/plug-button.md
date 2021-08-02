@@ -35,7 +35,7 @@ To pull and install the Plug Connect package from [@Psychedelic](https://github.
 
 Once you have those ready, run:
 
-```
+```sh
 npm login --registry=https://npm.pkg.github.com --scope=@Psychedelic
 ```
 
