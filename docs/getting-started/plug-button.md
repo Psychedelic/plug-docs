@@ -90,6 +90,38 @@ For example, let's say that you want to get the user's identity on connect:
 />
 ```
 
+**Connection & Agent Persistence Check**
+
+After integrating the button, **add this check as a fallback to ensure the connection persists and the agent is available at all times** as the user navigates your application/website.
+
+This checks the status of the connection to the user's Plug wallet; if at any given moment it turns into false, it re-requests it. Furthermore, if the connection is true, but the agent is not instantiated or wasn't persisted after a refresh (window.ic.plug.agent = null), it re-instantiates (createAgent) the agent. 
+
+```js
+const connected = await window.ic.plug.isConnected();
+if (!connected) window.ic.plug.requestConnect({ whitelist, host });
+if (connected && !window.ic.plug.agent) {
+  window.ic.plug.createAgent({ whitelist, host })
+}
+```
+You can use this, for example, in a ```useEffect``` inside your apps main component (index/app) to do a check after load, or you can run the check before a user executes a Plug/Agent related action. You can pass on the same whitelist as before (won't require re-approval by the user, unless access was revoked), or a different whitelist Canister ID set (will require the user's approval). 
+
+```JS
+const verifyConnectionAndAgent = async () => {
+  const connected = await window.ic.plug.isConnected();
+  if (!connected) window.ic.plug.requestConnect({ whitelist, host });
+  if (connected && !window.ic.plug.agent) {
+    window.ic.plug.createAgent({ whitelist, host })
+  }
+};
+
+useEffect(async () => {
+  verifyConnectionAndAgent();
+}, []);
+```
+
+
+---
+
 Here's how it'll look like in the **default light mode**:
 
 ![](imgs/plug-connect-light.png){: style="max-width:220px"}
