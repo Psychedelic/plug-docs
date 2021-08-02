@@ -60,7 +60,15 @@ After you `Allow` or `Decline`, the notification popup will close!
 
 To understand how to read the response data for the `requestConnect` call and any other [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method, read below.
 
+
+----
+
+
 ## Available interactions and methods
+
+## Connect to Plug & Use the Agent
+Start interacting with the user's wallet by requesting a connect, and if needed, passing the necessary information to request the use of the PlugAgent.
+
 
 ### requestConnect(RequestConnectParams?)
 
@@ -131,6 +139,45 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
   const result = await window.ic.plug.isConnected();
   console.log(`Plug connection is ${result}`);
 })()
+```
+
+
+### .agent window object
+
+On instantiation (requestConnect with whitelist) the `Agent` is assigned to the window Plug object as:
+
+```js
+window.ic.plug.agent
+```
+
+The agent field is an instance of the **HttpAgent** class from the [@dfinity/agent](https://github.com/dfinity/agent-js) library, that allow us to interact with the Internet Computer. So, check the [source-code](https://github.com/dfinity/agent-js/blob/90b073dc735bfae9f3b1c7fc537bd97347c5cc68/packages/agent/src/agent/api.ts) to learn about the available interface methods.
+
+!!! Note
+    
+    The interface might change between versions, so make sure you check the correspondent commit version, in accordance to the `dfinity/agent` version in [use](https://github.com/Psychedelic/plug-controller/blob/main/package.json).
+
+Here's an example, of getting the user principal id:
+
+```js
+(async () => {
+  // Canister Ids
+  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+
+  // Whitelist
+  const whitelist = [
+    nnsCanisterId,
+  ];
+
+  // Make the request
+  const isConnected = await window.ic.plug.requestConnect({
+    whitelist,
+  });
+
+  // Get the user principal id
+  const principalId = await window.ic.plug.agent.getPrincipalId();
+
+  console.log(`Plug's user principal Id is ${principalId}`);
+})();
 ```
 
 ### Connection & Agent Persistence Check
@@ -207,44 +254,6 @@ On instantiation the `Agent` is assigned to the window Plug object, and availabl
 })()
 ```
 
-### agent
-
-On instantiation the `Agent` is assigned to the window Plug object as:
-
-```js
-window.ic.plug.agent
-```
-
-The agent field is an instance of the **HttpAgent** class from the [@dfinity/agent](https://github.com/dfinity/agent-js) library, that allow us to interact with the Internet Computer. So, check the [source-code](https://github.com/dfinity/agent-js/blob/90b073dc735bfae9f3b1c7fc537bd97347c5cc68/packages/agent/src/agent/api.ts) to learn about the available interface methods.
-
-!!! Note
-    
-    The interface might change between versions, so make sure you check the correspondent commit version, in accordance to the `dfinity/agent` version in [use](https://github.com/Psychedelic/plug-controller/blob/main/package.json).
-
-Here's an example, of getting the user principal id:
-
-```js
-(async () => {
-  // Canister Ids
-  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
-
-  // Whitelist
-  const whitelist = [
-    nnsCanisterId,
-  ];
-
-  // Make the request
-  const isConnected = await window.ic.plug.requestConnect({
-    whitelist,
-  });
-
-  // Get the user principal id
-  const principalId = await window.ic.plug.agent.getPrincipalId();
-
-  console.log(`Plug's user principal Id is ${principalId}`);
-})();
-```
-
 
 ### createActor()
 
@@ -301,6 +310,10 @@ As mentioned above, on instantiation the `Agent` is assigned to the window Plug 
   console.log('NNS stats', stats);
 })()
 ```
+
+----
+
+## Request Balance & Trigger Transactions
 
 ### requestBalance()
 
@@ -388,6 +401,7 @@ Object {
 
 It's a good practice to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
 
+---
 
 ## Conclusion
 
