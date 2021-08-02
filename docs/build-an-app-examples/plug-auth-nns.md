@@ -227,13 +227,9 @@ To summarize, we'll break it down to the following steps:
 
 An Agent is required to talk to the Canister.
 
-In the `app.js`, after the connection being granted, an agent is automatically created.
+In the `app.js` we'll call the `requestConnect` by passing a whitelist (a list of allowed Canister ids) that instantiates the agent once the request is granted.
 
-We call the `requestConnect` by passing a whitelist (a list of allowed Canister ids).
-
-For our use-case case we use a single Canister id to represent the `NNS/UI`.
-
-Create the list at the top of the file, in the same level or scope of `main`:
+Before we do the request, create the whitelist at the top of the file, at the same level or scope of `main`:
 
 ```js
 // Canister Ids
@@ -254,6 +250,8 @@ async function onButtonPress(el) {
   // ...
 }
 ```
+
+We use a single Canister id to represent the `NNS/UI` in our whitelist.
 
 In the body of the function `onButtonPress` make the `requestConnect` call passing the `whitelist`, as follows:
 
