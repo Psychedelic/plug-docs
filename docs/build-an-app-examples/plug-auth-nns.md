@@ -68,6 +68,10 @@ In the project directory, create a new file named `index.html` and copy and past
 </html>
 ```
 
+!!! Note
+
+    The YYYYMMDDHHSS in the script source is used to trick the browser cache. Change the value if you find persistent cache when following the tutorial.
+
 Create the stylesheet file named `main.css` and copy and paste the following content:
 
 ```css
