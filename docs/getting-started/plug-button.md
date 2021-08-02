@@ -46,7 +46,7 @@ npm login --registry=https://npm.pkg.github.com --scope=@Psychedelic
 
 ## Using the package 🎁
 
-Make sure you have followed the simple instructions for configuring your [NPM CLI](#npm-configuration), as our packages are hosted outside NPM's registry.
+Make sure you have followed the instructions for configuring your [NPM CLI](#npm-configuration), as our packages are hosted outside NPM's registry.
 
 In the project root, create a `.npmrc` file and put the following content:
 
