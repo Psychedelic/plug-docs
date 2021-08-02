@@ -239,6 +239,16 @@ const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
 const whitelist = [
   nnsCanisterId,
 ];
+
+function main() {
+  // Intentionally omitted
+  // ...
+}
+
+async function onButtonPress(el) {
+  // Intentionally omitted
+  // ...
+}
 ```
 
 In the body of the function `onButtonPress` make the `requestConnect` call passing the `whitelist`, as follows:
@@ -255,8 +265,6 @@ async function onButtonPress(el) {
   }
 
   els.btnTitle.textContent = "Plug wallet is connected";
-
-  await window?.ic?.plug?.requestConnect(whitelist);
 
   if (!window.ic.plug?.agent) {
     els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
@@ -319,7 +327,9 @@ At this point, the `onButtonPress` source-code should be inline with:
 
 ```js
 async function onButtonPress(el) {
-  const hasAllowed = await window.ic?.plug?.requestConnect();
+  const hasAllowed = await window.ic?.plug?.requestConnect({
+    whitelist,
+  });
 
   if (!hasAllowed) {
     els.btnTitle.textContent = "Plug wallet connection was refused";
@@ -327,8 +337,6 @@ async function onButtonPress(el) {
   }
 
   els.btnTitle.textContent = "Plug wallet is connected";
-
-  await window?.ic?.plug?.requestConnect(whitelist);
 
   if (!window.ic.plug?.agent) {
     els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
@@ -345,7 +353,9 @@ As described in the NNS/UI Candid [file](https://github.com/dfinity/nns-dapp/blo
 
 ```js
 async function onButtonPress(el) {
-  const hasAllowed = await window.ic?.plug?.requestConnect();
+  const hasAllowed = await window.ic?.plug?.requestConnect({
+    whitelist,
+  });
 
   if (!hasAllowed) {
     els.btnTitle.textContent = "Plug wallet connection was refused";
@@ -353,8 +363,6 @@ async function onButtonPress(el) {
   }
 
   els.btnTitle.textContent = "Plug wallet is connected";
-
-  await window?.ic?.plug?.requestConnect(whitelist);
 
   if (!window.ic.plug?.agent) {
     els.btnTitle.textContent = "Oops! Failed to initialise the Agent...";
