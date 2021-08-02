@@ -371,7 +371,7 @@ async function onButtonPress(el) {
     return;
   }
 
-  const NNSUiActor = await window.ic.plug.createActor({
+  const NNSUiActor = await window.ic.plug?.createActor({
     canisterId: nnsCanisterId,
     interfaceFactory: nnsUi,
   });
@@ -382,7 +382,7 @@ async function onButtonPress(el) {
     return;
   }
 
-  const stats = await NNSUiActor.get_stats();
+  const stats = await NNSUiActor?.get_stats();
   console.log('NNS stats', stats);
 
   if (!stats) {
