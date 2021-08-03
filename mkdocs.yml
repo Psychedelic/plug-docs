@@ -24,13 +24,12 @@ markdown_extensions:
       permalink: true
 nav:
   - Welcome to Plug 👋: index.md
-  - Getting Started 🔌:
-    - Introduction: getting-started/connect-to-plug/#browser-extension
-    - Connect to Plug: getting-started/connect-to-plug/#requestconnectrequestconnectparams
-    - Signing Requests: getting-started/connect-to-plug/#createactor
-    - Query Balances / Info: getting-started/connect-to-pslug/#requestbalance
-    - Trigger Transactions : getting-started/connect-to-plug/#requesttransfersendicptsargs
-    - Authentication Button : getting-started/plug-button.md
+  - Getting Started 🔌: getting-started/connect-to-plug/#browser-extension
+  - Connect apps to Plug ⚡: getting-started/connect-to-plug/#requestconnectrequestconnectparams
+  - Using the PlugAgent ✒️: getting-started/connect-to-plug/#agent-window-object
+  - Querying Balances ⚖️: getting-started/connect-to-plug/#requestbalance
+  - Triggering Transfers 💸: getting-started/connect-to-plug/#requesttransferrequesttransferparams
+  - Authentication Button 🚀: getting-started/plug-button.md
   - Build an App Examples 💡: 
     - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
     - Plugged (E2E): build-an-app-examples/build-app-plugged.md
