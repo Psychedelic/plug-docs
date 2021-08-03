@@ -66,8 +66,8 @@ To understand how to read the response data for the `requestConnect` call and an
 
 ## Available interactions and methods
 
-## Connect to Plug & Use the Agent
-Start interacting with the user's wallet by requesting a connect, and if needed, passing the necessary information to request the use of the PlugAgent.
+## Connect to Plug & Use the PlugAgent
+Start interacting with the user's wallet by requesting a connect, and if needed, passing the necessary information to request the use of the **PlugAgent.**
 
 
 ### requestConnect(RequestConnectParams?)
@@ -142,7 +142,7 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 ```
 
 
-### .agent window object
+### Plug Agent - .agent
 
 On instantiation (requestConnect with whitelist) the `Agent` is assigned to the window Plug object as:
 
@@ -180,9 +180,9 @@ Here's an example, of getting the user principal id:
 })();
 ```
 
-### Connection & Agent Persistence Check
+### Connection & PlugAgent Persistence Check
 
-After initiating a connection to Plug with a whitelist, and getting authorized by the user to use the agent, **add this check as a fallback to ensure the connection persists and the agent is available at all times** as the user navigates your application/website.
+After initiating a connection to Plug with a whitelist, and getting authorized by the user to use the PlugAgent, **add this check as a fallback to ensure the connection persists and the agent is available at all times** as the user navigates your application/website.
 
 This checks the status of the connection to the user's Plug wallet; if at any given moment it turns into false, it re-requests it. Furthermore, if the connection is true, but the agent is not instantiated or wasn't persisted after a refresh (window.ic.plug.agent = null), it re-instantiates (createAgent) the agent. 
 
@@ -259,7 +259,7 @@ On instantiation the `Agent` is assigned to the window Plug object, and availabl
 
 createActor() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method that creates an Actor to interact with the [Internet Computer](https://dfinity.org/). Returns an Actor for the provided Canister Id and interface factory ([Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) or [IDL](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html#_why_create_a_new_idl)).
 
-The `createActor` expects that the Agent is initialised beforehand by calling the `requesConnect` method with the whitelist (canister ID string array) and the host (string).
+The `createActor` expects that the Agent is initialized beforehand by calling the `requestConnect` method with the whitelist (canister ID string array) and the host (string).
 
 As mentioned above, on instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`.
 
