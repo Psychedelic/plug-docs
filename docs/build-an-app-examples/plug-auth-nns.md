@@ -10,8 +10,6 @@ The application we are going to build today is a  **Plug authentication example,
 
 This app showcases how Plug can be used to authenticate a user, and have that user's identity interact with an app's canisters (making proxy signed calls through Plug).
 
-A [live demo](http://demo.plugwallet.ooo/plug-authentication-nns/) is available for testing!
-
 ## Requirements 🤔
 
 The guide assumes you have read the [Getting started](/getting-started/connect-to-plug/), completed the [Buy me a Coffee](build-app-buy-me-a-coffee.md) and 
