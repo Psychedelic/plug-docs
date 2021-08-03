@@ -188,19 +188,19 @@ This checks the status of the connection to the user's Plug wallet; if at any gi
 
 ```js
 const connected = await window.ic.plug.isConnected();
-if (!connected) window.ic.plug.requestConnect({ whitelist, host });
+if (!connected) await window.ic.plug.requestConnect({ whitelist, host });
 if (connected && !window.ic.plug.agent) {
-  window.ic.plug.createAgent({ whitelist, host })
+  await window.ic.plug.createAgent({ whitelist, host })
 }
 ```
-You can use this, for example, in a ```useEffect``` inside your apps main component (index/app) to do a check after load, or you can run the check before a user executes a Plug/Agent related action. You can pass on the same whitelist as before (won't require re-approval by the user, unless access was revoked), or a different whitelist Canister ID set (will require the user's approval). 
+You can use this, for example, in a `useEffect` inside your apps main component (index/app) to do a check after load, or you can run the check before a user executes a Plug/Agent related action. You can pass on the same whitelist as before (won't require re-approval by the user, unless access was revoked), or a different whitelist Canister ID set (will require the user's approval). 
 
 ```JS
 const verifyConnectionAndAgent = async () => {
   const connected = await window.ic.plug.isConnected();
-  if (!connected) window.ic.plug.requestConnect({ whitelist, host });
+  if (!connected) await window.ic.plug.requestConnect({ whitelist, host });
   if (connected && !window.ic.plug.agent) {
-    window.ic.plug.createAgent({ whitelist, host })
+    await window.ic.plug.createAgent({ whitelist, host })
   }
 };
 
