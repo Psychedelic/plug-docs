@@ -24,7 +24,7 @@ markdown_extensions:
       permalink: true
 nav:
   - Welcome to Plug 👋: index.md
-  - ---: ""
+  - __________________: "#"
   - Getting Started 🔌: getting-started/connect-to-plug/#browser-extension
   - Connect apps to Plug ⚡: getting-started/connect-to-plug/#requestconnectrequestconnectparams
   - Using the PlugAgent ✒️: getting-started/connect-to-plug/#agent-window-object
