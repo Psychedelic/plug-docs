@@ -15,7 +15,17 @@ Plug is a browser crypto wallet and identity/authentication provider for the Int
 
 !!! Important
 
-    Plug is currently in Alpha V0.2.0, and is in active development. This version of Plug includes ICP wallet features and basic app-integration/interactions with the IC Provider API. In the next updates, Plug will add the PlugAgent (authentication & canister call signing), and after, support for cycles. Consider Plug a hot wallet during its alpha stage, and feel free to contact us via Discord/Twitter to report any issues, enhancement ideas or bugs.
+    Plug is currently in Alpha V0.2.1, and is in active development. This version of Plug includes ICP wallet features, basic app-integration/interactions with the IC Provider API, and the PlugAgent for authentication and canister call signing. Consider Plug a hot wallet during its alpha stage, and feel free to contact us via Discord/Twitter to report any issues, enhancement ideas or bugs. Coming next? Cycles integration!
+
+## Migrating Wallet Funds from V0.2.0 to V0.2.1.
+
+**As of V0.2.1, Plug migrated its curve from Ed25519 to SECP256K1**. This means that the cryptographic curve used to import/create identities in Plug (e.g. the curve used to calculate your Principal ID from your seed phrase) is changing.
+
+**Users with a wallet created in Plug V0.2.0 or before need to create a new wallet in this Plug version and migrate their funds**, because they can’t import their old wallet (since the curve change, the seed phrase would output a different Principal ID/key pair).
+
+[Here is a detailed guide on how to do it, and why we did this one-time change.](https://docs.plugwallet.ooo/resources/migrating-curve/)
+
+**If you had no funds in your Plug wallet yet, you can skip this process and just create a new wallet.**
 
 
 ## Plug's Repositories

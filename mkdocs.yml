@@ -26,15 +26,20 @@ nav:
   - Welcome to Plug 👋: index.md
   - Getting Started 🔌:
     - Introduction: getting-started/connect-to-plug/#browser-extension
-    - Connect to Plug: getting-started/connect-to-plug/#requestconnect
-    - Query Balances / Info: getting-started/connect-to-plug/#requestbalance
+    - Connect to Plug: getting-started/connect-to-plug/#requestconnectrequestconnectparams
+    - Signing Requests: getting-started/connect-to-plug/#createactor
+    - Query Balances / Info: getting-started/connect-to-pslug/#requestbalance
     - Trigger Transactions : getting-started/connect-to-plug/#requesttransfersendicptsargs
+    - Authentication Button : getting-started/plug-button.md
   - Build an App Examples 💡: 
     - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
-    - Plugged: build-an-app-examples/build-app-plugged.md
+    - Plugged (E2E): build-an-app-examples/build-app-plugged.md
+    - NNS Stats: build-an-app-examples/plug-auth-nns.md
+    - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"
   - Common Terms 📓: common-terms/plug-dictionary.md    
   - Resources 🧰:
     - Resource Library: resources/library.md
+    - Migrating Curves: resources/migrating-curve.md
     - The Internet Computer: "https://dfinity.org/faq"
     - Disclaimer: resources/disclaimer.md
     - Trademark: resources/trademark.md
