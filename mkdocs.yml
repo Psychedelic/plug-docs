@@ -25,12 +25,12 @@ markdown_extensions:
 nav:
   - Welcome to Plug 👋: index.md
   - <b>Developer Guides</b> 🧰: "#"
-  - Getting Started 🔌: getting-started/connect-to-plug/#browser-extension
-  - Connect apps to Plug ⚡: getting-started/connect-to-plug/#requestconnectrequestconnectparams
-  - Using the PlugAgent ✒️: getting-started/connect-to-plug/#plug-agent-agent
-  - Querying Balances ⚖️: getting-started/connect-to-plug/#requestbalance
-  - Triggering Transfers 💸: getting-started/connect-to-plug/#requesttransferrequesttransferparams
-  - Authentication Button 🚀: getting-started/plug-button.md
+  - Getting Started: getting-started/connect-to-plug/#browser-extension
+  - Connect apps to Plug: getting-started/connect-to-plug/#requestconnectrequestconnectparams
+  - Using the PlugAgent: getting-started/connect-to-plug/#plug-agent-agent
+  - Querying Balances: getting-started/connect-to-plug/#requestbalance
+  - Triggering Transfers: getting-started/connect-to-plug/#requesttransferrequesttransferparams
+  - Authentication Button: getting-started/plug-button.md
   - <b>Build an App Examples</b> 💡: "#"
   - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
   - Plugged (E2E): build-an-app-examples/build-app-plugged.md
