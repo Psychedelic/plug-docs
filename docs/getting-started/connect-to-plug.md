@@ -142,7 +142,7 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 ```
 
 
-### Plug Agent - .agent
+### Plug Agent (.agent)
 
 On instantiation (requestConnect with whitelist) the `Agent` is assigned to the window Plug object as:
 

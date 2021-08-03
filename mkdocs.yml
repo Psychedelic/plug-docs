@@ -24,10 +24,10 @@ markdown_extensions:
       permalink: true
 nav:
   - Welcome to Plug 👋: index.md
-  - <b>Developer Guides</b>: "#"
+  - <b>Developer Guides</b> 🧰: "#"
   - Getting Started 🔌: getting-started/connect-to-plug/#browser-extension
   - Connect apps to Plug ⚡: getting-started/connect-to-plug/#requestconnectrequestconnectparams
-  - Using the PlugAgent ✒️: getting-started/connect-to-plug/#agent-window-object
+  - Using the PlugAgent ✒️: getting-started/connect-to-plug/#plug-agent-agent
   - Querying Balances ⚖️: getting-started/connect-to-plug/#requestbalance
   - Triggering Transfers 💸: getting-started/connect-to-plug/#requesttransferrequesttransferparams
   - Authentication Button 🚀: getting-started/plug-button.md
@@ -36,7 +36,7 @@ nav:
   - Plugged (E2E): build-an-app-examples/build-app-plugged.md
   - NNS Stats: build-an-app-examples/plug-auth-nns.md
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
-  - <b>Resources</b> 🧰:
+  - <b>Resources</b> 📚:
     - Resource Library: resources/library.md
     - Migrating Curves: resources/migrating-curve.md
     - Common Terms: common-terms/plug-dictionary.md  
