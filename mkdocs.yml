@@ -24,21 +24,21 @@ markdown_extensions:
       permalink: true
 nav:
   - Welcome to Plug 👋: index.md
-  - <b>Testing a section</b>: "#"
+  - <b>Developer Guides</b>: "#"
   - Getting Started 🔌: getting-started/connect-to-plug/#browser-extension
   - Connect apps to Plug ⚡: getting-started/connect-to-plug/#requestconnectrequestconnectparams
   - Using the PlugAgent ✒️: getting-started/connect-to-plug/#agent-window-object
   - Querying Balances ⚖️: getting-started/connect-to-plug/#requestbalance
   - Triggering Transfers 💸: getting-started/connect-to-plug/#requesttransferrequesttransferparams
   - Authentication Button 🚀: getting-started/plug-button.md
-  - Build an App Examples 💡: 
+  - <b>Build an App Examples 💡</b>: "#"
     - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
     - Plugged (E2E): build-an-app-examples/build-app-plugged.md
     - NNS Stats: build-an-app-examples/plug-auth-nns.md
-    - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"
-  - Common Terms 📓: common-terms/plug-dictionary.md    
-  - Resources 🧰:
-    - Resource Library: resources/library.md
+    - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"   
+  - <b>Resource Library 🧰</b>:
+    - Links Library: resources/library.md
+    - Common Terms 📓: common-terms/plug-dictionary.md 
     - Migrating Curves: resources/migrating-curve.md
     - The Internet Computer: "https://dfinity.org/faq"
     - Disclaimer: resources/disclaimer.md
