@@ -31,11 +31,11 @@ nav:
   - Querying Balances ⚖️: getting-started/connect-to-plug/#requestbalance
   - Triggering Transfers 💸: getting-started/connect-to-plug/#requesttransferrequesttransferparams
   - Authentication Button 🚀: getting-started/plug-button.md
-  - <b>Build an App Examples</b> 💡: 
-    - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
-    - Plugged (E2E): build-an-app-examples/build-app-plugged.md
-    - NNS Stats: build-an-app-examples/plug-auth-nns.md
-    - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
+  - <b>Build an App Examples</b> 💡: "#"
+  - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
+  - Plugged (E2E): build-an-app-examples/build-app-plugged.md
+  - NNS Stats: build-an-app-examples/plug-auth-nns.md
+  - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
   - <b>Resources</b> 🧰:
     - Resource Library: resources/library.md
     - Migrating Curves: resources/migrating-curve.md
@@ -44,7 +44,7 @@ nav:
     - Disclaimer: resources/disclaimer.md
     - Trademark: resources/trademark.md
     - Privacy: resources/privacy.md
-  - Our App Ecosystem 🌀: resources/apps-with-plug.md
+    - Our App Ecosystem 🌀: resources/apps-with-plug.md
 extra:
   social:
     - icon: fontawesome/brands/github-alt
