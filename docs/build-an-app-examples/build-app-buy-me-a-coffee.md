@@ -405,7 +405,7 @@ async function onButtonPress(el) {
       el.target.textContent = "Plug wallet has enough balance"
 
       const requestTransferArg = {
-        accountId: 'xxxxx',
+        to: 'xxxxx',
         amount: coffeeAmount,
       };
       const transfer = await window.ic?.plug?.requestTransfer(requestTransferArg);
