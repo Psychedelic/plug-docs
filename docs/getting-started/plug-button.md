@@ -28,7 +28,7 @@ The [Plug Connect](https://github.com/Psychedelic/plug-connect/packages/919824) 
 
 To pull and install the Plug Connect package from [@Psychedelic](https://github.com/psychedelic) via the NPM CLI, you'll need:
 
-- A personal access token (you can create a personal acess token [here]((https://github.com/settings/tokens)))
+- A personal access token (you can create a personal acess token [here](https://github.com/settings/tokens))
 - The personal access token with the correct scopes, **repo** and **read:packages** to be granted access to the [GitHub Package Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages).
 
 - Authentication via `npm login`, using your Github email for the **username** and the **personal access token** as your **password**:
