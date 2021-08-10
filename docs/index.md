@@ -13,6 +13,11 @@ Plug is a browser crypto wallet and identity/authentication provider for the Int
 - Visit our community and jam with the team in our [Discord](https://discord.gg/yVEcEzmrgm)
 - Follow us on Twitter to stay updated with [Plug's development](https://twitter.com/plug_wallet).
 
+**Download Plug from browser stores or GitHub**
+- [Chrome & Chromium: Extension Store](https://chrome.google.com/webstore/detail/plug/cfbfdhimifdmdehjmkdobpcjfefblkjm)
+- [Firefox: Add-on Store](https://addons.mozilla.org/en-US/firefox/addon/plug/)
+- [GitHub: All Releases](https://github.com/Psychedelic/plug/releases)
+
 !!! Important
 
     Plug is currently in Alpha V0.2.1, and is in active development. This version of Plug includes ICP wallet features, basic app-integration/interactions with the IC Provider API, and the PlugAgent for authentication and canister call signing. Consider Plug a hot wallet during its alpha stage, and feel free to contact us via Discord/Twitter to report any issues, enhancement ideas or bugs. Coming next? Cycles integration!
