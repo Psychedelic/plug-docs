@@ -366,13 +366,13 @@ As in:
 ```js
 Object {
   to: String,
-  amount: BigInt,
+  amount: number,
   opts?: {
-    fee?: BigInt,
-    memo?: BigInt,
+    fee?: number,
+    memo?: number,
     from_subaccount?: Number,
     created_at_time?: {
-      timestamp_nanos: BigInt
+      timestamp_nanos: number
     },
   },
 }
