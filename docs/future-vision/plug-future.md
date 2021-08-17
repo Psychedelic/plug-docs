@@ -12,4 +12,4 @@ Together, Plug and [Fleek.ooo](fleek.ooo) will be unstoppable. Anyone creating a
 
 ## Data Composability For All
 
-With [DAB]() integration, user's will be able to auto-populate their Plug profile metadata directly into any apps that use the PlugAgent. DAB & Plug work together to enable a true metaverse by having **all** of your data follow you around. Gone are the days of tech companies that create lock-in, not through having the best tech, but holding the most data.
+With [DAB]() integration, user's will be able to auto-populate their Plug profile metadata directly into any apps that use the PlugAgent. DAB & Plug work together to enable a true metaverse by having **all** of your data follow you around. Gone are the days of tech companies that lock-in, not through having the best tech, but holding the most data.
