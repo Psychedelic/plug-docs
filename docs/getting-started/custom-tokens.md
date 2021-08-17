@@ -1,8 +1,49 @@
 ---
 date: "1"
 ---
-# Custom Tokens
+# Custom Tokens in Plug
 
 ![](imgs/custom-tokens.png)
 
-Plug supports any custom Internet Computer token that follows the Extendable Token Standard. By this, we mean any user can **add a custom token following the EXT standard**.
+Plug supports any custom Internet Computer token that follows the Extendable Token Standard. By this, we mean any user can **add a custom token following the [Extendable Token Standard](https://github.com/Toniq-Labs/extendable-token)**.
+
+To add a new custom token to Plug, you will need to **specify the Canister ID for the token’s canister**. Plug will automatically then surface it on the list, and show you the balance associated with your Principal ID in Plug, and you'll be able to send them to others using the SEND flow.
+
+## EXT Token Standard
+
+Plug supports custom token integration using the **Extendable Token Standard interface (EXT)**, all* tokens created with this token standard are compatible with Plug and can be used for sending / receiving / holding in Plug. 
+
+We came to this standard based on feedback from the community, other IC projects, & IC developers on the ecosystem. There was a need for a simple, flexible, multi-purpose Fungible Token Standard, and we -and the community- see that in EXT.
+
+**Important:** *We do not support sub-tokens (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). **Learn more about the why here.**
+
+To see the EXT token standard interface, learn how to deploy your own EXT token, and/or suggest proposals please visit the [EXT GitHub repository](https://github.com/Toniq-Labs/extendable-token).
+
+## How to add a Custom IC Token to Plug
+In the Plug interface, go to the main assets/token tab, and click on “Add Tokens”.
+
+Visit the “Custom” tab to manually add a new token.
+
+In the “Custom” tab, copy & paste the canister ID, it looks like this: ```5ymop-yyaaa-aaaah-qaa4q-cai``` (This is the WTC token, give it a try!).
+
+After clicking “Continue”, click “Add” in the modal asking you to confirm if this is the token you want to add.
+
+You’re done! You should now see your token balance in Plug & be able to send/receive from Plug. 
+
+Remember that if your Plug Principal ID doesn't have a balance on that token, you'll see "0". If your funds are on a different Principal ID, you will need to send them to your Principal ID in Plug.
+
+## Why does Plug not support EXT sub-tokens?
+
+The EXT standard, aside from the regular token architecture where 1 canister = 1 token, **supports having “sub-tokens” or multiple tokens** inside one “market” or “parent” canister.
+
+These are referenced with **both a Canister ID (parent canister), and a Token ID** to look for it inside the canister (whereas in the single token architecture you only need a Canister ID). **These are the type of tokens you can create, for example, on the Stoic wallet** (sub-tokens inside a "parent" or "registry" canister owned by Stoic).
+
+**There’s a couple reasons why we chose to not go down the route** of supporting canisters with “multiple tokens” or sub-tokens:
+
+**The primary reason for this is because it adds a centralization/risk point** where several user created tokens depend on a single canister (controlled by a third-party) if something happens to that canister (performance issues, scalability, takeovers), all tokens are affected.
+
+**The second reason is that it adds a new unique identifier** (Token IDs) which doesn’t help achieve better composability on the Internet Computer. We need to maintain simple unique identifiers (one ID to find a token, not two), and reduce the number of “walled gardens” or interface-specific markets.
+
+**The final reason is that it blocks you from the main perk of EXT: expandability**. The token standard itself is customizable and expandable, but creating sub-tokens in someone else’s canister doesn’t allow you to develop or grow the EXT standard with custom features specific to your token, if needed, since it blocks and limits you to use the main canisters implementations.
+
+For these reasons, we only support single custom EXT tokens. Meaning, a custom token following the EXT standard, deployed to the Internet Computer in its own and non-shared token canister (referenced by a Canister ID).

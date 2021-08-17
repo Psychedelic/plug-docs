@@ -342,7 +342,7 @@ As an example, copy and paste the following code snippet into the console and ex
 
 ### requestTransfer(RequestTransferParams)
 
-requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `RequestTransferParams` that is an object of fields:
+requestTransfer() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new transfer processed in the Internet Computer [Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview), which takes the parameter `RequestTransferParams` that is an object of fields. **By default, it request an ICP transfer**, see below for custom tokens or Cycles Token (XTC).
 
 RequestTransferParams:
 
@@ -398,6 +398,16 @@ Object {
   height: Number
 }
 ```
+
+### requestTransfer of Custom Tokens or Cycles Token (XTC)
+The default transfer request will trigger an **ICP** transaction. However, **Plug supports transfer requests of Cycles Token (XTC) or any custom token following the Extendable Token Standard interface** that the user has added to their Plug wallet (see Custom Tokens section in menu).
+
+To make a transfer request of XTC, or a custom EXT token, you need to **pass the Canister ID** to the token's canister in the requestTransfer() function. Using Cycles Token (XTC) as an example:
+
+```js
+Example code
+```
+
 
 It's a good practice to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
 
