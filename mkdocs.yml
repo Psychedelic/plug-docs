@@ -35,11 +35,13 @@ nav:
   - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
   - Plugged (E2E): build-an-app-examples/build-app-plugged.md
   - NNS Stats: build-an-app-examples/plug-auth-nns.md
-  - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
+  - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"
+  - <b>Plug's Future 🔮</b>:
+  - The Vision: future-vison/plug-future.md
   - <b>Resources</b> 📚:
     - Resource Library: resources/library.md
     - Migrating Curves: resources/migrating-curve.md
-    - Common Terms: common-terms/plug-dictionary.md  
+    - Common Terms: common-terms/plug-dictionary.md
     - The Internet Computer: "https://dfinity.org/faq"
     - Disclaimer: resources/disclaimer.md
     - Trademark: resources/trademark.md
