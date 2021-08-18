@@ -15,22 +15,35 @@ Plug supports custom token integration using the **Extendable Token Standard int
 
 We came to this standard based on feedback from the community, other IC projects, & IC developers on the ecosystem. There was a need for a simple, flexible, multi-purpose Fungible Token Standard, and we -and the community- see that in EXT.
 
-**Important:** *We do not support sub-tokens (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). **Learn more about the why here.**
-
 To see the EXT token standard interface, learn how to deploy your own EXT token, and/or suggest proposals please visit the [EXT GitHub repository](https://github.com/Toniq-Labs/extendable-token).
+
+### Important: Single EXT Tokens Only
+
+**Plug does not support sub-tokens** (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). We only support EXT tokens that are 1 canister = 1 token, and referenced with just the token's Canister ID. **Learn more about the why here.**
+
 
 ## How to add a Custom IC Token to Plug
 In the Plug interface, go to the main assets/token tab, and click on “Add Tokens”.
 
-Visit the “Custom” tab to manually add a new token.
+![](imgs/step-1.png)
+
+If your token is not available on our verified token list (Search tab), visit the “Custom” tab to manually add a new token.
+
+![](imgs/medium-1.png)
 
 In the “Custom” tab, copy & paste the canister ID, it looks like this: ```5ymop-yyaaa-aaaah-qaa4q-cai``` (This is the WTC token, give it a try!).
 
+![](imgs/step-3.png)
+
 After clicking “Continue”, click “Add” in the modal asking you to confirm if this is the token you want to add.
+
+![](imgs/step-4.png)
 
 You’re done! You should now see your token balance in Plug & be able to send/receive from Plug. 
 
 Remember that if your Plug Principal ID doesn't have a balance on that token, you'll see "0". If your funds are on a different Principal ID, you will need to send them to your Principal ID in Plug.
+
+---
 
 ## Why does Plug not support EXT sub-tokens?
 
