@@ -31,7 +31,7 @@ In the Plug interface, go to the main assets/token tab, and click on “Add Toke
 
 ![](imgs/step-1.png)
 
-If your token is not available on our verified token list (Search tab), visit the “Custom” tab to manually add a new token.
+If your token is not available on our verified token list (Search tab), visit the “Custom” tab to manually add a new token. In the case of **Cycles Token (XTC)** you can add it from the Search tab, or if your Plug Principal ID holds a balance, it will auto-detect and surface it.
 
 ![](imgs/medium-1.png)
 
