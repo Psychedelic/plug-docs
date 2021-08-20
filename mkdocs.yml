@@ -39,6 +39,7 @@ nav:
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
   - <b>Resources</b> 📚:
     - Resource Library: resources/library.md
+    - Depositing Cycles: resources/buying-cycles.md
     - Migrating Curves: resources/migrating-curve.md
     - Common Terms: common-terms/plug-dictionary.md  
     - The Internet Computer: "https://dfinity.org/faq"
