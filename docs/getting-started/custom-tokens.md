@@ -21,8 +21,8 @@ To see the EXT token standard interface, learn how to deploy your own EXT token,
 
 **Plug does not support sub-tokens** (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). We only support EXT tokens that are 1 canister = 1 token, and referenced with just the token's Canister ID. [Learn more about the why here.](#why-does-plug-not-support-ext-sub-tokens)
 
-## DAB Token List (Search Tab)
-![](imgs/medium-1.png)
+## DAB Token List (Coming Soon)
+![](imgs/dab.png)
 
 If you go through the "Add Token" flow (see below), you'll see there is a Search tab! This is the **DAB tokens list**, an upcoming feature that will be powered by [DAB](https://dab.ooo).
 
@@ -33,15 +33,15 @@ Learn more about it on its [Website](https://dab.ooo) and [GitHub](https://githu
 ## How to add a Custom IC Token to Plug
 In the Plug interface, go to the main assets/token tab, and click on “Add Tokens”.
 
-![](imgs/step-1.png)
+![](imgs/4.png)
 
-If your token is not available on our verified token list (Search tab), visit the “Custom” tab to manually add a new token. In the case of **Cycles Token (XTC)**, it is added by default on the list.
+Visit the **Custom** tab to manually add a new token using its Canister ID.
 
-![](imgs/medium-1.png)
+![](imgs/5.png)
 
-In the “Custom” tab, copy & paste the canister ID, it looks like this: ```5ymop-yyaaa-aaaah-qaa4q-cai``` (This is the WTC token, give it a try!).
+In the Custom tab, copy & paste the canister ID, the format looks like this: ```6ceop-cyaaa-aaaah-qaa4q-cai```. The Canister ID should be the one representing the main canister for that token (much like token contract addresses on Ethereum!).
 
-![](imgs/step-3.png)
+![](imgs/6.png)
 
 After clicking “Continue”, click “Add” in the modal asking you to confirm if this is the token you want to add.
 

@@ -31,7 +31,9 @@ It's **important to remember** that Plug supports cycles using the Cycles Token 
 
 If you send your Principal ID to another Plug user, they can use the SEND button to send you Cycles from their own balance. You will receive Cycles Token (XTC).
 
-![](imgs/send-c.png)
+From the other person's perspective (the sender), they would see this screen:
+
+![](imgs/2.png)
 
 ----
 
