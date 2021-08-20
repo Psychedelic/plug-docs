@@ -31,7 +31,7 @@ In the Plug interface, go to the main assets/token tab, and click on “Add Toke
 
 ![](imgs/step-1.png)
 
-If your token is not available on our verified token list (Search tab), visit the “Custom” tab to manually add a new token. In the case of **Cycles Token (XTC)** you can add it from the Search tab, or if your Plug Principal ID holds a balance, it will auto-detect and surface it.
+If your token is not available on our verified token list (Search tab), visit the “Custom” tab to manually add a new token. In the case of **Cycles Token (XTC)**, it is added by default on the list.
 
 ![](imgs/medium-1.png)
 
@@ -57,10 +57,10 @@ These are referenced with **both a Canister ID (parent canister), and a Token ID
 
 **There’s a couple reasons why we chose to not go down the route** of supporting canisters with “multiple tokens” or sub-tokens:
 
-**The primary reason for this is because it adds a centralization/risk point** where several user created tokens depend on a single canister (controlled by a third-party) if something happens to that canister (performance issues, scalability, takeovers), all tokens are affected.
+**The primary reason for this is because it adds a centralization/risk point** where several user created tokens depend on a single canister. Things like throughput, performance, scalability, control, and takeover/vulnerability risks that might appear would affect all tokens.
 
 **The second reason is that it adds a new unique identifier** (Token IDs) which doesn’t help achieve better composability on the Internet Computer. We need to maintain simple unique identifiers (one ID to find a token, not two), and reduce the number of “walled gardens” or interface-specific markets.
 
 **The final reason is that it blocks you from the main perk of EXT: expandability**. The token standard itself is customizable and expandable, but creating sub-tokens in someone else’s canister doesn’t allow you to develop or grow the EXT standard with custom features specific to your token, if needed, since it blocks and limits you to use the main canisters implementations.
 
-For these reasons, we only support single custom EXT tokens. Meaning, a custom token following the EXT standard, deployed to the Internet Computer in its own and non-shared token canister (referenced by a Canister ID).
+There's also the question of how computation is handled in a shared canister, and how the cost is distributed or taken. It is early, and for these reasons, we only support single custom EXT tokens to minimize risks. Meaning Plug only supports custom tokens following the EXT standard, deployed to the Internet Computer in its own and non-shared token canister (referenced by a Canister ID).
