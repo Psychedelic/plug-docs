@@ -21,10 +21,14 @@ To see the EXT token standard interface, learn how to deploy your own EXT token,
 
 **Plug does not support sub-tokens** (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). We only support EXT tokens that are 1 canister = 1 token, and referenced with just the token's Canister ID. [Learn more about the why here.](#why-does-plug-not-support-ext-sub-tokens)
 
-## Verified Token List (Search Tab)
+## DAB Token List (Search Tab)
 ![](imgs/medium-1.png)
 
-If you go through the "Add Token" flow (see below), you'll see there is a Search tab displaying some predefined tokens. This is the **verified tokens list**. This is an early version and preview, we are planning to create a token verification process to display a list of safe assets that follow the EXT standard. **¿Want to learn more about our ideas behind this, and how to apply for verification?** [Read more here](https://medium.com/@plug_wallet/f49207afb25c?source=friends_link&sk=f0c9513f87d851e30b9427b8bbc52763)
+If you go through the "Add Token" flow (see below), you'll see there is a Search tab! This is the **DAB tokens list**, an upcoming feature that will be powered by [DAB](https://dab.ooo).
+
+DAB is an in-development open internet service that will provide interface-agnostic user profiles & data, human-readable Principal ID & Canister ID names & info, as well as canister, token, NFT, and Dapp registries & verification for quality assurance and risk reduction in the ecosystem.
+
+Learn more about it on its [Website](https://dab.ooo) and [GitHub](https://github.com/psychedelic/dab) repository, and make early submissions to the NFT, Token, or Dapp lists.
 
 ## How to add a Custom IC Token to Plug
 In the Plug interface, go to the main assets/token tab, and click on “Add Tokens”.
