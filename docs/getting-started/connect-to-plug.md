@@ -174,7 +174,7 @@ Here's an example, of getting the user principal id:
   });
 
   // Get the user principal id
-  const principalId = await window.ic.plug.agent.getPrincipalId();
+  const principalId = await window.ic.plug.agent.getPrincipal();
 
   console.log(`Plug's user principal Id is ${principalId}`);
 })();
