@@ -31,6 +31,7 @@ nav:
   - Querying Balances: getting-started/connect-to-plug/#requestbalance
   - Triggering Transfers: getting-started/connect-to-plug/#requesttransferrequesttransferparams
   - Authentication Button: getting-started/plug-button.md
+  - Custom Tokens in Plug: getting-started/custom-tokens.md
   - <b>Build an App Examples</b> 💡: "#"
   - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
   - Plugged (E2E): build-an-app-examples/build-app-plugged.md
@@ -38,6 +39,8 @@ nav:
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
   - <b>Resources</b> 📚:
     - Resource Library: resources/library.md
+    - Depositing Cycles: resources/buying-cycles.md
+    - Recovering Sub-accounts: resources/multiple-accounts.md    
     - Migrating Curves: resources/migrating-curve.md
     - Common Terms: common-terms/plug-dictionary.md  
     - The Internet Computer: "https://dfinity.org/faq"
