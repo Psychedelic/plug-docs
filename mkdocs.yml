@@ -31,7 +31,9 @@ nav:
   - Querying Balances: getting-started/connect-to-plug/#requestbalance
   - Triggering Transfers: getting-started/connect-to-plug/#requesttransferrequesttransferparams
   - Authentication Button: getting-started/plug-button.md
-  - Custom Tokens in Plug: getting-started/custom-tokens.md
+  - <b>Custom Assets in Plug</b> 🎨: "#"
+  - Custom Tokens (EXT): getting-started/custom-tokens.md
+  - Non-fungible Tokens (NFTs): getting-started/nfts.md
   - <b>Build an App Examples</b> 💡: "#"
   - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
   - Plugged (E2E): build-an-app-examples/build-app-plugged.md
