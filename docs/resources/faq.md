@@ -49,3 +49,11 @@ Currently, you can only **import previously existing Plug accounts**. You can't 
 Plug uses SECP256K1, which was agreed on by the DFINITY Foundation as a future-ready option; and allows Plug the ability to **export your Plug identity into DFX**.
 
 ---
+
+### 5. I installed Plug to connect to an app, but it still takes me to a download page?
+
+If you wanted to use an app that integrates Plug for authentication/sign-up, but didn't have Plug before, when you click the "Connect to Plug" button on the app, it will take you to a download page so that you can install & get Plug. Up until there, everything is good, right?
+
+**After you install Plug, you need to refresh the page/app you were trying to connect to** before having Plug, so that it can **now detect that Plug is installed**.
+
+If after clicking the button, you are taken to a download page, you've most likely haven't refreshed the page yet.
