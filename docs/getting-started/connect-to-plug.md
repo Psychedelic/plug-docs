@@ -401,6 +401,23 @@ Object {
 
 It's a good practice to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
 
+### Request Cycles Token (XTC) Burn to Transfer Raw Cycles
+
+You can also use the following method to request a transfer of Cycles Token (XTC) from the user's balance, calling the XTC token canister burn method that "unwraps" the XTC into raw cycles, allowing their transfer to Canisters to refill and power their computation.
+
+```
+type Cycles = number;
+type CanisterId = string;
+window.ic.plug.burnXTC({ amount: Cycles, to: CanisterId })
+```
+
+An example of an asynchronous call made with this method:
+
+```
+
+```
+
+
 ---
 
 ## Conclusion
