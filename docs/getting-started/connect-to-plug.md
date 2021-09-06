@@ -413,8 +413,15 @@ window.ic.plug.burnXTC({ amount: Cycles, to: CanisterId })
 
 An example of an asynchronous call made with this method:
 
-```
-
+```js
+(async () => {
+  const params = {
+    to: 'xxxxx-xxxxx-xxxxx-xxxxx',
+    amount: 2_000_000,
+  };
+  const result = await window.ic.plug.burnXTC(params);
+  console.log(result);
+})();
 ```
 
 
