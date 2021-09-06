@@ -401,14 +401,14 @@ Object {
 
 It's a good practice to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
 
-### burnXTC - Request Cycles Token (XTC) Burn to Transfer Raw Cycles
+### requestBurnXTC - Request Cycles Token (XTC) Burn to Transfer Raw Cycles
 
 You can also use the following method to request a transfer of Cycles Token (XTC) from the user's balance, calling the XTC token canister burn method that "unwraps" the XTC into raw cycles, allowing their transfer to Canisters to refill and power their computation.
 
 ```
 type Cycles = number;
 type CanisterId = string;
-window.ic.plug.burnXTC({ amount: Cycles, to: CanisterId })
+window.ic.plug.requestBurnXTC({ amount: Cycles, to: CanisterId })
 ```
 
 Here is an example of an asynchronous call made with this method, **"to:" receives a Canister ID.** The **amount is not in decimals**, and is written in the regular trillion cycles format (if you want to send 2 trillion cycles, that is 2 XTC, but you would input: 2000000000000).
@@ -419,7 +419,7 @@ Here is an example of an asynchronous call made with this method, **"to:" receiv
     to: 'xxxxx-xxxxx-xxxxx-xxxxx',
     amount: 2_000_000,
   };
-  const result = await window.ic.plug.burnXTC(params);
+  const result = await window.ic.plug.requestBurnXTC(params);
   console.log(result);
 })();
 ```
