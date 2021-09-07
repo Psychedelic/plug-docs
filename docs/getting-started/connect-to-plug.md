@@ -405,7 +405,7 @@ It's a good practice to check the original [source-code](https://github.com/Psyc
 
 You can also use the following method to request a transfer of Cycles Token (XTC) from the user's balance, calling the XTC token canister burn method that "unwraps" the XTC into raw cycles, allowing their transfer to Canisters to refill and power their computation.
 
-```
+```js
 type Cycles = number;
 type CanisterId = string;
 window.ic.plug.requestBurnXTC({ amount: Cycles, to: CanisterId })
