@@ -44,9 +44,9 @@ This is the same case in MetaMask (uses the Ethereum Provider API) and other bro
 
 ### 4. Does Plug support seed/recovery phrases from other wallets? **NO**
 
-Currently, you can only **import previously existing Plug accounts**. You can't import wallets from other wallet providers (like the NNS application, for example). This is a matter of compatibility in the ecosystem, where most wallet providers use different mnemonics/cryptography. This might change in the future, if other providers utilize a compatible standard.
+Plug only supports 12-word recovery phrases using the SECP256K1 curve. For example, exporting previously existing Plug accounts is possible. If the other wallet follows this standard, it will be compatible.
 
-Plug uses SECP256K1, which was agreed on by the DFINITY Foundation as a future-ready option; and allows Plug the ability to **export your Plug identity into DFX**.
+Currently, you can only import previously existing Plug accounts. You can't import wallets using 24-word seed phrases or a different cryptographic curve.  Plug uses SECP256K1, which was agreed on by the DFINITY Foundation as a future-ready option; and allows Plug the ability to export your Plug identity into DFX.
 
 ---
 
