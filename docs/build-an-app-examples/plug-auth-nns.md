@@ -414,5 +414,5 @@ Hope you enjoyed the read this far and got to build a very simple application wi
 
 ## Project source-code ⚙️
 
-The source-code for this guide can be found in our [examples](https://github.com/Psychedelic/plug-docs/tree/main/examples/nns).
+The source-code for this guide can be found in our [examples](https://github.com/Psychedelic/plug-docs/tree/main/examples/plug-authentication-nns).
 
