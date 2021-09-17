@@ -7,24 +7,13 @@ date: "1"
 
 As of V0.3.1, we've added the **NFTs Tab** in your main assets view! With Plug, you will be able view the NFTs held/owned by your Principal ID (currently only compatible ones), view a specific NFT's details and attributes, and send them through Plug's UI to a different Principal ID.
 
-## ICPunks & Bulding New NFT Standards
+## DAB's NFT List - (EXT, ICPunks, and more...)
 
-Currently Plug only supports the [ICPunks collection](https://icpunks.com/), the only automatically surfaced and supported NFT. You can redeem it with your Plug wallet, tied to your Principal ID.
+Plug supports several NFT standards and collections using DAB's NFT list  [(Learn More)](https://dab.ooo/). In a nutshell, DAB is a registry or NFT list for NFTs of any standard that any UI/app (like Plug!) can query to fetch, surface, and integrate many NFT collections at once (instead of manually integrating each one!).
 
-We will roll out support for auto-surfacing other NFTs as a community-standard is further developed and matured, as well as we continue to develop a registry/list open internet service for Tokens, NFTs, and Dapps, to help improve discoverability [(DAB - Learn More)](https://dab.ooo/)
+We use the DAB JS library to support the standards/NFTs in the list, provided by DAB; as of the release of this integration (V0.3.3) we only auto-surface EXT & ICPunks NFTs, though other collections and standards are available in DAB.
 
-### Why Start Here?
-
-The ecosystem still needs to push and develop a conjoint NFT standard interface, and **we are supporting ICPunk’s early NFT standard proposal as a step in the right direction**. Why do we support it?
-
-- [Main Repository](https://github.com/stopak/ICPunks)
-- [Standard Interface](https://github.com/stopak/ICPunks/blob/dev/service/icpunks_rust.did)
-
-In contrast to other standards on the Internet Computer for NFTs the direction ICPunks has taken with their NFT standard takes an important leap: the trading and exchange features that would usually be covered by marketplaces **(listing for sale, view listed tokens, purchases) are built into the NFT contract/canister itself** 🤯
-
-That means no more marketplace-specific assets, or walled NFT gardens. All NFTs using this standard are interface/marketplace agnostic, and could be listed or traded anywhere. The NFT collection itself is its own marketplace and listing. For us, that is the next necessary leap for NFTs 😎
-
-Again, as we said, it’s early. This standard has to be discussed, and has to evolve into a community-effort, but we see the current interface implementation as a solid base layer to build upon, and that we will support as a standard going forward.
+We will soon expand this list and add support for any other DAB-listed NFT/standard. Our goal is not to favor any standard, but have an easy way to automatically support many ones at once (for that, we do need to make some implementations on our next release).
 
 ## Viewing NFT Details & Sending an NFT
 In the Plug interface, you will now see the new NFTs tab!
