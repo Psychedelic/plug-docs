@@ -399,7 +399,7 @@ Object {
 }
 ```
 
-It's a good practice to check the original [source-code](https://github.com/Psychedelic/plug-controller/blob/main/src/utils/dfx/rosetta.ts#L49) to see the latest type definitions.
+It's a good practice to check the original [source-code](https://github.com/Psychedelic/plug-controller/tree/main/src/utils/dfx) to see the latest type definitions.
 
 ### requestBurnXTC - Request Cycles Token (XTC) Burn to Transfer Raw Cycles
 
