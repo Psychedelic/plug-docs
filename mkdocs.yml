@@ -41,17 +41,18 @@ nav:
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
   - <b>Resources</b> 📚:
     - Resource Library: resources/library.md
-    - Troubleshooting: resources/troubleshooting.md
-    - Depositing Cycles: resources/buying-cycles.md
-    - Recovering Sub-accounts: resources/multiple-accounts.md    
-    - Migrating Curves: resources/migrating-curve.md
     - Common Terms: common-terms/plug-dictionary.md  
     - The Internet Computer: "https://dfinity.org/faq"
     - Disclaimer: resources/disclaimer.md
     - Trademark: resources/trademark.md
     - Privacy: resources/privacy.md
-    - Our App Ecosystem 🌀: resources/apps-with-plug.md
-  - <b>FAQs</b> ❓: resources/faq.md
+  - <b>FAQs & Troubleshooting</b> ❓:
+    - <b>FAQs: resources/faq.md
+    - Troubleshooting: resources/troubleshooting.md
+    - App Trust & Security: resources/app-trust-and-security.md
+    - Depositing Cycles: resources/buying-cycles.md
+    - Recovering Sub-accounts: resources/multiple-accounts.md    
+    - Migrating Curves: resources/migrating-curve.md
 extra:
   social:
     - icon: fontawesome/brands/github-alt
