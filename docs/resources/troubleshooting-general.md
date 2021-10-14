@@ -15,9 +15,9 @@ In this section you can find troubleshooting guides for **general Plug issues or
 
 ---
 
-## I’m unable to see the secret recovery phrase in Plug?
+## I’m unable to see the secret recovery phrase when creating a new wallet?
 
-If you cannot see your secret recovery phrase after installing Plug, please troubleshoot by following the steps below:
+If you cannot see your secret recovery phrase when first installing Plug, please troubleshoot by following the steps below:
 
 1. Manually remove the Plug extension.
 2. Close and reopen your browser.
@@ -40,7 +40,7 @@ If your issue persists or you have any questions regarding the curve change, ple
 ---
 ## I click on “Connect with Plug” in an app, but it takes me to Plug's page? 
 
-If you are trying to **connect to an app with Plug** just after installing it,  make sure you refresh the browser before proceeding. Try force refreshing by using “Ctrl + Shift + R” or closing and reopening the browser and then trying again to connect.
+If you are trying to **connect to an app with Plug** just after installing it,  make sure you refresh the browser before proceeding. Try force refreshing by using “Ctrl + Shift + R” or "Command + Shift + R" on Mac closing and reopening the browser and then trying again to connect.
 
 ---
 
