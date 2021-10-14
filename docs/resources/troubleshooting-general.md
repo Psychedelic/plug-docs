@@ -8,9 +8,13 @@ date: "1"
 
 In this section you can find troubleshooting guides for **general Plug issues or doubts** that are not directly related to Tokens or NFTs.
 
+**For issues with other topics, see:**
+1. [Troubleshooting Issues with Tokens.](https://docs.plugwallet.ooo/resources/troubleshooting-tokens/)
+2. [Troubleshooting Issues with NFTs.](https://docs.plugwallet.ooo/resources/troubleshooting-nfts/)
+
 ---
 
-## I’m unable to see the secret recovery phrase after installing Plug?
+## I’m unable to see the secret recovery phrase in Plug?
 
 If you cannot see your secret recovery phrase after installing Plug, please troubleshoot by following the steps below:
 

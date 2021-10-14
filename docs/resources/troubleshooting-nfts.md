@@ -8,6 +8,10 @@ date: "1"
 
 If you’re having trouble with Plug, this guide is meant to address common errors you may see while attempting to load NFTs.
 
+**For issues with other topics, see:**
+1. [Troubleshooting Issues with Tokens.](https://docs.plugwallet.ooo/resources/troubleshooting-tokens/)
+2. [Troubleshooting General Issues.](https://docs.plugwallet.ooo/resources/troubleshooting-general/)
+
 Please work through this guide before reaching out to support, the first thing our support team will send you is this troubleshooting guide. If you still have issues after trying these steps, contact us.
 
 ---

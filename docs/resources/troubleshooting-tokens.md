@@ -10,6 +10,11 @@ If you’re having trouble with Plug, this guide is meant to address common erro
 
 Please work through this guide before reaching out to support, the first thing our support team will send you is this troubleshooting guide. If you still have issues after trying these steps, contact us.
 
+**For issues with other topics, see:**
+
+1. [Troubleshooting Issues with NFTs.](https://docs.plugwallet.ooo/resources/troubleshooting-nfts/)
+2. [Troubleshooting General Issues.](https://docs.plugwallet.ooo/resources/troubleshooting-general/)
+
 ---
 
 ## My ICP is not showing but I can see the transaction on activity?
