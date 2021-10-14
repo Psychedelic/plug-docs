@@ -51,9 +51,9 @@ You may find the link to our Discord [here](https://discord.gg/fleekhq).
 
 ### Canister Down Error: The Asset's Canister is Unavailable
 
-If you are receiving the “Canister Down” error while for example visiting the NFT tab and not seeing your ICPunk or other NFT/assets it might be due to the NFT’s or projects canister being down. 
+If you are receiving the “Canister Down” error while for example visiting the Assets tab and not seeing your balances it might be due to the Token's or projects canister being down. 
 
-There’s nothing that can be done directly from Plug to troubleshoot this issue, please contact the team of the asset/canister/NFT that isn’t loading for more information and wait for them to bring it back online.
+There’s nothing that can be done directly from Plug to troubleshoot this issue, please contact the team who developed the token that isn’t loading for more information and wait for them to bring it back online.
 
 ---
 

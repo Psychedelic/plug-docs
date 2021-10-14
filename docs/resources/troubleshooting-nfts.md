@@ -89,6 +89,7 @@ You may learn about the status of the Internet Computer here:
 https://status.internetcomputer.org/
 
 ---
+## FAQs Regarding NFT Management
 
 ### How do I send my NFTs to Stoic Wallet or other wallets?
 Plug makes sending NFTs very simple, to send your NFT to another IC wallet make sure the following conditions are met. 

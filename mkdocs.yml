@@ -27,7 +27,7 @@ nav:
   - <b>Developer Guides</b> 🧰: "#"
   - Getting Started: getting-started/connect-to-plug/#browser-extension
   - Connect apps to Plug: getting-started/connect-to-plug/#requestconnectrequestconnectparams
-  - Using the PlugAgent: getting-started/connect-to-plug/#plug-agent-agent
+  - Using the Agent/Actor: getting-started/connect-to-plug/#making-calls-to-canisters-with-plug
   - Querying Balances: getting-started/connect-to-plug/#requestbalance
   - Triggering Transfers: getting-started/connect-to-plug/#requesttransferrequesttransferparams
   - Authentication Button: getting-started/plug-button.md
