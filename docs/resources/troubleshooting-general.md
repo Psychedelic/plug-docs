@@ -9,6 +9,7 @@ date: "1"
 In this section you can find troubleshooting guides for **general Plug issues or doubts** that are not directly related to Tokens or NFTs.
 
 **For issues with other topics, see:**
+
 1. [Troubleshooting Issues with Tokens.](https://docs.plugwallet.ooo/resources/troubleshooting-tokens/)
 2. [Troubleshooting Issues with NFTs.](https://docs.plugwallet.ooo/resources/troubleshooting-nfts/)
 
