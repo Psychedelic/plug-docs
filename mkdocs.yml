@@ -48,9 +48,9 @@ nav:
     - Privacy: resources/privacy.md
   - <b>Troubleshooting</b> ❓:  
     - Troubleshooting Guides: resources/troubleshooting.md
+    - Recovering Sub-accounts: resources/multiple-accounts.md
     - Migrating Curves: resources/migrating-curve.md    
     - Depositing Cycles: resources/buying-cycles.md
-    - Recovering Sub-accounts: resources/multiple-accounts.md
     - App Trust & Security: resources/app-trust-and-security.md
 extra:
   social:
