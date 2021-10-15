@@ -10,10 +10,10 @@ If you are here, it is because you've probably seen **a warning message** in Plu
 
 ![](imgs/trust-app.png)
 
-This error is related to **safe practices when integrating Plug**. We have prepared this guide so users understand **why they see this**, and for **developers of apps showing these warnings to know how to solve it.
+This error is related to **safe practices when integrating Plug**. We have prepared this guide so users understand **why they see this**, and for **developers of apps showing these warnings** to know how to solve it.
 
-- For users.
-- For developers.
+- [**For users**:](#for-users) learn why this happens.
+- [**For developers**:](#for-developers) learn how to fix it so your apps doesn't show a warning.
 
 ---
 
