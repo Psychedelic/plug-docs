@@ -41,15 +41,15 @@ nav:
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
   - <b>Resources & FAQs </b> 📚:
     - FAQs: resources/faq.md
-    - Resource Library: resources/library.md    
-    - Depositing Cycles: resources/buying-cycles.md
+    - Resource Library: resources/library.md
     - Common Terms: common-terms/plug-dictionary.md  
     - Disclaimer: resources/disclaimer.md
     - Trademark: resources/trademark.md
     - Privacy: resources/privacy.md
-  - <b>Troubleshooting</b> ❓:
+  - <b>Troubleshooting</b> ❓:  
     - Troubleshooting Guides: resources/troubleshooting.md
     - Migrating Curves: resources/migrating-curve.md    
+    - Depositing Cycles: resources/buying-cycles.md
     - Recovering Sub-accounts: resources/multiple-accounts.md
     - App Trust & Security: resources/app-trust-and-security.md
 extra:

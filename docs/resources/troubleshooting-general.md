@@ -44,6 +44,12 @@ If you are trying to **connect to an app with Plug** just after installing it,  
 
 ---
 
+## I imported my account to a new browser/device but can't see all my accounts? 
+
+If you had sub-accounts, and then used your **recovery phrase** to import your wallet onto a different browser, your sub-accounts won't be visible right away but are not lost. [See this guide](https://docs.plugwallet.ooo/resources/multiple-accounts/) to learn how to re-add them.
+
+---
+
 ## My issue still persists or is not covered here!
 
 If your issue persists please reach out to us in the #support channel of our Discord with a short explanation of the error, your browser version, and your OS version so we can begin the troubleshooting process and help you resolve the issue. 
