@@ -66,8 +66,8 @@ To understand how to read the response data for the `requestConnect` call and an
 
 ## Available interactions and methods
 
-## Connect to Plug & Use the PlugAgent
-Start interacting with the user's wallet by requesting a connect, and if needed, passing the necessary information to request the use of the **PlugAgent.**
+## 🔌 Connect your App to Plug
+Start interacting with the user's wallet by requesting a connect, and if needed, passing the necessary information to interact with the Agent and Actor.
 
 
 ### requestConnect(RequestConnectParams?)
@@ -86,12 +86,16 @@ Select `Allow` or `Decline` in the pop-up and to see the corresponding result (A
 })();
 ```
 
-Optionally, you can pass the following parameters to integrate Plug's Agent features, for authenticating a user's identity and requesting access to the Plug Agent to sign requests to your canisters on behalf of that identity.
+Optionally, you can pass the following parameters to **integrate Plug's Agent** features, for authenticating a user's identity and requesting access to the Plug Agent to sign requests to your canisters on behalf of that identity.
 
 The fields are:
 
   - whitelist - an Array of Canister Ids of type string
   - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
+
+!!! Important
+    
+    Passing a whitelist is telling Plug to pass the user a list of canisters that your app will be able to interact with through the PlugAgent, on their behalf. NOTE: You should only be interacting with whitelisted canisters through an actor created through createActor( ). More on that soon.
 
 This is how it looks:
 
@@ -102,7 +106,7 @@ Object {
 }
 ```
 
-Here's an hypotetical example:
+Here's an hypothetical example:
 
 ```js
 (async () => {
@@ -141,127 +145,49 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
 })()
 ```
 
+## ⚡ Persisting an App/Plug Connection
 
-### Plug Agent (.agent)
+After initiating a connection to Plug with a whitelist, you can add this check as a fallback to ensure the connect persists as the user navigates your application/website
 
-On instantiation (requestConnect with whitelist) the `Agent` is assigned to the window Plug object as:
-
-```js
-window.ic.plug.agent
-```
-
-The agent field is an instance of the **HttpAgent** class from the [@dfinity/agent](https://github.com/dfinity/agent-js) library, that allow us to interact with the Internet Computer. So, check the [source-code](https://github.com/dfinity/agent-js/blob/90b073dc735bfae9f3b1c7fc537bd97347c5cc68/packages/agent/src/agent/api.ts) to learn about the available interface methods.
-
-!!! Note
-    
-    The interface might change between versions, so make sure you check the correspondent commit version, in accordance to the `dfinity/agent` version in [use](https://github.com/Psychedelic/plug-controller/blob/main/package.json).
-
-Here's an example, of getting the user principal id:
-
-```js
-(async () => {
-  // Canister Ids
-  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
-
-  // Whitelist
-  const whitelist = [
-    nnsCanisterId,
-  ];
-
-  // Make the request
-  const isConnected = await window.ic.plug.requestConnect({
-    whitelist,
-  });
-
-  // Get the user principal id
-  const principalId = await window.ic.plug.agent.getPrincipal();
-
-  console.log(`Plug's user principal Id is ${principalId}`);
-})();
-```
-
-### Connection & PlugAgent Persistence Check
-
-After initiating a connection to Plug with a whitelist, and getting authorized by the user to use the PlugAgent, **add this check as a fallback to ensure the connection persists and the agent is available at all times** as the user navigates your application/website.
-
-This checks the status of the connection to the user's Plug wallet; if at any given moment it turns into false, it re-requests it. Furthermore, if the connection is true, but the agent is not instantiated or wasn't persisted after a refresh (window.ic.plug.agent = null), it re-instantiates (createAgent) the agent. 
+This checks the status of the connection to the user’s wallet in Plug; if at any moment it turns into false, it will re-requests it. 
 
 ```js
 const connected = await window.ic.plug.isConnected();
 if (!connected) await window.ic.plug.requestConnect({ whitelist, host });
-if (connected && !window.ic.plug.agent) {
-  await window.ic.plug.createAgent({ whitelist, host })
-}
 ```
-You can use this, for example, in a `useEffect` inside your apps main component (index/app) to do a check after load, or you can run the check before a user executes a Plug/Agent related action. You can pass on the same whitelist as before (won't require re-approval by the user, unless access was revoked), or a different whitelist Canister ID set (will require the user's approval). 
 
-```JS
-const verifyConnectionAndAgent = async () => {
+You can use this, for example, in a useEffect inside of your apps main component (index/app) to do a check after load. You can pass on the same whitelist as before (won’t require re-approval by the user, unless access was revoked), or a different whitelist Canister ID set (will require the user’s approval).
+
+```js
+const verifyConnection = async () => {
   const connected = await window.ic.plug.isConnected();
   if (!connected) await window.ic.plug.requestConnect({ whitelist, host });
-  if (connected && !window.ic.plug.agent) {
-    await window.ic.plug.createAgent({ whitelist, host })
-  }
 };
 
 useEffect(async () => {
-  verifyConnectionAndAgent();
+  verifyConnection();
 }, []);
 ```
 
-This check uses the createAgent method explained below to re-instantiate the agent.
+## 📡 Making Calls to Canisters with Plug
 
-#### createAgent(CreateAgentParams)
+Once connected, you can use Plug to make proxied calls to a canister on behalf of your users. This is the main way **your app will be able to call actions on behalf of users**, like calling an update method on your app's BE canister to make a post (if it is a social media), or interact with an NFT collection's canister, etc.
 
-createAgent() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method for instantiating an Agent to talk to the [Internet Computer](https://dfinity.org/) via HTTP, which allows users to interact with a client of the internet computer.
+1. First, connect to Plug and pass a whitelist of canisters you need to interact to.
+2. The user will approve the connection, giving you access to the createActor method.
+3. Use the createActor method to make safe calls to canisters on behalf of users.
 
-The agent is the core piece for using Plug as an authentication provider, since it can proxy sign canister calls using the identity of the user visiting your site or application. For example, it can provide the Principal ID to identify the user in your platform. 
+!!! Important
+    
+    It is key to use the createActor to talk to a canister on behalf of users. Using the agent on its own, and creating an Actor on your end (without using Plug's method) will show users a warning when they need to approve update calls that affect their assets. This is considered an unsafe practice because it isn't fully transparent to users on the parameters you pass.
 
-The `createAgent` takes an object of fields:
-
-  - whitelist - an Array of Canister Ids of type string
-  - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
-
-This is how it looks:
-
-```js
-Object {
-  whitelist: ['canister-id'],
-  host?: 'https://network-address',
-}
-```
-
-On instantiation the `Agent` is assigned to the window Plug object, and available as `window.ic.plug.agent`. As such, once called and instantiated there's no return value.
-
-```js
-(async () => {
-  // NNS Canister Id as an example
-  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
-  const whitelist = [nnsCanisterId];
-
-  // Initialise Agent, expects no return value
-  await window?.ic?.plug?.createAgent({
-    whitelist
-  });
-
-  // Gets the principal associated with the current user identity
-  // see https://sdk.dfinity.org/docs/developers-guide/cli-reference/dfx-identity.html#_dfx_identity_get_principal
-  const principal = await window?.ic?.plug?.agent?.getPrincipal();
-
-  // We use the `toText` method to convert the principal to text
-  // see https://sdk.dfinity.org/docs/base-libraries/principal#toText
-  console.log(principal.toText());
-})()
-```
-
-
-### createActor()
+### createActor() - Making Safe Calls
 
 createActor() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method that creates an Actor to interact with the [Internet Computer](https://dfinity.org/). Returns an Actor for the provided Canister Id and interface factory ([Candid](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html) or [IDL](https://sdk.dfinity.org/docs/candid-guide/candid-concepts.html#_why_create_a_new_idl)).
 
 The `createActor` expects that the Agent is initialized beforehand by calling the `requestConnect` method with the whitelist (canister ID string array) and the host (string).
 
-As mentioned above, on instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`.
+As mentioned above, on instantiation the `Agent` is assigned to the window Plug object, as `window.ic.plug.agent`. Creating an Actor allows you to securely interact with a canister’s interface on behalf of the user. 
 
 ```js
 (async () => {
@@ -309,6 +235,51 @@ As mentioned above, on instantiation the `Agent` is assigned to the window Plug 
   const stats = await NNSUiActor.get_stats();
   console.log('NNS stats', stats);
 })()
+```
+
+### ⚠️ How NOT to Make Canister Calls
+Making calls on behalf of the user directly through the Plug Agent is not a suggested way to make calls. **That is why Plug has an exposed createActor method** shown above. 
+
+If you bypass the createActor method and use the Agent to create an actor on your side; when that actor is sent to be signed by Plug it will show the user a warning, because Plug is not able to read all the arguments passed to that call, and considers it risky for the user to accept the action.
+
+To learn more about what happens on both the user and developer side if you try to bypass the createActor( ) flow, [you can read this section of our documentation.](https://docs.plugwallet.ooo/resources/app-trust-and-security/)
+
+### Plug Agent (.agent)
+
+On instantiation (requestConnect with whitelist) the `Agent` is assigned to the window Plug object as:
+
+```js
+window.ic.plug.agent
+```
+
+The agent field is an instance of the **HttpAgent** class from the [@dfinity/agent](https://github.com/dfinity/agent-js) library, that allow us to interact with the Internet Computer.
+
+!!! Important
+    
+    It's important to note that we are going to deprecate direct access to the agent in the near future, as developers should be using the CREATE ACTOR method to make calls to canisters through Plug. You can check the correspondent commit version for the latest interface, in accordance to the `dfinity/agent` version in [use](https://github.com/Psychedelic/plug-controller/blob/main/package.json).
+
+Here's an example, of getting the user principal id:
+
+```js
+(async () => {
+  // Canister Ids
+  const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
+
+  // Whitelist
+  const whitelist = [
+    nnsCanisterId,
+  ];
+
+  // Make the request
+  const isConnected = await window.ic.plug.requestConnect({
+    whitelist,
+  });
+
+  // Get the user principal id
+  const principalId = await window.ic.plug.agent.getPrincipal();
+
+  console.log(`Plug's user principal Id is ${principalId}`);
+})();
 ```
 
 ----

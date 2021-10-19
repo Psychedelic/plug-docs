@@ -27,7 +27,7 @@ nav:
   - <b>Developer Guides</b> 🧰: "#"
   - Getting Started: getting-started/connect-to-plug/#browser-extension
   - Connect apps to Plug: getting-started/connect-to-plug/#requestconnectrequestconnectparams
-  - Using the PlugAgent: getting-started/connect-to-plug/#plug-agent-agent
+  - Using the Agent/Actor: getting-started/connect-to-plug/#making-calls-to-canisters-with-plug
   - Querying Balances: getting-started/connect-to-plug/#requestbalance
   - Triggering Transfers: getting-started/connect-to-plug/#requesttransferrequesttransferparams
   - Authentication Button: getting-started/plug-button.md
@@ -39,19 +39,19 @@ nav:
   - Plugged (E2E): build-an-app-examples/build-app-plugged.md
   - NNS Stats: build-an-app-examples/plug-auth-nns.md
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
-  - <b>Resources</b> 📚:
+  - <b>Resources & FAQs </b> 📚:
+    - FAQs: resources/faq.md
     - Resource Library: resources/library.md
-    - Troubleshooting: resources/troubleshooting.md
-    - Depositing Cycles: resources/buying-cycles.md
-    - Recovering Sub-accounts: resources/multiple-accounts.md    
-    - Migrating Curves: resources/migrating-curve.md
     - Common Terms: common-terms/plug-dictionary.md  
-    - The Internet Computer: "https://dfinity.org/faq"
     - Disclaimer: resources/disclaimer.md
     - Trademark: resources/trademark.md
     - Privacy: resources/privacy.md
-    - Our App Ecosystem 🌀: resources/apps-with-plug.md
-  - <b>FAQs</b> ❓: resources/faq.md
+  - <b>Troubleshooting</b> ❓:  
+    - Troubleshooting Guides: resources/troubleshooting.md
+    - Recovering Sub-accounts: resources/multiple-accounts.md
+    - Migrating Curves: resources/migrating-curve.md    
+    - Depositing Cycles: resources/buying-cycles.md
+    - App Trust & Security: resources/app-trust-and-security.md
 extra:
   social:
     - icon: fontawesome/brands/github-alt
