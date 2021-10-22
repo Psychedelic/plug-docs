@@ -33,15 +33,17 @@ Finally, open the console by clicking “background page” next to “Inspect V
 You have successfully opened Plug’s Background Console, **please take note of the error** and continue with the troubleshooting guide below.
 
 
-### Code 400: Specified ingress_expiry not within expected range - “Clock Error”
+### “Clock Error” - Code 400: Specified ingress_expiry not within expected range 
 
 The NNS ledger is very strict about requests to the ledger and when they expire. There’s a known error - if your clock on your Windows/MacOS/Mobile device is not set to time zone updating “automatically” and is out of sync, the NNS ledger will reject your query to check your assets.
 
 **To solve the “Clock Error” in Plug, follow the troubleshooting steps below:** 
 
-Visit your device time/date settings.
-Make sure that the time zone is set to “automatically”.
-That’s it! Restart your browser, and Plug should show all your assets.
+1. On your Windows/MacOS device, visit your device time/date settings.
+2. Make sure that the time zone and time is set to “automatically”.
+3. That’s it! Restart your browser, and Plug should show all your assets.
+
+In some cases, turning it "off" and then back "on" (both settings) to automatic, can help resolve the issue and ensure the time is refreshed.
 
 If your issue persists please reach out to us in the #support channel of our Discord with a short explanation of the error, your browser version, and your OS version so we can begin the troubleshooting process and help you resolve the issue. 
 
