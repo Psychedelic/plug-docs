@@ -134,6 +134,20 @@ Here's an hypothetical example:
 
 You can learn more about this and use a template button implementation by reading our [Plug button](/getting-started/plug-button) guide! A ready-to-go "Connect to Plug" button for your app.
 
+#### Timeout
+
+We’ve added “timeout” as a parameter that can be added to requestConnect and set as a global variable for the rest of the modals on your dapp. For example, if you set it to 5000, the modal will close in 5000 milliseconds or 5 seconds if the user fails to choose an action. By default, this is set to 2 minutes. 
+
+View the code snippet below to view how the timeout parameter is used the correct way in our requestConnect method.
+
+```js
+ic.plug.requestConnect({ 
+  host: 'mainnet.dfinity.org',
+  whitelist: [],
+  timeout: 50000
+})
+```
+
 ### isConnected()
 
 isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to check the connection status, that returns a Boolean: `true` or `false`.
@@ -236,6 +250,109 @@ As mentioned above, on instantiation the `Agent` is assigned to the window Plug 
   console.log('NNS stats', stats);
 })()
 ```
+
+### batchTransactions() - Making Batch Transaction
+
+Developers can allow users to accept multiple canister update call pop-ups in one pop-up modal, instead of one-by-one. This creates a better user experience and looks similar to the image below.
+
+![](imgs/batch.png)
+
+This is done using the **batchTransactions method in the IC Provider API**.
+
+Users will be able to quickly view what actions are being taken by the app on their behalf, or look more closely at each transaction by visiting the “Data” tab where they will be able to see the data of each transaction similarly to the image below.
+
+To create the transactions above, we’ve written a code example below showing how users will be able to implement this in their own applications.
+
+> It's **important to note** you can't yet make batch transactions that depend on each other. That feature will come in the future.
+
+```js
+import { Principal } from '@dfinity/principal';
+import React from 'react';
+import RandomBigInt from 'random-bigint';
+import { getAccountId, getTokenIdentifier } from '../utils';
+import CoinflipIDL from '../idls/coinflip.did';
+import XtcIDL from '../idls/xtc.did';
+import ExtIDL from '../idls/ext.did';
+import nns_ledgerDid from '../idls/nns_ledger.did';
+
+export const XTC_CANISTER_ID = 'aanaa-xaaaa-aaaah-aaeiq-cai';
+export const STARVERSE_CID = 'nbg4r-saaaa-aaaah-qap7a-cai';
+export const NNS_LEDGER_CID = 'ryjl3-tyaaa-aaaaa-aaaba-cai';
+const COINFLIP_CANISTER_ID = '24pmb-qiaaa-aaaah-aannq-cai';
+
+const TRANSFER_XTC_TX = {
+  idl: XtcIDL,
+  canisterId: XTC_CANISTER_ID,
+  methodName: 'transfer',
+  args: [{ to: Principal.fromText('e5uhc-kq6ct-dgmct-7x2zg-dnytg-kry5b-3rwpw-uuwqj-andm2-cmvis-nqe'), amount: BigInt(1400000), from: [] }],
+  onSuccess: async (res) => {
+    console.log('transferred xtc successfully');
+  },
+  onFail: (res) => {
+    console.log('transfer xtc error', res);
+  },
+};
+
+const TRANSFER_STARVERSE_TX = {
+  idl: ExtIDL,
+  canisterId: STARVERSE_CID,
+  methodName: 'transfer',
+  args: [{
+    to: { principal: Principal.from('e5uhc-kq6ct-dgmct-7x2zg-dnytg-kry5b-3rwpw-uuwqj-andm2-cmvis-nqe') },
+    from: { principal: Principal.from('53foq-re32g-vcvl5-e4ptn-y5ndj-coy4v-rgtnh-x65mc-2qfiw-kb2js-7qe') },
+    token: getTokenIdentifier(STARVERSE_CID, 420),
+    amount: BigInt(1),
+    memo: new Array(32).fill(0),
+    notify: false,
+    subaccount: [],
+  }],
+  onSuccess: async (res) => {
+    console.log('transferred starverse successfully');
+  },
+  onFail: (res) => {
+    console.log('transfer starverse error', res);
+  },
+};
+
+const TRANSFER_ICP_TX = {
+  idl: nns_ledgerDid,
+  canisterId: NNS_LEDGER_CID,
+  methodName: 'send_dfx',
+  args: [{
+    to: getAccountId(Principal.from('e5uhc-kq6ct-dgmct-7x2zg-dnytg-kry5b-3rwpw-uuwqj-andm2-cmvis-nqe')),
+    fee: { e8s: BigInt(10000) },
+    amount: { e8s: BigInt(1000000) },
+    memo: RandomBigInt(32),
+    from_subaccount: [], // For now, using default subaccount to handle ICP
+    created_at_time: [],
+  }],
+  onSuccess: async (res) => {
+    console.log('transferred icp successfully');
+  },
+  onFail: (res) => {
+    console.log('transfer icp error', res);
+  },
+};
+
+
+
+const BatchTransactionsExample = () => {
+  const randomTransfers = async () => {
+    console.log('Doing a bunch of transfers');
+    await window.ic.plug.batchTransactions([TRANSFER_XTC_TX, TRANSFER_ICP_TX, TRANSFER_STARVERSE_TX, FLIP_TRANSACTION(1)])
+    console.log('Done!');
+  }
+  return (
+    <div className="batch-transactions-container">
+      <h2>Batch Transactions Example</h2>
+      <button type="button" onClick={randomTransfers}>Random Transactions</button>
+    </div>
+  )
+}
+export default BatchTransactionsExample;
+```
+
+---
 
 ### ⚠️ How NOT to Make Canister Calls
 Making calls on behalf of the user directly through the Plug Agent is not a suggested way to make calls. **That is why Plug has an exposed createActor method** shown above. 
@@ -340,7 +457,7 @@ Object {
   amount: number,
   opts?: {
     fee?: number,
-    memo?: number,
+    memo?: string,
     from_subaccount?: Number,
     created_at_time?: {
       timestamp_nanos: number
@@ -356,6 +473,7 @@ As an example, copy and paste the following code snippet into the console and ex
   const params = {
     to: 'xxxxx-xxxxx-xxxxx-xxxxx',
     amount: 2_000_000,
+    memo: '123451231231',
   };
   const result = await window.ic.plug.requestTransfer(params);
   console.log(result);
