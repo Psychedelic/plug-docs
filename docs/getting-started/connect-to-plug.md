@@ -263,7 +263,7 @@ Users will be able to quickly view what actions are being taken by the app on th
 
 To create the transactions above, we’ve written a code example below showing how users will be able to implement this in their own applications.
 
-> It's **important to note** you can't yet make batch transactions that depend on each other. That feature will come in the future.
+> It's **important to note two things** you can't yet make batch transactions that depend on each other. That feature will come in the future. **And if any transaction fails in the chain, the chain stops** so you need to consider creating fallback options for this.
 
 ```js
 import { Principal } from '@dfinity/principal';
