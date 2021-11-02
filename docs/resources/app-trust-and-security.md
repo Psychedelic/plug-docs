@@ -103,7 +103,7 @@ const xtcCanisterId = 'aanaa-xaaaa-aaaah-aaeiq-cai';
 // Plug would be able to decode the arguments since it's receiving
 // the IDL.
 const secureXTCTransfer = async () => {
-  const XTCActor = window?.ic?.plug?.createActor(xtcCanisterId, XTCIdl);
+  const XTCActor = window?.ic?.plug?.createActor({canisterId: xtcCanisterId, interfaceFactory: XTCIdl});
   const balance = await XTCActor.balance([]);
   console.log('My XTC Balance is ', balance, ' cycles');
 
