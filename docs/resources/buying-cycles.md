@@ -43,9 +43,7 @@ DFINITY's [Cycles Faucet](https://faucet.dfinity.org/) is an open faucet any dev
 
 ![](imgs/faucet.png)
 
-To get these redeem to your balance in Plug, **select the option to redeem the cycles as Dank/Cycles Token-XTC** option.
-
-Then, when the Cycles Faucet asks for a Principal ID where to receive this Cycles Tokens (XTC), **enter your Plug wallet's main Principal ID** which you can get from the deposit screen.
+At the moment, you can't directly get cycles from the Cycles Faucet to your wallet in Plug. However, you could redeem raw cycles to a developer cycles wallet using the cycles faucet, and follow the step below (minting or sending Cycles Token (XTC) to your Plug Principal ID) to use those cycles to mint XTC into your Plug account.
 
 ----
 
