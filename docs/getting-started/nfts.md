@@ -11,7 +11,7 @@ As of V0.3.1, we've added the **NFTs Tab** in your main assets view! With Plug, 
 
 Plug supports several NFT standards and collections using DAB's NFT list  [(Learn More)](https://dab.ooo/). In a nutshell, DAB is a registry or NFT list for NFTs of any standard that any UI/app (like Plug!) can query to fetch, surface, and integrate many NFT collections at once (instead of manually integrating each one!).
 
-We use the DAB JS library to support the standards/NFTs in the list, provided by DAB; as of the release of this integration (V0.3.3) we only auto-surface EXT & ICPunks NFTs, though other collections and standards are available in DAB.
+We use the DAB JS library to support the standards/NFTs in the list.
 
 We will soon expand this list and add support for any other DAB-listed NFT/standard. Our goal is not to favor any standard, but have an easy way to automatically support many ones at once (for that, we do need to make some implementations on our next release).
 
