@@ -411,7 +411,7 @@ Here's an example, of getting the user principal id:
 
 ## Request Balance & Trigger Transactions
 
-### requestBalance(subaccountIndex?: number)
+### requestBalance()
 
 requestBalance() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the user's ICP wallet balance, which is consulted in the [Internet Computer's Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview) for ICP, returning the amount of ICP the user's wallet in Plug holds.
 
