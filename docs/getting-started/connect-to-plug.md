@@ -78,11 +78,17 @@ As an example, copy and paste the following code snippet into the console and ex
 
 Select `Allow` or `Decline` in the pop-up and to see the corresponding result (Allowed or Declined) in the console.
 
+If accepted, the `requestConnect` method returns an object containing the publicKey of the connected account.
+If declined, the method will throw an error.
+
 ```js
 (async () => {
-  const result = await window.ic.plug.requestConnect();
-  const connectionState = result ? "allowed" : "denied";
-  console.log(`The Connection was ${connectionState}!`);
+  try {
+    const publicKey = await window.ic.plug.requestConnect();
+    console.log(`The connected user's public key is:`, publicKey);
+  } catch (e) {
+    console.log(e);
+  }
 })();
 ```
 
@@ -122,13 +128,15 @@ Here's an hypothetical example:
   const host = "https://mainnet.dfinity.network";
 
   // Make the request
-  const result = await window.ic.plug.requestConnect({
-    whitelist,
-    host,
-  });
-
-  const connectionState = result ? "allowed" : "denied";
-  console.log(`The Connection was ${connectionState}!`);
+  try {
+    const publicKey = await window.ic.plug.requestConnect({
+      whitelist,
+      host,
+    });
+    console.log(`The connected user's public key is:`, publicKey);
+  } catch (e) {
+    console.log(e);
+  }
 })();
 ```
 
@@ -407,7 +415,7 @@ Here's an example, of getting the user principal id:
 
 requestBalance() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request the user's ICP wallet balance, which is consulted in the [Internet Computer's Ledger Canister](https://sdk.dfinity.org/docs/integration/ledger-quick-start.html#_ledger_canister_overview) for ICP, returning the amount of ICP the user's wallet in Plug holds.
 
-The response data is an array, otherwise throws an error:
+The response data is an array with the balances of all assets in the currently connected wallet, and throws an error if the user is not connected:
 
 ```js
 Array [{
