@@ -24,21 +24,20 @@ markdown_extensions:
       permalink: true
 nav:
   - Welcome to Plug 👋: index.md
-  - <b>Developer Guides</b> 🧰: "#"
-  - Getting Started: getting-started/connect-to-plug/#browser-extension
-  - Connect apps to Plug: getting-started/connect-to-plug/#requestconnectrequestconnectparams
-  - Using the Agent/Actor: getting-started/connect-to-plug/#making-calls-to-canisters-with-plug
-  - Querying Balances: getting-started/connect-to-plug/#requestbalance
-  - Triggering Transfers: getting-started/connect-to-plug/#requesttransferrequesttransferparams
-  - Authentication Button: getting-started/plug-button.md
-  - <b>Custom Assets in Plug</b> 🎨: "#"
-  - Custom Tokens (EXT): getting-started/custom-tokens.md
-  - Non-fungible Tokens (NFTs): getting-started/nfts.md
-  - <b>Build an App Examples</b> 💡: "#"
-  - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
-  - Plugged (E2E): build-an-app-examples/build-app-plugged.md
-  - NNS Stats: build-an-app-examples/plug-auth-nns.md
-  - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
+  - <b>Developer Guides</b> 🧰:
+    - Getting Started: getting-started/extension-components.md
+    - Connect apps to Plug: getting-started/connect-to-plug.md
+    - Using the Agent/Actor: getting-started/making-calls.md
+    - Balances and Transaction: getting-started/balances-transactions.md
+  - <b>Custom Assets in Plug</b> 🎨:
+    - Custom Tokens (EXT): getting-started/custom-tokens.md
+    - Non-fungible Tokens (NFTs): getting-started/nfts.md
+  - <b>Build an App Examples</b> 💡:
+    - Authentication Button: build-an-app-examples/plug-button.md
+    - Buy me a Coffee: build-an-app-examples/build-app-buy-me-a-coffee.md
+    - Plugged (E2E): build-an-app-examples/build-app-plugged.md
+    - NNS Stats: build-an-app-examples/plug-auth-nns.md
+    - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"  
   - <b>Resources & FAQs </b> 📚:
     - FAQs: resources/faq.md
     - Resource Library: resources/library.md
