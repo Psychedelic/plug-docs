@@ -1,6 +1,9 @@
 ---
 date: "1"
 ---
+
+![](imgs/calls-to-plug.png)
+
 ## 📡 Making Calls to Canisters with Plug
 
 Once connected, you can use Plug to make proxied calls to a canister on behalf of your users. This is the main way **your app will be able to call actions on behalf of users**, like calling an update method on your app's BE canister to make a post (if it is a social media), or interact with an NFT collection's canister, etc.

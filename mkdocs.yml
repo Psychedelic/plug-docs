@@ -28,7 +28,7 @@ nav:
     - Getting Started: getting-started/extension-components.md
     - Connect apps to Plug: getting-started/connect-to-plug.md
     - Using the Agent/Actor: getting-started/making-calls.md
-    - Balances and Transaction: getting-started/balances-transactions.md
+    - Balances and Transactions: getting-started/balances-transactions.md
   - <b>Custom Assets in Plug</b> 🎨:
     - Custom Tokens (EXT): getting-started/custom-tokens.md
     - Non-fungible Tokens (NFTs): getting-started/nfts.md

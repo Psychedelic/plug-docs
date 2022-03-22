@@ -1,6 +1,9 @@
 ---
 date: "1"
 ---
+
+![](imgs/balances-transactions.png)
+
 ## Request Balance & Trigger Transactions
 
 ### requestBalance()

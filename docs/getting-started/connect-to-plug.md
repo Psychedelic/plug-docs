@@ -3,6 +3,8 @@ date: "1"
 ---
 # Connect your App to Plug
 
+![](imgs/connect-to-plug.png)
+
 ## 🔌 Connect your App to Plug
 Start interacting with the user's wallet by requesting a connect, and if needed, passing the necessary information to interact with the Agent and Actor.
 
