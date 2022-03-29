@@ -52,25 +52,24 @@ If your computer's clock is wrong, then whenever **Plug tries to "talk" to the I
 3. Restart your browser, and Plug should load properly.
 4. That’s it!
 
+See the per-OS guides below for a more in-depth showcase.
+
 ### On Windows:
 ![](imgs/windows.png)
 Open your device's **Date & Time** settings. You can right click your clock on your task bar to find these settings, or [find it in Settings](https://support.microsoft.com/en-us/windows/how-to-set-your-time-and-time-zone-dfaa7122-479f-5b98-2a7b-fa0b6e01b261#:~:text=In%20Date%20%26%20time%2C%20you%20can,%26%20language%20%3E%20Date%20%26%20time.).
 
 Depending on your region and country, you'll see different toggles. You need to **turn on all those available regarding automatic setting of time, daylight saving time, or time zones**. If one is greyed out (like in the picture above), turn on all those available.
 
+
+
 ### On macOS:
 ![](imgs/macos.png)
-Open your device's **Date & Time** settings. You can right click your clock on your task bar to find these settings, or [find it in Settings](https://support.microsoft.com/en-us/windows/how-to-set-your-time-and-time-zone-dfaa7122-479f-5b98-2a7b-fa0b6e01b261#:~:text=In%20Date%20%26%20time%2C%20you%20can,%26%20language%20%3E%20Date%20%26%20time.).
 
-Depending on your region and country, you'll see different toggles. You need to **turn on all those available regarding automatic setting of time, daylight saving time, or time zones**. If one is greyed out (like in the picture above), turn on all those available.
+Open your computer's **Date & Time** settings. For this you can click on your Apple menu (Apple logo), pick System Preferences, and then click Date & Time.
 
-### On macOS:
+You'll need to **hit the lock to unlock the settings** and be able to modify it. Then, esnure the "Set date and time automatically" **checkbox is marked** as seen in the picture above. And hit the **lock button at the bottom left again to lock the settings and save**.
 
-In some cases, turning it "off" and then back "on" (both settings) to automatic, can help resolve the issue and ensure the time is refreshed.
-
-If your issue persists please reach out to us in the #support channel of our Discord with a short explanation of the error, your browser version, and your OS version so we can begin the troubleshooting process and help you resolve the issue. 
-
-You may find the link to our Discord [here](https://discord.gg/fleekhq).
+That is it! Make sure you close & reopen your browser after making this change so that Plug can detect the new time and fix the issue.
 
 ---
 
