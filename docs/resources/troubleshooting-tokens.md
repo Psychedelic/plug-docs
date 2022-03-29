@@ -32,16 +32,39 @@ Finally, open the console by clicking “background page” next to “Inspect V
 
 You have successfully opened Plug’s Background Console, **please take note of the error** and continue with the troubleshooting guide below.
 
+--- 
 
-### “Clock Error” - Code 400: Specified ingress_expiry not within expected range 
+## “Clock Error” - Code 400: Specified ingress_expiry not within expected range
 
-The NNS ledger is very strict about requests to the ledger and when they expire. There’s a known error - if your clock on your Windows/MacOS/Mobile device is not set to time zone updating “automatically” and is out of sync, the NNS ledger will reject your query to check your assets.
+![](imgs/clock.png)
 
-**To solve the “Clock Error” in Plug, follow the troubleshooting steps below:** 
+The Internet Computer is very strict with its security measures to ensure calls/requests made to the network are safe. Because of this, the network uses a user's device clock as a reference to check for **expired calls** and avoid their wrongful execution.
+
+If your computer's clock is wrong, then whenever **Plug tries to "talk" to the IC**, the call is deemed “expired”. This can result in issues like:
+
+- Your balances or NFTs not loading correctly
+- Connecting and using dApps with Plug not working
+
+### Solve the Clock Error: Setting Clock to Automatic
 
 1. On your Windows/MacOS device, visit your device time/date settings.
 2. Make sure that the time zone and time is set to “automatically”.
-3. That’s it! Restart your browser, and Plug should show all your assets.
+3. Restart your browser, and Plug should load properly.
+4. That’s it!
+
+### On Windows:
+![](imgs/windows.png)
+Open your device's **Date & Time** settings. You can right click your clock on your task bar to find these settings, or [find it in Settings](https://support.microsoft.com/en-us/windows/how-to-set-your-time-and-time-zone-dfaa7122-479f-5b98-2a7b-fa0b6e01b261#:~:text=In%20Date%20%26%20time%2C%20you%20can,%26%20language%20%3E%20Date%20%26%20time.).
+
+Depending on your region and country, you'll see different toggles. You need to **turn on all those available regarding automatic setting of time, daylight saving time, or time zones**. If one is greyed out (like in the picture above), turn on all those available.
+
+### On macOS:
+![](imgs/macos.png)
+Open your device's **Date & Time** settings. You can right click your clock on your task bar to find these settings, or [find it in Settings](https://support.microsoft.com/en-us/windows/how-to-set-your-time-and-time-zone-dfaa7122-479f-5b98-2a7b-fa0b6e01b261#:~:text=In%20Date%20%26%20time%2C%20you%20can,%26%20language%20%3E%20Date%20%26%20time.).
+
+Depending on your region and country, you'll see different toggles. You need to **turn on all those available regarding automatic setting of time, daylight saving time, or time zones**. If one is greyed out (like in the picture above), turn on all those available.
+
+### On macOS:
 
 In some cases, turning it "off" and then back "on" (both settings) to automatic, can help resolve the issue and ensure the time is refreshed.
 
@@ -50,6 +73,8 @@ If your issue persists please reach out to us in the #support channel of our Dis
 You may find the link to our Discord [here](https://discord.gg/fleekhq).
 
 ---
+
+### Other Error Codes
 
 ### Canister Down Error: The Asset's Canister is Unavailable
 
