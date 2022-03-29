@@ -45,16 +45,9 @@ If your computer's clock is wrong, then whenever **Plug tries to "talk" to the I
 - Your balances or NFTs not loading correctly
 - Connecting and using dApps with Plug not working
 
-### Solve the Clock Error: Setting Clock to Automatic
+**This will cause Plug to show the error screen above**. If you click the Plug logo on the app extension, **you can still navigate the app**. But the error will pop-up again when you reopen Plug until the issue is resolved (see the guides below)
 
-1. On your Windows/MacOS device, visit your device time/date settings.
-2. Make sure that the time zone and time is set to “automatically”.
-3. Restart your browser, and Plug should load properly.
-4. That’s it!
-
-See the per-OS guides below for a more in-depth showcase.
-
-### On Windows:
+### Solving Clock Issue (Windows):
 ![](imgs/windows.png)
 Open your device's **Date & Time** settings. You can right click your clock on your task bar to find these settings, or [find it in Settings](https://support.microsoft.com/en-us/windows/how-to-set-your-time-and-time-zone-dfaa7122-479f-5b98-2a7b-fa0b6e01b261#:~:text=In%20Date%20%26%20time%2C%20you%20can,%26%20language%20%3E%20Date%20%26%20time.).
 
@@ -62,7 +55,7 @@ Depending on your region and country, you'll see different toggles. You need to 
 
 
 
-### On macOS:
+### Solving Clock Issue (macOS):
 ![](imgs/macos.png)
 
 Open your computer's **Date & Time** settings. For this you can click on your Apple menu (Apple logo), pick System Preferences, and then click Date & Time.
