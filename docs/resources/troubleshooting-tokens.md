@@ -73,7 +73,7 @@ That is it! Make sure you close & reopen your browser after making this change s
 
 ---
 
-### Other Error Codes
+## Other Error Codes
 
 ### Canister Down Error: The Asset's Canister is Unavailable
 
