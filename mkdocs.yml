@@ -39,7 +39,7 @@ nav:
   - Plugged (E2E): build-an-app-examples/build-app-plugged.md
   - NNS Stats: build-an-app-examples/plug-auth-nns.md
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"
-  - <b>Plug - Mobile App</b> 🍎: "#"
+  - <b>Plug - Mobile App</b> 🍎:
     - iOS - Getting Started: "https://medium.com/@plug_wallet/ee97c5e626fe?source=friends_link&sk=de56708155add03463ce7ab9d3ce6b29"  
   - <b>Resources & FAQs </b> 📚:
     - FAQs: resources/faq.md
