@@ -1,6 +1,6 @@
 site_name: "Documentation | Plug"
 site_author: plugwallet.ooo
-site_description: Plug is a browser crypto wallet extension that allows you to access your ICP, Cycles, and other tokens as well as log into IC apps with one click.
+site_description: Plug is a browser crypto wallet extension & mobile app that allows you to access your ICP, Cycles, and other tokens as well as log into IC apps with one click.
 site_url: https://docs.plugwallet.ooo/
 copyright: '© 2021 Built by Fleek'
 repo_name: psychedelic/plug
@@ -40,7 +40,7 @@ nav:
   - NNS Stats: build-an-app-examples/plug-auth-nns.md
   - Coinflip: "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app"
   - <b>Plug - Mobile App</b> 🍎: "#"
-  - iOS - Getting Started: "https://medium.com/@plug_wallet/ee97c5e626fe?source=friends_link&sk=de56708155add03463ce7ab9d3ce6b29"  
+    - iOS - Getting Started: "https://medium.com/@plug_wallet/ee97c5e626fe?source=friends_link&sk=de56708155add03463ce7ab9d3ce6b29"  
   - <b>Resources & FAQs </b> 📚:
     - FAQs: resources/faq.md
     - Resource Library: resources/library.md
