@@ -4,7 +4,7 @@ date: "1"
 
 # Privacy Policy
 
-Plug is a crypto wallet browser extension and authentication provider for Internet Computer users/developers.
+Plug is a crypto wallet (browser extension and mobile app) and authentication provider for Internet Computer users/developers.
 
 Its usage **doesn’t imply in any way the collection, processing, usage, or request of personally identifiable information** from its users. It is the user’s responsibility to control, decide, and manage what personal information they will share when interfacing with the Internet Computer through Plug, as Plug doesn’t require any to function, request it in any way, or has access/control over it.
 
@@ -16,7 +16,8 @@ We can simplify Plug's policies regarding personal information in three bullets:
 
 1. Plug doesn’t collect, process, use, require or disclose personal information.
 2. Plug doesn’t have, or requires, access to personal information of any type.
-3. Plug doesn’t share or sell any type of personal information.
+3. Plug doesn’t share or sell any type of personal information
+4. In the case of the mobile app Plug uses Sentry only to collect anonymous crash reports, with no personal information.
 
 ## Cookie Policy & Website Tracking
 Plug uses Plausible.io Analytics on its website. This analytics provider is privacy-oriented and doesn’t use cookies to provide for basic website usage and anonymous visit analytics. The information provided by this tracker is anonymous, not user-identifiable, and extremely basic (traffic, sources, device type, geography).
