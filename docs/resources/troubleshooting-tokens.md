@@ -28,7 +28,7 @@ Click “Manage Extensions”
 Enable “Developer Mode” in the top right corner of the “Manage Extensions” page. 
 Finally, open the console by clicking “background page” next to “Inspect Views” on the Plug extension modal. 
 
-![How to get to Background Console](https://storageapi.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/PlugBackgroundConsoleGIF.gif)
+![How to get to Background Console](https://storageapi2.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/PlugBackgroundConsoleGIF.gif)
 
 You have successfully opened Plug’s Background Console, **please take note of the error** and continue with the troubleshooting guide below.
 
