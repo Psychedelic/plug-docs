@@ -141,9 +141,3 @@ The props `dark`, `host`, `title` are also supported:
 Here's how it'll look like in **dark mode**:
 
 ![](imgs/plug-connect-dark.png){: style="max-width:220px"}
-
-## Conclusion
-
-We're currently working hard to bring more features and plan to release them as soon as they become ready.
-
-The project is [open-source](https://github.com/Psychedelic/plug-connect) and you are very welcome to participate or follow the progress!
