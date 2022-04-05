@@ -38,7 +38,7 @@ Enable “Developer Mode” in the top right corner of the “Manage Extensions�
 Finally, open the console by clicking “background page” next to “Inspect Views” on the Plug extension modal. 
 
 
-![How to get to Background Console](https://storageapi.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/PlugBackgroundConsoleGIF.gif)
+![How to get to Background Console](https://storageapi2.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/PlugBackgroundConsoleGIF.gif)
 
 You have successfully opened Plug’s Background Console, **please take note of the error** and continue with the troubleshooting guide below. 
 
@@ -105,7 +105,7 @@ Click “Send” and paste the Principal ID of the wallet you wish to send to.
 
 **Once you click “Continue” the NFT will be sent to the other wallet.** Congratulations on sending your NFT successfully using Plug! ✈️
 
-![How to send NFT to other wallet](https://storageapi.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/SendNFTtoStoicWalletGIF.gif)
+![How to send NFT to other wallet](https://storageapi2.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/SendNFTtoStoicWalletGIF.gif)
 
 
 
@@ -128,7 +128,7 @@ Once you have verified the criteria above is met, you may simply **send your NFT
 3. Paste your Plug Principal ID, and press “Send”.
 
 
-![How to Send NFT to Plug](https://storageapi.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/SendNFTtoPlugGIF.gif)
+![How to Send NFT to Plug](https://storageapi2.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/SendNFTtoPlugGIF.gif)
 
 Congratulations, you have successfully sent your NFT from another wallet to Plug. We hope you decide to keep it in Plug 😉
 

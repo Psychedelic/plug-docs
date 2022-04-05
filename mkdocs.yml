@@ -1,6 +1,6 @@
 site_name: "Documentation | Plug"
 site_author: plugwallet.ooo
-site_description: Plug is a browser crypto wallet extension that allows you to access your ICP, Cycles, and other tokens as well as log into IC apps with one click.
+site_description: Plug is a browser crypto wallet extension & mobile app that allows you to access your ICP, Cycles, and other tokens as well as log into IC apps with one click.
 site_url: https://docs.plugwallet.ooo/
 copyright: '© 2021 Built by Fleek'
 repo_name: psychedelic/plug

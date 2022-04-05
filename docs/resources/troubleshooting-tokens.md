@@ -28,28 +28,45 @@ Click “Manage Extensions”
 Enable “Developer Mode” in the top right corner of the “Manage Extensions” page. 
 Finally, open the console by clicking “background page” next to “Inspect Views” on the Plug extension modal. 
 
-![How to get to Background Console](https://storageapi.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/PlugBackgroundConsoleGIF.gif)
+![How to get to Background Console](https://storageapi2.fleek.co/fleek-team-bucket/TroubleshootingPlugResources/PlugBackgroundConsoleGIF.gif)
 
 You have successfully opened Plug’s Background Console, **please take note of the error** and continue with the troubleshooting guide below.
 
+--- 
 
-### “Clock Error” - Code 400: Specified ingress_expiry not within expected range 
+## “Clock Error” - Code 400: Specified ingress_expiry not within expected range
 
-The NNS ledger is very strict about requests to the ledger and when they expire. There’s a known error - if your clock on your Windows/MacOS/Mobile device is not set to time zone updating “automatically” and is out of sync, the NNS ledger will reject your query to check your assets.
+![](imgs/clock.png)
 
-**To solve the “Clock Error” in Plug, follow the troubleshooting steps below:** 
+The Internet Computer is very strict with its security measures to ensure calls/requests made to the network are safe. Because of this, the network uses a user's device clock as a reference to check for **expired calls** and avoid their wrongful execution.
 
-1. On your Windows/MacOS device, visit your device time/date settings.
-2. Make sure that the time zone and time is set to “automatically”.
-3. That’s it! Restart your browser, and Plug should show all your assets.
+If your computer's clock is wrong, then whenever **Plug tries to "talk" to the IC**, the call is deemed “expired”. This can result in issues like:
 
-In some cases, turning it "off" and then back "on" (both settings) to automatic, can help resolve the issue and ensure the time is refreshed.
+- Your balances or NFTs not loading correctly
+- Connecting and using dApps with Plug not working
 
-If your issue persists please reach out to us in the #support channel of our Discord with a short explanation of the error, your browser version, and your OS version so we can begin the troubleshooting process and help you resolve the issue. 
+**This will cause Plug to show the error screen above**. If you click the Plug logo on the app extension, **you can still navigate the app**. But the error will pop-up again when you reopen Plug until the issue is resolved (see the guides below)
 
-You may find the link to our Discord [here](https://discord.gg/fleekhq).
+### Solving Clock Issue (Windows):
+![](imgs/windows.png)
+Open your device's **Date & Time** settings. You can right click your clock on your task bar to find these settings, or [find it in Settings](https://support.microsoft.com/en-us/windows/how-to-set-your-time-and-time-zone-dfaa7122-479f-5b98-2a7b-fa0b6e01b261#:~:text=In%20Date%20%26%20time%2C%20you%20can,%26%20language%20%3E%20Date%20%26%20time.).
+
+Depending on your region and country, you'll see different toggles. You need to **turn on all those available regarding automatic setting of time, daylight saving time, or time zones**. If one is greyed out (like in the picture above), turn on all those available.
+
+
+
+### Solving Clock Issue (macOS):
+![](imgs/macos.png)
+
+Open your computer's **Date & Time** settings. For this you can click on your Apple menu (Apple logo), pick System Preferences, and then click Date & Time.
+
+You'll need to **hit the lock to unlock the settings** and be able to modify it. Then, esnure the "Set date and time automatically" **checkbox is marked** as seen in the picture above. And hit the **lock button at the bottom left again to lock the settings and save**.
+
+That is it! Make sure you close & reopen your browser after making this change so that Plug can detect the new time and fix the issue.
 
 ---
+
+## Other Error Codes
 
 ### Canister Down Error: The Asset's Canister is Unavailable
 
