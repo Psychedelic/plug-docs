@@ -5,17 +5,17 @@ date: "1"
 
 ![](imgs/custom-tokens.png)
 
-Plug supports any custom Internet Computer token that follows the Extendable Token Standard. By this, we mean any user can **add a custom token following the [Extendable Token Standard](https://github.com/Toniq-Labs/extendable-token)**.
+Plug supports any custom Internet Computer token that follows the Extendable Token Standard or DIP20 Standard. By this, we mean any user can **add a custom token following the [Extendable Token Standard](https://github.com/Toniq-Labs/extendable-token) or the [DIP20 Standard](https://github.com/Psychedelic/DIP20)**.
 
 To add a new custom token to Plug, you will need to **specify the Canister ID for the token’s canister**. Plug will automatically then surface it on the list, and show you the balance associated with your Principal ID in Plug, and you'll be able to send them to others using the SEND flow.
 
-## EXT Token Standard
+## Token Standard
 
-Plug supports custom token integration using the **Extendable Token Standard interface (EXT)**, all* tokens created with this token standard are compatible with Plug and can be used for sending / receiving / holding in Plug. 
-
-We came to this standard based on feedback from the community, other IC projects, & IC developers on the ecosystem. There was a need for a simple, flexible, multi-purpose Fungible Token Standard, and we -and the community- see that in EXT.
+Plug supports custom token integration using the **Extendable Token Standard interface (EXT) or DIP20 Standard**, all* tokens created with this token standard are compatible with Plug and can be used for sending / receiving / holding in Plug. 
 
 To see the EXT token standard interface, learn how to deploy your own EXT token, and/or suggest proposals please visit the [EXT GitHub repository](https://github.com/Toniq-Labs/extendable-token).
+
+As for the DIP20 token standard interface, learn how to deploy your own DIP20 token, and/or suggest proposals please visit the [DIP20 GitHub repository](https://github.com/Psychedelic/DIP20).
 
 ### Important: Single EXT Tokens Only
 
