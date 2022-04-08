@@ -119,4 +119,4 @@ useEffect(async () => {
 }, []);
 ```
 
-In version 0.X.X we introduce a feature where the conection is persisted even after you refresh the page. 
+In version 0.5.1 we introduce a feature where the conection is persisted even after you refresh the page. 
