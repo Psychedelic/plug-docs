@@ -30,7 +30,7 @@ nav:
     - Using the Agent/Actor: getting-started/making-calls.md
     - Balances and Transactions: getting-started/balances-transactions.md
   - <b>Custom Assets in Plug</b> 🎨:
-    - Custom Tokens (EXT): getting-started/custom-tokens.md
+    - Custom Tokens: getting-started/custom-tokens.md
     - Non-fungible Tokens (NFTs): getting-started/nfts.md
   - <b>Build an App Examples</b> 💡:
     - Authentication Button: build-an-app-examples/plug-button.md

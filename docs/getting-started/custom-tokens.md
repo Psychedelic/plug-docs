@@ -21,31 +21,31 @@ As for the DIP20 token standard interface, learn how to deploy your own DIP20 to
 
 **Plug does not support sub-tokens** (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). We only support EXT tokens that are 1 canister = 1 token, and referenced with just the token's Canister ID. [Learn more about the why here.](#why-does-plug-not-support-ext-sub-tokens)
 
-## DAB Token List (Coming Soon)
-![](imgs/dab.png)
+## DAB Token List
+![](imgs/dab-token-list.png)
 
-If you go through the "Add Token" flow (see below), you'll see there is a Search tab! This is the **DAB tokens list**, an upcoming feature that will be powered by [DAB](https://dab.ooo).
+If you go through the "Add Token" flow (see below), you'll see there is a Search tab! This is the **DAB tokens list**, a feature that will be powered by [DAB](https://dab.ooo).
 
-DAB is an in-development open internet service that will provide interface-agnostic user profiles & data, human-readable Principal ID & Canister ID names & info, as well as canister, token, NFT, and Dapp registries & verification for quality assurance and risk reduction in the ecosystem.
+DAB is an  open internet service that provides interface-agnostic user profiles & data, human-readable Principal ID & Canister ID names & info, as well as canister, token, NFT, and Dapp registries & verification for quality assurance and risk reduction in the ecosystem.
 
 Learn more about it on its [Website](https://dab.ooo) and [GitHub](https://github.com/psychedelic/dab) repository, and make early submissions to the NFT, Token, or Dapp lists.
 
 ## How to add a Custom IC Token to Plug
-In the Plug interface, go to the main assets/token tab, and click on “Add Tokens”.
+In the Plug interface, go to the main assets/token tab, and click on the “+” floating button.
 
-![](imgs/4.png)
+![](imgs/add-custom-token-1.png)
 
 Visit the **Custom** tab to manually add a new token using its Canister ID.
 
-![](imgs/5.png)
+![](imgs/add-custom-token-2.png)
 
-In the Custom tab, copy & paste the canister ID, the format looks like this: ```6ceop-cyaaa-aaaah-qaa4q-cai```. The Canister ID should be the one representing the main canister for that token (much like token contract addresses on Ethereum!).
+In the Custom tab, copy & paste the canister ID, the format looks like this: ```6ceop-cyaaa-aaaah-qaa4q-cai```. The Canister ID should be the one representing the main canister for that token (much like token contract addresses on Ethereum!). Then select the token standard (EXT or DIP20)
 
-![](imgs/6.png)
+![](imgs/add-custom-token-3.png)
 
 After clicking “Continue”, click “Add” in the modal asking you to confirm if this is the token you want to add.
 
-![](imgs/step-4.png)
+![](imgs/add-custom-token-4.png)
 
 You’re done! You should now see your token balance in Plug & be able to send/receive from Plug. 
 
