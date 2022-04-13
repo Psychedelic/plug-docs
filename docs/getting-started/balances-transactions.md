@@ -130,8 +130,6 @@ Users will be able to quickly view what actions are being taken by the app on th
 
 To create the transactions above, we’ve written a code example below showing how users will be able to implement this in their own applications.
 
-On top of this batch transactions can be chained where the result of the nth transaction can be used as the arguments of the nth +1 transaction. This is possible since the args parameter in the transaction interface can be an array or a funtion that returns an array. There is an example below specifying chain batch transactions.
-
 > It's **important to note two things** you can't yet make batch transactions that depend on each other. That feature will come in the future. **And if any transaction fails in the chain, the chain stops** so you need to consider creating fallback options for this.
 
 ```js
