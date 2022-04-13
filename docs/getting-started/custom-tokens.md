@@ -1,17 +1,44 @@
 ---
 date: "1"
 ---
-# Custom Tokens in Plug
+# Tokens in Plug
 
 ![](imgs/custom-tokens.png)
 
-Plug supports any custom Internet Computer token that follows the Extendable Token Standard or DIP20 Standard. By this, we mean any user can **add a custom token following the [Extendable Token Standard](https://github.com/Toniq-Labs/extendable-token) or the [DIP20 Standard](https://github.com/Psychedelic/DIP20)**.
+When you first login to Plug, you'll notice that only a handful of tokens are pre-loaded. In the bottom right corner of your tokens tab, there is a (+) button for adding any non-loaded tokens. **There are two other ways to load-in new tokens to Plug: Search & Custom.**
 
-To add a new custom token to Plug, you will need to **specify the Canister ID for the token’s canister**. Plug will automatically then surface it on the list, and show you the balance associated with your Principal ID in Plug, and you'll be able to send them to others using the SEND flow.
+### (1) Custom - Add Non-Listed Custom Tokens
 
-## Token Standard
+Plug supports any custom Internet Computer token that follows the Extendable Token Standard or DIP20 Standard. By this, we mean any user can **add custom tokens to Plug that follow the [Extendable Token Standard](https://github.com/Toniq-Labs/extendable-token) or the [DIP20 Standard](https://github.com/Psychedelic/DIP20)**.
 
-Plug supports custom token integration using the **Extendable Token Standard interface (EXT) or DIP20 Standard**, all* tokens created with this token standard are compatible with Plug and can be used for sending / receiving / holding in Plug. 
+![](imgs/plug-add-token-1.png)
+
+To add a new custom token to Plug, you will need to **specify the Canister ID for the token’s canister**. Canister ID's format looks like this: ```6ceop-cyaaa-aaaah-qaa4q-cai```. The Canister ID should be the one representing the main canister for that token (much like token contract addresses on Ethereum). Then select the token standard (EXT or DIP20).
+
+Once you've clicked `Continue` and subsequently `Add`, you'll be brought back to your tokens tab where Plug will automatically surface your newly added custom token, show your Principal ID's balance of that token, and allow you to send the new token to others.
+
+### (2) Search - Add From DAB's Token List
+
+Plug also makes use of [DAB's Token List](https://dab.ooo), a community-driven & standard-agnostic registry that keeps track of Internet Computer tokens.
+
+![](imgs/plug-add-token-2.png)
+
+Adding tokens from the search tab is even easier than adding custom tokens because the Token List already keeps track of token metadata (ie: token standard, token image, token name). Plug simply allow users to search through the already generated list to pick and choose which tokens they'd like to surface.
+
+**Don't see your favorite token when searching?** Tell them to add themselves to DAB's Token List [here](https://dab-ooo.typeform.com/token-list?typeform-source=dab.ooo).
+
+### My Balance Isn't Showing After Adding A New Token?
+
+Remember that if your Plug Principal ID doesn't have a balance on that token, you'll see "0". 
+
+If your funds are on a different Principal ID (could be a sub-account or a different Plug wallet altogther), you will need to send them to your Principal ID in Plug.
+
+If you're sure that isn't the case, please first checkout our [Troubleshooting Guide](../resources/troubleshooting-tokens.md) and if that doesn't work, ask for support in [our Discord](https://discord.gg/yVEcEzmrgm).
+
+---
+## Token Standards
+
+Plug supports custom token integration using the **Extendable Token Standard interface (EXT) or DIP20 Standard**, all tokens created with this token standard are compatible with Plug and can be used for sending / receiving / holding in Plug. 
 
 To see the EXT token standard interface, learn how to deploy your own EXT token, and/or suggest proposals please visit the [EXT GitHub repository](https://github.com/Toniq-Labs/extendable-token).
 
@@ -19,52 +46,4 @@ As for the DIP20 token standard interface, learn how to deploy your own DIP20 to
 
 ### Important: Single EXT Tokens Only
 
-**Plug does not support sub-tokens** (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). We only support EXT tokens that are 1 canister = 1 token, and referenced with just the token's Canister ID. [Learn more about the why here.](#why-does-plug-not-support-ext-sub-tokens)
-
-## DAB Token List
-![](imgs/dab-token-list.png)
-
-If you go through the "Add Token" flow (see below), you'll see there is a Search tab! This is the **DAB tokens list**, a feature that will be powered by [DAB](https://dab.ooo).
-
-DAB is an  open internet service that provides interface-agnostic user profiles & data, human-readable Principal ID & Canister ID names & info, as well as canister, token, NFT, and Dapp registries & verification for quality assurance and risk reduction in the ecosystem.
-
-Learn more about it on its [Website](https://dab.ooo) and [GitHub](https://github.com/psychedelic/dab) repository, and make early submissions to the NFT, Token, or Dapp lists.
-
-## How to add a Custom IC Token to Plug
-In the Plug interface, go to the main assets/token tab, and click on the “+” floating button.
-
-![](imgs/add-custom-token-1.png)
-
-Visit the **Custom** tab to manually add a new token using its Canister ID.
-
-![](imgs/add-custom-token-2.png)
-
-In the Custom tab, copy & paste the canister ID, the format looks like this: ```6ceop-cyaaa-aaaah-qaa4q-cai```. The Canister ID should be the one representing the main canister for that token (much like token contract addresses on Ethereum!). Then select the token standard (EXT or DIP20)
-
-![](imgs/add-custom-token-3.png)
-
-After clicking “Continue”, click “Add” in the modal asking you to confirm if this is the token you want to add.
-
-![](imgs/add-custom-token-4.png)
-
-You’re done! You should now see your token balance in Plug & be able to send/receive from Plug. 
-
-Remember that if your Plug Principal ID doesn't have a balance on that token, you'll see "0". If your funds are on a different Principal ID, you will need to send them to your Principal ID in Plug.
-
----
-
-## Why does Plug not support EXT sub-tokens?
-
-The EXT standard, aside from the regular token architecture where 1 canister = 1 token, **supports having “sub-tokens” or multiple tokens** inside one “market” or “parent” canister.
-
-These are referenced with **both a Canister ID (parent canister), and a Token ID** to look for it inside the canister (whereas in the single token architecture you only need a Canister ID). **These are the type of tokens you can create, for example, on the Stoic wallet** (sub-tokens inside a "parent" or "registry" canister owned by Stoic).
-
-**There’s a couple reasons why we chose to not go down the route** of supporting canisters with “multiple tokens” or sub-tokens:
-
-**The primary reason for this is because it adds a centralization/risk point** where several user created tokens depend on a single canister. Things like throughput, performance, scalability, control, and takeover/vulnerability risks that might appear would affect all tokens.
-
-**The second reason is that it adds a new unique identifier** (Token IDs) which doesn’t help achieve better composability on the Internet Computer. We need to maintain simple unique identifiers (one ID to find a token, not two), and reduce the number of “walled gardens” or interface-specific markets.
-
-**The final reason is that it blocks you from the main perk of EXT: expandability**. The token standard itself is customizable and expandable, but creating sub-tokens in someone else’s canister doesn’t allow you to develop or grow the EXT standard with custom features specific to your token, if needed, since it blocks and limits you to use the main canisters implementations.
-
-There's also the question of how computation is handled in a shared canister, and how the cost is distributed or taken. It is early, and for these reasons, we only support single custom EXT tokens to minimize risks. Meaning Plug only supports custom tokens following the EXT standard, deployed to the Internet Computer in its own and non-shared token canister (referenced by a Canister ID).
+**Plug does not support sub-tokens** (EXT token canisters with “multiple tokens” inside, referenced with Token IDs). We only support EXT tokens that are 1 canister = 1 token, and referenced with just the token's Canister ID. 
