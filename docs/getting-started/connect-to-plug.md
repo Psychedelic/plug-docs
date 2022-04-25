@@ -11,7 +11,7 @@ Start interacting with the user's wallet by requesting a connect, and if needed,
 
 ### requestConnect(RequestConnectParams?)
 
-requestConnect() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new connection by showing a pop-up to the Plug user, that resolves to Boolean: `true` or `false` based on the users response.
+requestConnect() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous) method to request a new connection by showing a pop-up to the Plug user, that resolves to Promise<PublicKey> if the users response is `Allow`.
 
 As an example, copy and paste the following code snippet into the console and execute it.
 
