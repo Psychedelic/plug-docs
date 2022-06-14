@@ -74,6 +74,77 @@ As mentioned above, on instantiation the `Agent` is assigned to the window Plug 
 
 ---
 
+### Rebuilding Actors Across Account Switches
+We can use `requestConnect`'s callback parameter `onConnectionUpdate` to make sure that our actors are rebuilt across user identity switches.
+
+Here's an example doing so with a partial Sonic interface:
+
+```js
+(async () => {
+
+  // Add the Sonic mainnet canister to whitelist
+  const sonicCanisterId = '3xwpq-ziaaa-aaaah-qcn4a-cai';
+  const whitelist = [sonicCanisterId];
+
+  // Create an interface factory from a canister's IDL
+  const sonicPartialInterfaceFactory = ({ IDL }) => {
+      const TokenInfoExt = IDL.Record({
+        'id' : IDL.Text,
+        'fee' : IDL.Nat,
+        'decimals' : IDL.Nat8,
+        'name' : IDL.Text,
+        'totalSupply' : IDL.Nat,
+        'symbol' : IDL.Text,
+      });
+      const PairInfoExt = IDL.Record({
+        'id' : IDL.Text,
+        'price0CumulativeLast' : IDL.Nat,
+        'creator' : IDL.Principal,
+        'reserve0' : IDL.Nat,
+        'reserve1' : IDL.Nat,
+        'lptoken' : IDL.Text,
+        'totalSupply' : IDL.Nat,
+        'token0' : IDL.Text,
+        'token1' : IDL.Text,
+        'price1CumulativeLast' : IDL.Nat,
+        'kLast' : IDL.Nat,
+        'blockTimestampLast' : IDL.Int,
+      });
+      const SwapInfo = IDL.Record({
+        'owner' : IDL.Principal,
+        'cycles' : IDL.Nat,
+        'tokens' : IDL.Vec(TokenInfoExt),
+        'pairs' : IDL.Vec(PairInfoExt),
+      });
+      return IDL.Service({
+        'getSwapInfo' : IDL.Func([], [SwapInfo], ['query'])
+      })
+    }
+
+  // requestConnect callback function
+  const onConnectionUpdate = async () => {
+
+    // rebuild actor and test by getting Sonic info
+    const sonicActor = await window.ic.plug.createActor({
+      canisterId: sonicCanisterId,
+      interfaceFactory: sonicPartialInterfaceFactory,
+    });
+
+    // use our actors getSwapInfo method
+    const swapInfo = await sonicActor.getSwapInfo();
+    console.log('Sonic Swap Info: ', swapInfo);
+  }
+
+  // Request a connection
+  // Will fire onConnectionUpdate on account switch
+  await window?.ic?.plug?.requestConnect({
+    whitelist,
+    onConnectionUpdate,
+  });
+})()
+```
+
+---
 ### ⚠️ How NOT to Make Canister Calls
 Making calls on behalf of the user directly through the Plug Agent is not a suggested way to make calls. **That is why Plug has an exposed createActor method** shown above. 
 

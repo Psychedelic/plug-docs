@@ -31,7 +31,7 @@ If you get an `error`, you're advised to check the installation instructions for
 
 ## Plug window object
 
-Plug provides a simple API to websites and webapps at `window.ic.plug`, enabling them to "talk to" the Internet computer via Plug.
+Plug provides a simple API to websites and webapps at `window.ic.plug`, enabling them to "talk to" the Internet Computer via Plug.
 
 As we continue to develop features and make them available, the API will let you:
 
