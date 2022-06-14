@@ -37,7 +37,7 @@ The fields are:
 
   - whitelist - an Array of Canister Ids of type string
   - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
-  - onConnectionUpdate - an optional callback function that executes whenever switching to another idenity in Plug. Useful for updating app state & rebuilding actors across multiple identities.
+  - onConnectionUpdate - an optional callback function that executes whenever switching to another idenity in Plug. Useful for updating app state & rebuilding actors across multiple identities. Lost (set to null) if the page is refreshed.
   - timeout - parameter that can be added to requestConnect and set as a global variable for the rest of the modals on your dapp. For example, if you set it to 5000, the modal will close in 5000 milliseconds or 5 seconds if the user fails to choose an action. By default, this is set to 2 minutes. 
   
 
@@ -51,7 +51,7 @@ This is how it looks:
 Object {
   whitelist?: ['canister-id'],
   host?: 'https://network-address',
-  onConnectionUpdate: foo(),
+  onConnectionUpdate,
   timeout: 50000
 }
 ```
