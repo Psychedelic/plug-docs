@@ -37,7 +37,9 @@ The fields are:
 
   - whitelist - an Array of Canister Ids of type string
   - host - a string representing a network URL that when not set defaults to the `mainnet.dfinity.network`
+  - onConnectionUpdate - an optional callback function that executes whenever switching to another idenity in Plug. Useful for updating app state & rebuilding actors across multiple identities. Lost (set to null) if the page is refreshed.
   - timeout - parameter that can be added to requestConnect and set as a global variable for the rest of the modals on your dapp. For example, if you set it to 5000, the modal will close in 5000 milliseconds or 5 seconds if the user fails to choose an action. By default, this is set to 2 minutes. 
+  
 
 !!! Important
     
@@ -49,6 +51,7 @@ This is how it looks:
 Object {
   whitelist?: ['canister-id'],
   host?: 'https://network-address',
+  onConnectionUpdate,
   timeout: 50000
 }
 ```
@@ -68,11 +71,17 @@ Here's an hypothetical example:
   // Host
   const host = "https://mainnet.dfinity.network";
 
+  // Callback to print sessionData
+  const onConnectionUpdate = () => {
+    console.log(window.ic.plug.sessionManager.sessionData)
+  }
+
   // Make the request
   try {
     const publicKey = await window.ic.plug.requestConnect({
       whitelist,
       host,
+      onConnectionUpdate,
       timeout: 50000
     });
     console.log(`The connected user's public key is:`, publicKey);
@@ -94,6 +103,35 @@ isConnected() is an [asynchronous](https://developer.mozilla.org/en-US/docs/Lear
   console.log(`Plug connection is ${result}`);
 })()
 ```
+
+## 👾 Accessing Session Data
+Once connected, we have consolidated some useful data types into one common data type, `Session Data`, which is structured as so:
+
+```js
+type SessionData = { agent: HttpAgent, principalId: string, accountId: string } | null;
+```
+
+... and is accessible in-page through:
+
+```js
+window.ic.plug.sessionManager.sessionData
+```
+
+Your session's `agent`, `principalId`, and `accountId` are also all available individually:
+
+```js
+// access session principalId
+window.ic.plug.principalId
+
+// access session accountId
+window.ic.plug.accountId
+
+// access session agent
+window.ic.plug.agent
+```
+
+**All session data will all automatically be updated by Plug's in-page provider upon any account switch.**
+
 
 ## ⚡ Persisting an App/Plug Connection
 
