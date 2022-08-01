@@ -29,6 +29,7 @@ nav:
     - Connect apps to Plug: getting-started/connect-to-plug.md
     - Using the Agent/Actor: getting-started/making-calls.md
     - Balances and Transactions: getting-started/balances-transactions.md
+    - Import custom token: getting-started/import-custom-token.md
   - <b>Assets in Plug</b> 🎨:
     - Tokens: getting-started/custom-tokens.md
     - Non-fungible Tokens (NFTs): getting-started/nfts.md
