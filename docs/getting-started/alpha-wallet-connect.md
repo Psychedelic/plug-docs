@@ -2,7 +2,7 @@
 date: "1"
 ---
 
-![](imgs/balances-transactions.png)
+![](imgs/plug-mobile-auth.png)
 
 ## Plug Mobile Auth Alpha
 
@@ -32,12 +32,19 @@ __To add Plug Mobile authentication into your application you need to update the
 
 To do so, there are two options:
 
-- Download the updated [Plug Connect button](../../build-an-app-examples/plug-button/). If you already have the Plug Connect button, make sure that you update it to it's latest version. This button automatically injects the Updated In-Page Provider into your applications webpage.
+- Download the updated [Plug Connect button](../../build-an-app-examples/plug-button/). If you already have the Plug Connect button, make sure that you update it to it's latest version. This button automatically injects the Updated In-Page Provider into your applications webpage. You can download it [HERE]()
 
-- Install the Updated In-Page Provider to your application (it's open source!) manually. Here's some code that should help:
+- Install the Updated In-Page Provider to your application (it's open source!) manually. You can download it [HERE](). Here's some code that should help:
 
 ```js
-    var=1
+    const ua = navigator.userAgent.toLowerCase();
+    const isAndroid = ua.indexOf('android') > -1;
+
+    if (!window.ic?.plug && isAndroid) {
+    Provider.exposeProviderWithWalletConnect({ window, debug: isDev });
+    }
+
+    export const plug = window.ic?.plug;
 ```
 
 That's it. 🔥 Once one of those two options is completed and the updated in-page provider is available, your dApp is Plug Mobile ready! Your application can still use all of the same business logic as before, however, all calls to Plug will be routed through Wallet Connect to the `Alpha Android APK` on a user's device.
