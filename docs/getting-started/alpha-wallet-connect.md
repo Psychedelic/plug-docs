@@ -6,12 +6,12 @@ date: "1"
 
 ## Plug Mobile Auth Alpha
 
-In order to add mobile authentication to Plug, we've created a custom implementation of the WalletConnect messaging protocol. 
+In order to add mobile authentication to Plug, we've created a custom integration of the WalletConnect messaging protocol. 
 
 Let's dive into how to integrate it for existing and new applications. If at any point you find yourself stuck, our team of devs would be happy to help in our [Discord](https://discord.gg/yVEcEzmrgm) (join the #plug channel!).
 
 !!! Warning
-     This **alpha** version of Plug Mobile auth is aimed toward the developers to have time to test how the integration works and make the (minor) changes needed to make it work with their dApps. We expect to find problems with the implementation, if you are a user make sure to use the alpha mobile application at your own discretion.
+     This **alpha** version of Plug Mobile auth is aimed toward the developers to have time to test how the integration works and make the (minor) changes needed to make it work with their dApps. We expect to find problems with the integration, if you are a user make sure to use the alpha mobile application at your own discretion.
 
 ### Introduction
 
