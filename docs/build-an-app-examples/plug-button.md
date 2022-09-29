@@ -9,7 +9,7 @@ The Plug Connect button is a basic React Component button you can use to integra
 
 The following example doesn't include the proxy signing requests per-se, just the initial authentication and request for the agent.
 
-You can find the repository of Plug Connect [here](https://github.com/Psychedelic/plug-connect).
+**You can find the repository of Plug Connect [here](https://github.com/Psychedelic/plug-connect).**
 
 ## Requirements 🤔
 

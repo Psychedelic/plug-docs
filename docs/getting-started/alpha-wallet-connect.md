@@ -8,7 +8,7 @@ date: "1"
 
 In order to add mobile authentication to Plug, we've created a custom integration of the WalletConnect messaging protocol. 
 
-Let's dive into how to integrate it for existing and new applications. If at any point you find yourself stuck, our team of devs would be happy to help in our [Discord](https://discord.gg/yVEcEzmrgm) (join the #plug channel!).
+Let's dive into how to integrate it for existing and new applications. If at any point you find yourself stuck, our team of devs would be happy to help in the #plug channel our [Discord](https://discord.gg/yVEcEzmrgm).
 
 !!! Warning
      This **alpha** version of Plug Mobile auth is aimed toward the developers to have time to test how the integration works and make the (minor) changes needed to make it work with their dApps. We expect to find problems with the integration, if you are a user make sure to use the alpha mobile application at your own discretion.
@@ -18,8 +18,8 @@ Let's dive into how to integrate it for existing and new applications. If at any
 The alpha Plug Mobile auth comes with 3 packages: 
 
 - [**Alpha Android APK**](https://play.google.com/apps/testing/co.psychedelic.plug) - the updated Android application that can talk using Wallet Connect.
-- [**Alpha In-Page Provider**](https://github.com/Psychedelic/plug-inpage-provider) - a new in-page provider specially designed to look for & communicate with the `Alpha Android APK`.
-- [**Updated Plug Connect Button**](../../build-an-app-examples/plug-button/) - a new version of the [Plug Authentication Button](../../build-an-app-examples/plug-button/) that has a filter able to detect when someone is on mobile and therefore the dApp should use the `Alpha In-Page Provider` or is on desktop and should use the normal In-Page Provider supplied through the Plug Extension.
+- [**Alpha In-Page Provider**](https://github.com/Psychedelic/plug-inpage-provider/tree/feat/wallet-connect-rpc#readme) - a new in-page provider specially designed to look for & communicate with the `Alpha Android APK`.
+- [**Updated Plug Connect Button**](../../build-an-app-examples/plug-button/) - a new version of the Plug Authentication Button that has a filter able to detect when someone is on mobile and therefore the dApp should use the `Alpha In-Page Provider` or is on desktop and should use the normal In-Page Provider supplied through the Plug Extension.
 
 ---
 
