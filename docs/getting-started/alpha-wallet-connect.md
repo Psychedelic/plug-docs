@@ -32,11 +32,13 @@ __To add Plug Mobile authentication into your application you need to update the
 
 To do so, there are two options:
 
-- Download the updated [Plug Connect button](../../build-an-app-examples/plug-button/). If you already have the Plug Connect button, make sure that you update it to it's latest version. This button automatically injects the Updated In-Page Provider into your applications webpage. You can download it [HERE]()
+- Download the updated [Plug Connect button](https://github.com/Psychedelic/plug-connect#readme). If you already have the Plug Connect button, make sure that you update it to it's latest version. This button automatically injects the Updated In-Page Provider into your applications webpage.
 
-- Install the Updated In-Page Provider to your application (it's open source!) manually. You can download it [HERE](). Here's some code that should help:
+- Install the Updated [In-Page Provider](https://github.com/Psychedelic/plug-inpage-provider/tree/feat/wallet-connect-rpc#readme) to your application (it's open source!) and hanlde the connection manually. Here's some code that should help:
 
 ```js
+
+
     const ua = navigator.userAgent.toLowerCase();
     const isAndroid = ua.indexOf('android') > -1;
 
