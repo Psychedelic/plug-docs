@@ -18,7 +18,8 @@ Let's dive into how to integrate it for existing and new applications. If at any
 The alpha Plug Mobile auth comes with 3 packages: 
 
 - [**Alpha Android APK**](https://play.google.com/apps/testing/co.psychedelic.plug) - the updated Android application that can talk using Wallet Connect.
-- [**Alpha In-Page Provider**](https://github.com/Psychedelic/plug-inpage-provider/tree/feat/wallet-connect-rpc#readme) - a new in-page provider specially designed to look for & communicate with the `Alpha Android APK`.
+- [**Alpha iOS IPA**](https://testflight.apple.com/join/yID6TEpV) - the updated iOS application that can talk using Wallet Connect.
+- [**Alpha In-Page Provider**](https://github.com/Psychedelic/plug-inpage-provider/tree/feat/wallet-connect-rpc#readme) - a new in-page provider specially designed to look for & communicate with the `Alpha Android APK` or `Alpha iOS IPA`.
 - [**Updated Plug Connect Button**](../../build-an-app-examples/plug-button/) - a new version of the Plug Authentication Button that has a filter able to detect when someone is on mobile and therefore the dApp should use the `Alpha In-Page Provider` or is on desktop and should use the normal In-Page Provider supplied through the Plug Extension.
 
 ---
@@ -41,8 +42,11 @@ To do so, there are two options:
 
     const ua = navigator.userAgent.toLowerCase();
     const isAndroid = ua.indexOf('android') > -1;
+    const isiOs = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1;
 
-    if (!window.ic?.plug && isAndroid) {
+    const isMobile = isAndroid || isiOs;
+
+    if (!window.ic?.plug && isMobile) {
     Provider.exposeProviderWithWalletConnect({ window, debug: isDev });
     }
 
@@ -56,7 +60,8 @@ That's it. 🔥 Once one of those two options is completed and the updated in-pa
 Once you're ready to test the implementation, you can: 
 
 1. [Install the Alpha Android APK](https://play.google.com/apps/testing/co.psychedelic.plug) in a phone and go to the dapp in the browser. The name of the updated application should be `Plug - Crypto Wallet (Beta)`.
-2. Connect to the application using the Plug Alpha Android app.
+1. [Install the Alpha iOS IPA](https://testflight.apple.com/join/yID6TEpV) in a phone and go to the dapp in the browser. The name of the updated application should be `Plug - Crypto Wallet (Beta)`.
+2. Connect to the application using the Plug Alpha Android or iOS app.
 
 
 You're off to the races! 🐎 If you've gotten this far and are still stuck at any point or have feedback for us to that can help us to improve the user or developer experience, please reach out to us on [Discord](https://discord.gg/yVEcEzmrgm).
