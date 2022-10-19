@@ -42,9 +42,9 @@ To do so, there are two options:
 
     const ua = navigator.userAgent.toLowerCase();
     const isAndroid = ua.indexOf('android') > -1;
-    const isiOs = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1;
+    const isApple = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1;
 
-    const isMobile = isAndroid || isiOs;
+    const isMobile = isAndroid || isApple;
 
     if (!window.ic?.plug && isMobile) {
     Provider.exposeProviderWithWalletConnect({ window, debug: isDev });
