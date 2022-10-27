@@ -65,3 +65,24 @@ Once you're ready to test the implementation, you can:
 
 
 You're off to the races! 🐎 If you've gotten this far and are still stuck at any point or have feedback for us to that can help us to improve the user or developer experience, please reach out to us on [Discord](https://discord.gg/yVEcEzmrgm).
+
+---
+
+## Plug Signer Server
+
+The Plug Signer Server is used to interact with the IC in mobile scenario. It is a simple server which use ephemeral keys to sign and execute
+transaction in name of the user. For that purpose, Plug Mobile delegate the identity of the user to the key which the server will use.
+It is especcialy designed for batcTransaction method of Plug Wallet.
+
+### Signer server seqeunce
+
+1. Plug Mobile receive a batchTransaction request from the DAPP through WalletConnect.
+2. Plug Mobile ask autorization to the user and if the user acept send the batchTransaction data to the Plug Signer Server.
+3. Plug Signer Server save the batchTransaction data, generate a ephemeral key and return the public key from it to the user with a batchTransaction Id.
+4. Plug Mobile delegate the user identity to this ephemeral key and send the delegation.
+5. Dapp send the query/update/readState request to the Plug Signer Server using the batchTransaction Id.
+6. Plug Signer Server verify the request data received from the DAPP using the data received from Plug Mobile in the 2 step.
+7. If the data received is verified, Plug Signer Server sign the transaction and send it.
+8. Plug Signer Server return the result of the transaction to the DAPP.
+
+![](imgs/signer-server.png)
